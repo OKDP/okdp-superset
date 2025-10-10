@@ -1,5 +1,5 @@
 #
-# Copyright 2024 tosit.io
+# Copyright 2024 okdp.io
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,6 +29,11 @@ on:
         required: false
         type: string
         default: 'Dockerfile'
+      image:
+        description: Image name
+        required: false
+        type: string
+        default: 'superset'
       registry:
         description: Github released tag name
         required: false
@@ -49,7 +54,6 @@ jobs:
   latest-image-tag:
     runs-on: "ubuntu-latest"
     outputs:
-      image: ${{ steps.latest-image-tag.outputs.image }}
       latest_tag: ${{ steps.latest-image-tag.outputs.latest_tag }}
       latest_git_tag: ${{ steps.latest-image-tag.outputs.latest_git_tag }}
     steps:
@@ -62,7 +66,7 @@ jobs:
 
   docker-image-publish:
     needs: [latest-image-tag]
-    name: "Docker publish (${{ needs.latest-image-tag.outputs.image }}:${{ needs.latest-image-tag.outputs.latest_tag }})"
+    name: "Docker publish (${{ inputs.image }}:${{ needs.latest-image-tag.outputs.latest_tag }})"
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout release tag ${{ needs.latest-image-tag.outputs.latest_git_tag }} ⚡️
@@ -99,10 +103,10 @@ jobs:
            IMAGE_TAG=$(echo "${{ needs.latest-image-tag.outputs.latest_tag }}" | awk -F- '{ print $1 }')
            if [ "$IMAGE_TAG" != "${{ needs.latest-image-tag.outputs.latest_tag }}" ]
            then
-             IMAGE_TAGS="${{ steps.registry.outputs.registry_repo }}/${{ needs.latest-image-tag.outputs.image }}:${IMAGE_TAG}${{ inputs.add-tag-suffix }},"
+             IMAGE_TAGS="${{ steps.registry.outputs.registry_repo }}/${{ inputs.image }}:${IMAGE_TAG}${{ inputs.add-tag-suffix }},"
            fi
 
-           IMAGE_TAGS+="${{ steps.registry.outputs.registry_repo }}/${{ needs.latest-image-tag.outputs.image }}:${{ needs.latest-image-tag.outputs.latest_tag }}"
+           IMAGE_TAGS+="${{ steps.registry.outputs.registry_repo }}/${{ inputs.image }}:${{ needs.latest-image-tag.outputs.latest_tag }}${{ inputs.add-tag-suffix }}"
            
            echo "tags=${IMAGE_TAGS}" >> $GITHUB_OUTPUT
            echo "Set image tags to: $IMAGE_TAGS"
@@ -116,9 +120,9 @@ jobs:
           push: true
           tags: ${{ steps.image-tags.outputs.tags }}
           labels: |
-            org.opencontainers.image.title="${{ needs.latest-image-tag.outputs.image }}"
+            org.opencontainers.image.title="${{ inputs.image }}"
             org.opencontainers.image.version="${{ needs.latest-image-tag.outputs.latest_tag }}"
-            org.opencontainers.image.description="${{ needs.latest-image-tag.outputs.image }} image"
+            org.opencontainers.image.description="${{ inputs.image }} image"
             org.opencontainers.image.source="https://github.com/${{ github.repository }}"
             org.opencontainers.image.licenses="Apache-2.0"
 

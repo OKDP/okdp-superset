@@ -1,5 +1,5 @@
 #
-# Copyright 2024 tosit.io
+# Copyright 2024 okdp.io
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -44,6 +44,15 @@ permissions:
 jobs:
 
   rebuild-docker-image:
-    uses: .github/workflows/docker-publish-template.yml@v1
+    name: build-${{ matrix.image }}
+    strategy:
+      fail-fast: false
+      matrix:
+        image: ['superset', 'dockerize', 'websocket']
+    uses: ./.github/workflows/docker-publish-template.yml
+    with:
+      context: .
+      dockerfile: docker/Dockerfile-${{ matrix.image }}
+      add-tag-suffix: ${{ matrix.image != 'superset' && format('-{0}', matrix.image) || '' }}
     secrets: inherit
 

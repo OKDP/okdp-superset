@@ -1,5 +1,5 @@
 #
-# Copyright 2024 tosit.io
+# Copyright 2025 okdp.io
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,15 +17,12 @@
 name: release-please
 
 on:
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
+  workflow_call:
 
 permissions:
   contents: write
   pull-requests: write
+  issues: write
 
 defaults:
   run:
@@ -33,6 +30,41 @@ defaults:
 
 jobs:
   release-please:
-    uses: okdp/gh-workflows/.github/workflows/helm-docker-release-please.yml@v1
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release-please.outputs.release_created }}
+      tag_name: ${{ steps.release-please.outputs.tag_name }}
+      version: ${{ steps.release-please.outputs.version }}
+    # Skip the release process in the fork
+    # The pull request should come from the same repo (github_token from the fork does not have write permissions)
+    if: github.repository_owner == 'OKDP' && github.event.pull_request.merged == true && github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release-please
+
+  docker-publish:
+    name: publish-${{ matrix.image }}
+    needs: [release-please]
+    if: github.repository_owner == 'OKDP' && needs.release-please.outputs.release_created == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        image: [ 'superset', 'dockerize', 'websocket' ]
+    uses: ./.github/workflows/docker-publish-template.yml
+    with:
+      context: .
+      dockerfile: docker/Dockerfile-${{ matrix.image }}
+      add-tag-suffix: ${{ matrix.image != 'superset' && format('-{0}', matrix.image) || '' }}
     secrets: inherit
-                
+
+  helm-chart-publish:
+    needs: [release-please]
+    if: github.repository_owner == 'OKDP' && needs.release-please.outputs.release_created == 'true'
+    uses: okdp/gh-workflows/.github/workflows/helm-publish-template.yml@v1
+    with:
+      path: helm/
+      chart_name: superset
+      version: ${{ needs.release-please.outputs.version }}
+      git_tag_name: ${{ needs.release-please.outputs.tag_name }}
+    secrets: inherit
+
