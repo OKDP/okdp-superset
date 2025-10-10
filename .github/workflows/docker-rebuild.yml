@@ -44,6 +44,6 @@ permissions:
 jobs:
 
   rebuild-docker-image:
-    uses: okdp/gh-workflows/.github/workflows/docker-publish-template.yml@v1
+    uses: .github/workflows/docker-publish-template.yml@v1
     secrets: inherit
 

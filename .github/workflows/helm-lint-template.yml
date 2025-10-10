@@ -1,0 +1,158 @@
+#
+# Copyright 2025 okdp.io
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+name: ci 
+
+on:
+  workflow_call:
+    inputs:
+      image:
+        description: Image name
+        required: false
+        type: string
+        default: 'superset'
+      skip_chart_test:
+        description: Wether to deploy and test the chart
+        required: false
+        type: boolean
+        default: false
+      ci_registry:
+        description: "The registry used to push ci images"
+        required: false
+        type: string
+        default: "ghcr.io"
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+
+  helm-lint:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Checkout Repo ⚡️
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup helm
+        uses: azure/setup-helm@v4.2.0
+        with:
+          version: v3.15.1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Set up chart-testing
+        uses: helm/chart-testing-action@v2.6.1
+  
+      - name: Run chart-testing (list-changed) ✅
+        id: list-changed
+        run: |
+            changed=$(ct list-changed --config .ct.yml)
+            if [[ -n "$changed" ]]; then
+              echo "list_changed=$(echo ${changed} | tr -d \')" >> "$GITHUB_OUTPUT"
+              echo "changed=true" >> "$GITHUB_OUTPUT"
+            fi
+  
+      - name: Run chart-testing (lint) ✅
+        if: steps.list-changed.outputs.changed == 'true'
+        run: ct lint --config .ct.yml --check-version-increment=false --print-config
+  
+#      - name: Free up disk space 🧹
+#        if: steps.list-changed.outputs.changed == 'true' && inputs.skip_chart_test != 'true'
+#        uses: okdp/gh-workflows/.github/actions/free-disk-space@v1
+#
+      - name: Get Git Branch Name Action
+        if: steps.list-changed.outputs.changed == 'true' && inputs.skip_chart_test != 'true'
+        id: get-branch
+        uses: okdp/gh-workflows/.github/actions/git-branch@v1
+        with:
+          event_name: ${{ github.event_name }}
+          ref: ${{ github.ref }}
+          head_ref: ${{ github.head_ref }}
+
+      - name: Set up kind cluster ✅
+        if: steps.list-changed.outputs.changed == 'true' && inputs.skip_chart_test != 'true'
+        uses: okdp/gh-workflows/.github/actions/setup-kind@v1
+
+      - name: Set CI Repo and image tag
+        if: steps.list-changed.outputs.changed == 'true' && inputs.skip_chart_test != 'true'
+        run: |
+          echo "CI_TAG=${{ steps.get-branch.outputs.branch }}" >> $GITHUB_ENV
+          echo "REGISTRY_REPO=${{ vars.CI_REGISTRY || inputs.ci_registry }}/${GITHUB_REPOSITORY_OWNER@L}" >> $GITHUB_ENV
+
+      - name: Create CI registry secret 🔐
+        if: steps.list-changed.outputs.changed == 'true' && inputs.skip_chart_test != 'true'
+        run: |
+          kubectl create secret docker-registry ci-registry-secret \
+            --docker-server=${{ inputs.ci_registry }} \
+            --docker-username="${{ github.actor }}" \
+            --docker-password="${{ secrets.GITHUB_TOKEN }}" \
+            --docker-email="${{ github.actor }}@users.noreply.github.com" \
+            -n default
+
+      - name: Patch default service account with imagePullSecret 🧩
+        if: steps.list-changed.outputs.changed == 'true' && inputs.skip_chart_test != 'true'
+        run: |
+          echo "🔧 Patching the default ServiceAccount in namespace 'default'..."
+          kubectl patch sa default \
+            -p '{"imagePullSecrets": [{"name": "ci-registry-secret"}]}' \
+            --namespace default
+          echo "✅ Default ServiceAccount patched successfully."
+
+      - name: Run chart-testing (install) ✅
+        if: steps.list-changed.outputs.changed == 'true' && inputs.skip_chart_test != 'true'
+        run: |
+          kubectl get events -A -w &
+          (while true; do
+          echo "**************************************** Pods status ****************************************"
+          kubectl get po -A
+          sleep 15
+          done) &
+          ct install --config .ct.yml --namespace default \
+             --helm-extra-set-args "--set=superset.image.repository=$REGISTRY_REPO/${{ inputs.image }} \
+                  --set=superset.image.tag=${CI_TAG} \
+                  --set=superset.initImage.repository=$REGISTRY_REPO/${{ inputs.image }} \
+                  --set=superset.initImage.tag=${CI_TAG}-dockerize \
+                  --set=superset.supersetWebsockets.repository=$REGISTRY_REPO/${{ inputs.image }} \
+                  --set=superset.supersetWebsockets.image.tag=${CI_TAG}-websocket" \
+             --print-config
+
+      - name: Install helm-docs
+        uses: okdp/gh-workflows/.github/actions/helm-docs@v1
+
+      - name: Generate helm docs
+        run: |
+          echo "Generate docs from charts"
+          helm-docs -c .
+
+      - name: Commit helm docs changes
+        # Github token from forked repo does not have permission to push to target repo
+        # Skip the step for PRs from forked repos
+        if: |
+            ${{ ((github.event_name == 'push') || (github.event_name == 'pull_request'
+                  && github.event.pull_request.head.repo.full_name == github.repository)) }}
+        uses: EndBug/add-and-commit@v9
+        with:
+          pull: "--rebase --autostash"
+          add: "**/README.md"
+          message: '[helm-docs] Update readme'
+          author_name: github-actions[bot]
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+

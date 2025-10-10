@@ -1,0 +1,13 @@
+ARG SUPERSET_VERSION=4.0.2
+
+FROM apache/superset:${SUPERSET_VERSION}-dockerize
+
+USER root
+
+# Apply security updates
+RUN set -eux; \
+    apk update; \
+    apk upgrade --no-cache --available; \
+    rm -rf /var/cache/apk/*
+
+USER 10001

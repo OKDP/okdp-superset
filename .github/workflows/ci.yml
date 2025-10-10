@@ -1,5 +1,5 @@
 #
-# Copyright 2024 tosit.io
+# Copyright 2024 okdp.io
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -52,6 +52,7 @@ on:
   workflow_dispatch:
   
 permissions:
+  packages: write
   contents: write
 
 # https://docs.github.com/en/actions/using-jobs/using-concurrency
@@ -65,10 +66,20 @@ defaults:
     shell: bash
 
 jobs:
+  superset-docker:
+    name: build-${{ matrix.image }}
+    strategy:
+      fail-fast: false
+      matrix:
+        image: ['superset', 'dockerize', 'websocket']
+    uses: ./.github/workflows/docker-build-test-push-template.yml
+    with:
+      context: .
+      dockerfile: docker/Dockerfile-${{ matrix.image }}
+      add-tag-suffix: ${{ matrix.image != 'superset' && format('-{0}', matrix.image) || '' }}
 
-  ci:
-    name: ci
-    uses: okdp/gh-workflows/.github/workflows/helm-lint-template.yml@v1
-
-
+  helm-lint:
+    name: helm-lint
+    uses: ./.github/workflows/helm-lint-template.yml
+    needs: [superset-docker]
 

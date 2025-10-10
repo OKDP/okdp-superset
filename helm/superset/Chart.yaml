@@ -20,4 +20,4 @@ name: superset
 sources:
   - https://github.com/apache/superset
   - https://github.com/okdp/charts/tree/main/charts/superset
-version: 0.12.10-1.0.0
+version: 0.12.10-1.0.1

@@ -5,9 +5,11 @@ COPY docker/requirements.txt .
 
 USER root
 
-RUN set -ex; \
+RUN set -eux; \
     apt-get update; \
-    pip install -r requirements.txt; \
+    apt-get -y upgrade; \
+    apt-get -y autoremove; \
+    pip install --no-cache-dir -r requirements.txt; \
     rm -rf /var/lib/apt/lists/* requirements.txt
 
 USER superset

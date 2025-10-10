@@ -419,14 +419,14 @@ superset:
   extraConfigMountPath: "/app/configs"
 
   image:
-    repository: apachesuperset.docker.scarf.sh/apache/superset
+    repository: quay.io/okdp/okdp-superset
     tag: ~
     pullPolicy: IfNotPresent
 
   imagePullSecrets: []
 
   initImage:
-    repository: apache/superset
+    repository: quay.io/okdp/okdp-superset
     tag: dockerize
     pullPolicy: IfNotPresent
 
@@ -862,7 +862,7 @@ superset:
       pathType: Prefix
     image:
       # -- There is no official image (yet), this one is community-supported
-      repository: oneacrefund/superset-websocket
+      repository: quay.io/okdp/okdp-superset
       tag: latest
       pullPolicy: IfNotPresent
     # -- The config.json to pass to the server, see https://github.com/apache/superset/tree/master/superset-websocket
@@ -1053,7 +1053,7 @@ superset:
       database: superset
 
     image:
-      tag: "14.6.0-debian-11-r13"
+      tag: latest
 
     ## PostgreSQL Primary parameters
     primary:
@@ -1081,6 +1081,10 @@ superset:
   # More documentation can be found here: https://artifacthub.io/packages/helm/bitnami/redis
   # @default -- see `values.yaml`
   redis:
+    image:
+      registry: docker.io
+      repository: bitnami/redis
+      tag: latest
     ##
     ## Use the redis chart dependency.
     ##
