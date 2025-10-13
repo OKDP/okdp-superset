@@ -1,6 +1,6 @@
 {
   "name": "superset",
-  "version": "4.0.2-1.0.0",
+  "version": "4.0.2-1.0.1",
   "description": "Superset docker image",
   "repository": {
     "type": "git",
