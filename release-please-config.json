@@ -14,7 +14,14 @@
       "bump-patch-for-minor-pre-major": false,
       "draft": false,
       "prerelease": false,
-      "include-component-in-tag": true
+      "include-component-in-tag": true,
+      "extra-files": [
+        {
+          "type": "yaml",
+          "path": "helm/superset/values.yaml",
+          "jsonpath": "$.image.tag"
+        }
+      ]
     },
     "docker": {
       "component": "okdp-superset",
