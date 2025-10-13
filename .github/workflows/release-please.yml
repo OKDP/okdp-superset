@@ -17,16 +17,22 @@
 name: release-please
 
 on:
-  workflow_call:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
 
 permissions:
   contents: write
   pull-requests: write
   issues: write
 
-defaults:
-  run:
-    shell: bash
+# https://docs.github.com/en/actions/using-jobs/using-concurrency
+concurrency:
+  # Only cancel in-progress jobs or runs for the current workflow - matches against branch & tags
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   release-please:
