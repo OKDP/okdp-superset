@@ -31,3 +31,6 @@ bin/
 ### Others
 /docker/package-lock.json
 .tmp/
+*.tgz
+**/Chart.lock
+!helm/*/charts/*
