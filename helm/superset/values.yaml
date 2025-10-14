@@ -419,15 +419,15 @@ superset:
   extraConfigMountPath: "/app/configs"
 
   image:
-    repository: quay.io/okdp/okdp-superset
-    tag: ~
+    repository: quay.io/okdp/superset
+    tag: 4.0.2
     pullPolicy: IfNotPresent
 
   imagePullSecrets: []
 
   initImage:
-    repository: quay.io/okdp/okdp-superset
-    tag: dockerize
+    repository: quay.io/okdp/superset
+    tag: 4.0.2-dockerize
     pullPolicy: IfNotPresent
 
   service:
@@ -862,8 +862,8 @@ superset:
       pathType: Prefix
     image:
       # -- There is no official image (yet), this one is community-supported
-      repository: quay.io/okdp/okdp-superset
-      tag: latest
+      repository: quay.io/okdp/superset
+      tag: 4.0.2-websocket
       pullPolicy: IfNotPresent
     # -- The config.json to pass to the server, see https://github.com/apache/superset/tree/master/superset-websocket
     # Note that the configuration can also read from environment variables (which will have priority), see https://github.com/apache/superset/blob/master/superset-websocket/src/config.ts for a list of supported variables

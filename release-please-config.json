@@ -4,7 +4,7 @@
   "packages": {
     "helm/superset": {
       "component": "helm-okdp-superset",
-      "initial-version": "0.12.10-1.0.0",
+      "initial-version": "0.12.10-1.0",
       "extra-label": "helm",
       "tag-separator": "/",
       "changelog-path": "CHANGELOG.md",
@@ -25,7 +25,7 @@
     },
     "docker": {
       "component": "okdp-superset",
-      "initial-version": "4.0.2-1.0.0",
+      "initial-version": "4.0.2-1.0",
       "extra-label": "docker",
       "changelog-path": "CHANGELOG.md",
       "release-type": "node",
