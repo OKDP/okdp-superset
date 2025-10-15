@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.15.0-1.0](https://github.com/OKDP/okdp-superset/compare/v5.0.0-1.0...v0.15.0-1.0) (2025-10-15)
+
+
+### chore
+
+* release 0.15.0-1.0 ([e6274ea](https://github.com/OKDP/okdp-superset/commit/e6274ea3003827df420079e50ae030acd1e71767))
+
 ## [5.0.0-1.0](https://github.com/OKDP/okdp-superset/compare/v4.0.2-1.0...v5.0.0-1.0) (2025-10-15)
 
 
