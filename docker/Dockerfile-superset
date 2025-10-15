@@ -1,7 +1,7 @@
-ARG SUPERSET_VERSION=4.0.2
+ARG SUPERSET_VERSION=5.0.0
 
 FROM apache/superset:${SUPERSET_VERSION}
-COPY docker/requirements.txt .
+COPY docker/requirements.txt /tmp/requirements.txt
 
 USER root
 
@@ -9,8 +9,9 @@ RUN set -eux; \
     apt-get update; \
     apt-get -y upgrade; \
     apt-get -y autoremove; \
-    pip install --no-cache-dir -r requirements.txt; \
-    rm -rf /var/lib/apt/lists/* requirements.txt
+    apt-get clean; \
+    /app/docker/pip-install.sh  -r /tmp/requirements.txt; \
+    rm -f /tmp/requirements.txt; \
+    rm -rf /var/lib/apt/lists/*
 
 USER superset
-

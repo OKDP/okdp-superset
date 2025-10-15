@@ -1,2 +1,4 @@
 Authlib
 sqlalchemy-trino
+# database drivers
+psycopg2-binary
