@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.15.0-1.1](https://github.com/OKDP/okdp-superset/compare/helm-okdp-superset/v0.15.0-1.0...helm-okdp-superset/v0.15.0-1.1) (2025-11-24)
+
+
+### chore
+
+* release 0.15.0-1.1 ([58f636f](https://github.com/OKDP/okdp-superset/commit/58f636fb1278a118217c6d6701640bf68bc09aa5))
+
+
+### Bug Fixes
+
+* fix supoort for external secrets (optional) ([bb04ce7](https://github.com/OKDP/okdp-superset/commit/bb04ce7a70d7a2dfdb5aaca9e769a0051a6a729d))
+* remove Authlib and sqlalchemy-trino from Helm values (already bundled in the image) ([a96d99e](https://github.com/OKDP/okdp-superset/commit/a96d99ef8d9a7ef85fe1ce81e5684ae222c3911d))
+
 ## [0.15.0-1.0](https://github.com/OKDP/okdp-superset/compare/helm-okdp-superset/v0.12.10-1.0...helm-okdp-superset/v0.15.0-1.0) (2025-10-15)
 
 
