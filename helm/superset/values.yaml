@@ -189,7 +189,6 @@ superset:
   # @default -- see `values.yaml`
   bootstrapScript: |
     #!/bin/bash
-    pip install Authlib sqlalchemy-trino
     if [ ! -f ~/bootstrap ]; then echo "Running Superset with uid {{ .Values.runAsUser }}" > ~/bootstrap; fi
 
   # -- The name of the secret which we will use to generate a superset_config.py file
@@ -408,7 +407,7 @@ superset:
     # @default -- see `values.yaml`
     load_examples: |
       import os
-      sqlalchemy_examples_uri = os.getenv('SQLALCHEMY_EXAMPLES_URI')
+      sqlalchemy_examples_uri = os.path.expandvars(os.getenv('SQLALCHEMY_EXAMPLES_URI', ''))
       if sqlalchemy_examples_uri:
         SQLALCHEMY_EXAMPLES_URI = sqlalchemy_examples_uri
 
