@@ -94,7 +94,7 @@ $ helm upgrade --cleanup-on-fail --install my-release oci://quay.io/okdp/charts/
 	</thead>
 	<tbody>
 		<tr>
-			<td id="okdp--oauth--auth_registration"><a href="./values.yaml#L131">okdp.oauth.auth_registration</a></td>
+			<td id="okdp--oauth--auth_registration"><a href="./values.yaml#L130">okdp.oauth.auth_registration</a></td>
 			<td>
 python
 </td>
@@ -121,7 +121,7 @@ See also <a href='https://superset.apache.org/docs/configuration/configuring-sup
 </td>
 		</tr>
 		<tr>
-			<td id="okdp--oauth--base_url"><a href="./values.yaml#L94">okdp.oauth.base_url</a></td>
+			<td id="okdp--oauth--base_url"><a href="./values.yaml#L93">okdp.oauth.base_url</a></td>
 			<td>
 string
 </td>
@@ -133,7 +133,7 @@ string
 			<td>Specify the OIDC provider base URL `without` the trailing discovery configuration `/.well-known/openid-configuration`</td>
 		</tr>
 		<tr>
-			<td id="okdp--oauth--client_id"><a href="./values.yaml#L97">okdp.oauth.client_id</a></td>
+			<td id="okdp--oauth--client_id"><a href="./values.yaml#L96">okdp.oauth.client_id</a></td>
 			<td>
 string
 </td>
@@ -145,7 +145,7 @@ string
 			<td>Specify your OIDC client Id</td>
 		</tr>
 		<tr>
-			<td id="okdp--oauth--client_secret"><a href="./values.yaml#L101">okdp.oauth.client_secret</a></td>
+			<td id="okdp--oauth--client_secret"><a href="./values.yaml#L100">okdp.oauth.client_secret</a></td>
 			<td>
 string
 </td>
@@ -157,7 +157,7 @@ string
 			<td>Specify your OIDC client secret For public clients, the 'client_secret' is not required</td>
 		</tr>
 		<tr>
-			<td id="okdp--oauth--enabled"><a href="./values.yaml#L88">okdp.oauth.enabled</a></td>
+			<td id="okdp--oauth--enabled"><a href="./values.yaml#L87">okdp.oauth.enabled</a></td>
 			<td>
 bool
 </td>
@@ -169,7 +169,7 @@ false
 			<td>Enable Oauth2 authentication</td>
 		</tr>
 		<tr>
-			<td id="okdp--oauth--oauth2_superset_roles_mapping"><a href="./values.yaml#L158">okdp.oauth.oauth2_superset_roles_mapping</a></td>
+			<td id="okdp--oauth--oauth2_superset_roles_mapping"><a href="./values.yaml#L157">okdp.oauth.oauth2_superset_roles_mapping</a></td>
 			<td>
 python
 </td>
@@ -202,7 +202,7 @@ See also <a href='https://superset.apache.org/docs/configuration/configuring-sup
 and <a href="https://superset.apache.org/docs/security/#provided-roles">Superset provided roles</a></td>
 		</tr>
 		<tr>
-			<td id="okdp--oauth--provider"><a href="./values.yaml#L91">okdp.oauth.provider</a></td>
+			<td id="okdp--oauth--provider"><a href="./values.yaml#L90">okdp.oauth.provider</a></td>
 			<td>
 string
 </td>
@@ -214,7 +214,7 @@ string
 			<td>Specify the OIDC provider. One of `` `dex` or `keycloak`</td>
 		</tr>
 		<tr>
-			<td id="okdp--oauth--scope"><a href="./values.yaml#L105">okdp.oauth.scope</a></td>
+			<td id="okdp--oauth--scope"><a href="./values.yaml#L104">okdp.oauth.scope</a></td>
 			<td>
 string
 </td>
@@ -226,7 +226,7 @@ string
 			<td>Specify the scopes as space separated values Example: "openid profile email roles"</td>
 		</tr>
 		<tr>
-			<td id="okdp--oauth--ssl_certificate_verify"><a href="./values.yaml#L111">okdp.oauth.ssl_certificate_verify</a></td>
+			<td id="okdp--oauth--ssl_certificate_verify"><a href="./values.yaml#L110">okdp.oauth.ssl_certificate_verify</a></td>
 			<td>
 bool
 </td>
@@ -238,7 +238,7 @@ false
 			<td>Enable or disable SSL certificate verification</td>
 		</tr>
 		<tr>
-			<td id="okdp--oauth--use_pkce"><a href="./values.yaml#L108">okdp.oauth.use_pkce</a></td>
+			<td id="okdp--oauth--use_pkce"><a href="./values.yaml#L107">okdp.oauth.use_pkce</a></td>
 			<td>
 bool
 </td>
@@ -250,17 +250,17 @@ false
 			<td>Enable or disable PKCE usage</td>
 		</tr>
 		<tr>
-			<td id="okdp--superset--extra_config"><a href="./values.yaml#L44">okdp.superset.extra_config</a></td>
+			<td id="okdp--superset--extra_config"><a href="./values.yaml#L43">okdp.superset.extra_config</a></td>
 			<td>
 python
 </td>
 			<td><div style="max-width: 300px;">
-          <a href="./values.yaml#L44">see default</a>
+          <a href="./values.yaml#L43">see default</a>
         </div></td>
 			<td>Define superset extra configuration as python code</td>
 		</tr>
 		<tr>
-			<td id="okdp--superset--feature_flags"><a href="./values.yaml#L71">okdp.superset.feature_flags</a></td>
+			<td id="okdp--superset--feature_flags"><a href="./values.yaml#L70">okdp.superset.feature_flags</a></td>
 			<td>
 python
 </td>
@@ -289,7 +289,7 @@ FEATURE_FLAGS = {
 </td>
 		</tr>
 		<tr>
-			<td id="okdp--superset--load_examples--enabled"><a href="./values.yaml#L77">okdp.superset.load_examples.enabled</a></td>
+			<td id="okdp--superset--load_examples--enabled"><a href="./values.yaml#L76">okdp.superset.load_examples.enabled</a></td>
 			<td>
 bool
 </td>
@@ -301,17 +301,17 @@ false
 			<td>Load examples at chart deployment time</td>
 		</tr>
 		<tr>
-			<td id="okdp--superset--load_examples--jdbc_uri"><a href="./values.yaml#L81">okdp.superset.load_examples.jdbc_uri</a></td>
+			<td id="okdp--superset--load_examples--jdbc_uri"><a href="./values.yaml#L80">okdp.superset.load_examples.jdbc_uri</a></td>
 			<td>
 string
 </td>
 			<td><div style="max-width: 300px;">
-          <a href="./values.yaml#L81">see default</a>
+          <a href="./values.yaml#L80">see default</a>
         </div></td>
 			<td>Specify the database URL where the examples will be loaded</td>
 		</tr>
 		<tr>
-			<td id="okdp--superset--superset_secret_key"><a href="./values.yaml#L39">okdp.superset.superset_secret_key</a></td>
+			<td id="okdp--superset--superset_secret_key"><a href="./values.yaml#L38">okdp.superset.superset_secret_key</a></td>
 			<td>
 string
 </td>
@@ -330,7 +330,7 @@ openssl rand -base64 42
 See also <a href='https://superset.apache.org/docs/configuration/configuring-superset/#superset_configpy'>Superset configuration.</a></td>
 		</tr>
 		<tr>
-			<td id="superset--affinity"><a href="./values.yaml#L1157">superset.affinity</a></td>
+			<td id="superset--affinity"><a href="./values.yaml#L1156">superset.affinity</a></td>
 			<td>
 object
 </td>
@@ -342,17 +342,17 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--bootstrapScript"><a href="./values.yaml#L190">superset.bootstrapScript</a></td>
+			<td id="superset--bootstrapScript"><a href="./values.yaml#L189">superset.bootstrapScript</a></td>
 			<td>
 string
 </td>
 			<td><div style="max-width: 300px;">
-          <a href="./values.yaml#L190">see default</a>
+          <a href="./values.yaml#L189">see default</a>
         </div></td>
 			<td>Install additional packages and do any other bootstrap configuration in this script For production clusters it's recommended to build own image with this step done in CI</td>
 		</tr>
 		<tr>
-			<td id="superset--configFromSecret"><a href="./values.yaml#L196">superset.configFromSecret</a></td>
+			<td id="superset--configFromSecret"><a href="./values.yaml#L195">superset.configFromSecret</a></td>
 			<td>
 string
 </td>
@@ -364,7 +364,7 @@ string
 			<td>The name of the secret which we will use to generate a superset_config.py file Note: this secret must have the key superset_config.py in it and can include other files as well</td>
 		</tr>
 		<tr>
-			<td id="superset--configMountPath"><a href="./values.yaml#L420">superset.configMountPath</a></td>
+			<td id="superset--configMountPath"><a href="./values.yaml#L419">superset.configMountPath</a></td>
 			<td>
 string
 </td>
@@ -376,57 +376,57 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--configOverrides"><a href="./values.yaml#L280">superset.configOverrides</a></td>
+			<td id="superset--configOverrides"><a href="./values.yaml#L279">superset.configOverrides</a></td>
 			<td>
 object
 </td>
 			<td><div style="max-width: 300px;">
-          <a href="./values.yaml#L280">see default</a>
+          <a href="./values.yaml#L279">see default</a>
         </div></td>
 			<td>A dictionary of overrides to append at the end of superset_config.py - the name does not matter WARNING: the order is not guaranteed Files can be passed as helm --set-file configOverrides.my-override=my-file.py</td>
 		</tr>
 		<tr>
-			<td id="superset--configOverrides--custom_sso_security_manager"><a href="./values.yaml#L360">superset.configOverrides.custom_sso_security_manager</a></td>
+			<td id="superset--configOverrides--custom_sso_security_manager"><a href="./values.yaml#L359">superset.configOverrides.custom_sso_security_manager</a></td>
 			<td>
 python
 </td>
 			<td><div style="max-width: 300px;">
-          <a href="./values.yaml#L360">see default</a>
+          <a href="./values.yaml#L359">see default</a>
         </div></td>
 			<td>Add custom security manager implementation for keycloak and DEX IDPs See also <a href="https://superset.apache.org/docs/configuration/configuring-superset/#custom-oauth2-configuration">Custom OAuth2 Configuration</a></td>
 		</tr>
 		<tr>
-			<td id="superset--configOverrides--load_examples"><a href="./values.yaml#L408">superset.configOverrides.load_examples</a></td>
+			<td id="superset--configOverrides--load_examples"><a href="./values.yaml#L407">superset.configOverrides.load_examples</a></td>
 			<td>
 python
 </td>
 			<td><div style="max-width: 300px;">
-          <a href="./values.yaml#L408">see default</a>
+          <a href="./values.yaml#L407">see default</a>
         </div></td>
 			<td>Load examples at startup time implementation</td>
 		</tr>
 		<tr>
-			<td id="superset--configOverrides--oauth_enabled"><a href="./values.yaml#L308">superset.configOverrides.oauth_enabled</a></td>
+			<td id="superset--configOverrides--oauth_enabled"><a href="./values.yaml#L307">superset.configOverrides.oauth_enabled</a></td>
 			<td>
 python
 </td>
 			<td><div style="max-width: 300px;">
-          <a href="./values.yaml#L308">see default</a>
+          <a href="./values.yaml#L307">see default</a>
         </div></td>
 			<td>Add support providers implementation for keycloak and DEX IDPs See also <a href="https://superset.apache.org/docs/configuration/configuring-superset/#custom-oauth2-configuration">Custom OAuth2 Configuration</a></td>
 		</tr>
 		<tr>
-			<td id="superset--configOverrides--session_config"><a href="./values.yaml#L289">superset.configOverrides.session_config</a></td>
+			<td id="superset--configOverrides--session_config"><a href="./values.yaml#L288">superset.configOverrides.session_config</a></td>
 			<td>
 python
 </td>
 			<td><div style="max-width: 300px;">
-          <a href="./values.yaml#L289">see default</a>
+          <a href="./values.yaml#L288">see default</a>
         </div></td>
 			<td>Setup session cookie expiration time See also <a href="https://superset.apache.org/docs/configuration/configuring-superset/#flask-app-configuration-hook">Flask app Configuration Hook</a></td>
 		</tr>
 		<tr>
-			<td id="superset--configOverridesFiles"><a href="./values.yaml#L415">superset.configOverridesFiles</a></td>
+			<td id="superset--configOverridesFiles"><a href="./values.yaml#L414">superset.configOverridesFiles</a></td>
 			<td>
 object
 </td>
@@ -438,7 +438,7 @@ object
 			<td>Same as above but the values are files</td>
 		</tr>
 		<tr>
-			<td id="superset--envFromSecret"><a href="./values.yaml#L200">superset.envFromSecret</a></td>
+			<td id="superset--envFromSecret"><a href="./values.yaml#L199">superset.envFromSecret</a></td>
 			<td>
 string
 </td>
@@ -450,7 +450,7 @@ string
 			<td>The name of the secret which we will use to populate env vars in deployed pods It stores superset credentials like SUPERSET_SECRET_KEY and sql jdbc uri to load examples, etc</td>
 		</tr>
 		<tr>
-			<td id="superset--envFromSecrets"><a href="./values.yaml#L202">superset.envFromSecrets</a></td>
+			<td id="superset--envFromSecrets"><a href="./values.yaml#L201">superset.envFromSecrets</a></td>
 			<td>
 tpl
 </td>
@@ -466,7 +466,7 @@ tpl
 			<td>List of OKDP external secrets</td>
 		</tr>
 		<tr>
-			<td id="superset--envFromSecrets[0]"><a href="./values.yaml#L204">superset.envFromSecrets[0]</a></td>
+			<td id="superset--envFromSecrets[0]"><a href="./values.yaml#L203">superset.envFromSecrets[0]</a></td>
 			<td>
 string
 </td>
@@ -478,7 +478,7 @@ string
 			<td>External OKDP secret which stores superset database credentials</td>
 		</tr>
 		<tr>
-			<td id="superset--envFromSecrets[1]"><a href="./values.yaml#L206">superset.envFromSecrets[1]</a></td>
+			<td id="superset--envFromSecrets[1]"><a href="./values.yaml#L205">superset.envFromSecrets[1]</a></td>
 			<td>
 string
 </td>
@@ -490,7 +490,7 @@ string
 			<td>External OKDP secret which stores Oauth credentials</td>
 		</tr>
 		<tr>
-			<td id="superset--envFromSecrets[2]"><a href="./values.yaml#L208">superset.envFromSecrets[2]</a></td>
+			<td id="superset--envFromSecrets[2]"><a href="./values.yaml#L207">superset.envFromSecrets[2]</a></td>
 			<td>
 string
 </td>
@@ -502,7 +502,7 @@ string
 			<td>External OKDP secret which stores Redis credentials</td>
 		</tr>
 		<tr>
-			<td id="superset--extraConfigMountPath"><a href="./values.yaml#L422">superset.extraConfigMountPath</a></td>
+			<td id="superset--extraConfigMountPath"><a href="./values.yaml#L421">superset.extraConfigMountPath</a></td>
 			<td>
 string
 </td>
@@ -514,7 +514,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--extraConfigs"><a href="./values.yaml#L241">superset.extraConfigs</a></td>
+			<td id="superset--extraConfigs"><a href="./values.yaml#L240">superset.extraConfigs</a></td>
 			<td>
 object
 </td>
@@ -526,7 +526,7 @@ object
 			<td>Extra files to be mounted as ConfigMap on the path specified in `extraConfigMountPath`</td>
 		</tr>
 		<tr>
-			<td id="superset--extraEnv"><a href="./values.yaml#L211">superset.extraEnv</a></td>
+			<td id="superset--extraEnv"><a href="./values.yaml#L210">superset.extraEnv</a></td>
 			<td>
 object
 </td>
@@ -538,7 +538,7 @@ object
 			<td>Extra environment variables that will be passed into pods</td>
 		</tr>
 		<tr>
-			<td id="superset--extraEnvRaw"><a href="./values.yaml#L235">superset.extraEnvRaw</a></td>
+			<td id="superset--extraEnvRaw"><a href="./values.yaml#L234">superset.extraEnvRaw</a></td>
 			<td>
 object
 </td>
@@ -550,7 +550,7 @@ object
 			<td>Extra environment variables in RAW format that will be passed into pods</td>
 		</tr>
 		<tr>
-			<td id="superset--extraLabels"><a href="./values.yaml#L168">superset.extraLabels</a></td>
+			<td id="superset--extraLabels"><a href="./values.yaml#L167">superset.extraLabels</a></td>
 			<td>
 object
 </td>
@@ -562,7 +562,7 @@ object
 			<td>Labels to be added to all resources</td>
 		</tr>
 		<tr>
-			<td id="superset--extraSecretEnv"><a href="./values.yaml#L238">superset.extraSecretEnv</a></td>
+			<td id="superset--extraSecretEnv"><a href="./values.yaml#L237">superset.extraSecretEnv</a></td>
 			<td>
 object
 </td>
@@ -574,7 +574,7 @@ object
 			<td>Extra environment variables to pass as secrets</td>
 		</tr>
 		<tr>
-			<td id="superset--extraSecrets"><a href="./values.yaml#L256">superset.extraSecrets</a></td>
+			<td id="superset--extraSecrets"><a href="./values.yaml#L255">superset.extraSecrets</a></td>
 			<td>
 object
 </td>
@@ -586,7 +586,7 @@ object
 			<td>Extra files to be mounted as Secrets on the path specified in `configMountPath`</td>
 		</tr>
 		<tr>
-			<td id="superset--extraVolumeMounts"><a href="./values.yaml#L268">superset.extraVolumeMounts</a></td>
+			<td id="superset--extraVolumeMounts"><a href="./values.yaml#L267">superset.extraVolumeMounts</a></td>
 			<td>
 list
 </td>
@@ -598,7 +598,7 @@ list
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--extraVolumes"><a href="./values.yaml#L258">superset.extraVolumes</a></td>
+			<td id="superset--extraVolumes"><a href="./values.yaml#L257">superset.extraVolumes</a></td>
 			<td>
 list
 </td>
@@ -610,7 +610,7 @@ list
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--fullnameOverride"><a href="./values.yaml#L165">superset.fullnameOverride</a></td>
+			<td id="superset--fullnameOverride"><a href="./values.yaml#L164">superset.fullnameOverride</a></td>
 			<td>
 string
 </td>
@@ -622,7 +622,7 @@ null
 			<td>Provide a name to override the full names of resources</td>
 		</tr>
 		<tr>
-			<td id="superset--hostAliases"><a href="./values.yaml#L484">superset.hostAliases</a></td>
+			<td id="superset--hostAliases"><a href="./values.yaml#L483">superset.hostAliases</a></td>
 			<td>
 list
 </td>
@@ -634,7 +634,7 @@ list
 			<td>Custom hostAliases for all superset pods # https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/</td>
 		</tr>
 		<tr>
-			<td id="superset--image--pullPolicy"><a href="./values.yaml#L427">superset.image.pullPolicy</a></td>
+			<td id="superset--image--pullPolicy"><a href="./values.yaml#L426">superset.image.pullPolicy</a></td>
 			<td>
 string
 </td>
@@ -646,7 +646,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--image--repository"><a href="./values.yaml#L425">superset.image.repository</a></td>
+			<td id="superset--image--repository"><a href="./values.yaml#L424">superset.image.repository</a></td>
 			<td>
 string
 </td>
@@ -658,7 +658,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--image--tag"><a href="./values.yaml#L426">superset.image.tag</a></td>
+			<td id="superset--image--tag"><a href="./values.yaml#L425">superset.image.tag</a></td>
 			<td>
 string
 </td>
@@ -670,7 +670,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--imagePullSecrets"><a href="./values.yaml#L429">superset.imagePullSecrets</a></td>
+			<td id="superset--imagePullSecrets"><a href="./values.yaml#L428">superset.imagePullSecrets</a></td>
 			<td>
 list
 </td>
@@ -682,7 +682,7 @@ list
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--ingress--annotations"><a href="./values.yaml#L450">superset.ingress.annotations</a></td>
+			<td id="superset--ingress--annotations"><a href="./values.yaml#L449">superset.ingress.annotations</a></td>
 			<td>
 object
 </td>
@@ -694,7 +694,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--ingress--enabled"><a href="./values.yaml#L448">superset.ingress.enabled</a></td>
+			<td id="superset--ingress--enabled"><a href="./values.yaml#L447">superset.ingress.enabled</a></td>
 			<td>
 bool
 </td>
@@ -706,7 +706,7 @@ false
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--ingress--extraHostsRaw"><a href="./values.yaml#L462">superset.ingress.extraHostsRaw</a></td>
+			<td id="superset--ingress--extraHostsRaw"><a href="./values.yaml#L461">superset.ingress.extraHostsRaw</a></td>
 			<td>
 list
 </td>
@@ -718,7 +718,7 @@ list
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--ingress--hosts[0]"><a href="./values.yaml#L460">superset.ingress.hosts[0]</a></td>
+			<td id="superset--ingress--hosts[0]"><a href="./values.yaml#L459">superset.ingress.hosts[0]</a></td>
 			<td>
 string
 </td>
@@ -730,7 +730,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--ingress--ingressClassName"><a href="./values.yaml#L449">superset.ingress.ingressClassName</a></td>
+			<td id="superset--ingress--ingressClassName"><a href="./values.yaml#L448">superset.ingress.ingressClassName</a></td>
 			<td>
 string
 </td>
@@ -742,7 +742,7 @@ null
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--ingress--path"><a href="./values.yaml#L457">superset.ingress.path</a></td>
+			<td id="superset--ingress--path"><a href="./values.yaml#L456">superset.ingress.path</a></td>
 			<td>
 string
 </td>
@@ -754,7 +754,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--ingress--pathType"><a href="./values.yaml#L458">superset.ingress.pathType</a></td>
+			<td id="superset--ingress--pathType"><a href="./values.yaml#L457">superset.ingress.pathType</a></td>
 			<td>
 string
 </td>
@@ -766,7 +766,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--ingress--tls"><a href="./values.yaml#L461">superset.ingress.tls</a></td>
+			<td id="superset--ingress--tls"><a href="./values.yaml#L460">superset.ingress.tls</a></td>
 			<td>
 list
 </td>
@@ -778,7 +778,7 @@ list
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--adminUser--email"><a href="./values.yaml#L985">superset.init.adminUser.email</a></td>
+			<td id="superset--init--adminUser--email"><a href="./values.yaml#L984">superset.init.adminUser.email</a></td>
 			<td>
 string
 </td>
@@ -790,7 +790,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--adminUser--firstname"><a href="./values.yaml#L983">superset.init.adminUser.firstname</a></td>
+			<td id="superset--init--adminUser--firstname"><a href="./values.yaml#L982">superset.init.adminUser.firstname</a></td>
 			<td>
 string
 </td>
@@ -802,7 +802,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--adminUser--lastname"><a href="./values.yaml#L984">superset.init.adminUser.lastname</a></td>
+			<td id="superset--init--adminUser--lastname"><a href="./values.yaml#L983">superset.init.adminUser.lastname</a></td>
 			<td>
 string
 </td>
@@ -814,7 +814,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--adminUser--password"><a href="./values.yaml#L986">superset.init.adminUser.password</a></td>
+			<td id="superset--init--adminUser--password"><a href="./values.yaml#L985">superset.init.adminUser.password</a></td>
 			<td>
 string
 </td>
@@ -826,7 +826,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--adminUser--username"><a href="./values.yaml#L982">superset.init.adminUser.username</a></td>
+			<td id="superset--init--adminUser--username"><a href="./values.yaml#L981">superset.init.adminUser.username</a></td>
 			<td>
 string
 </td>
@@ -838,7 +838,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--affinity"><a href="./values.yaml#L1047">superset.init.affinity</a></td>
+			<td id="superset--init--affinity"><a href="./values.yaml#L1046">superset.init.affinity</a></td>
 			<td>
 object
 </td>
@@ -850,7 +850,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--command"><a href="./values.yaml#L971">superset.init.command</a></td>
+			<td id="superset--init--command"><a href="./values.yaml#L970">superset.init.command</a></td>
 			<td>
 list
 </td>
@@ -862,7 +862,7 @@ a `superset_init.sh` command
 			<td>Command</td>
 		</tr>
 		<tr>
-			<td id="superset--init--containerSecurityContext"><a href="./values.yaml#L1043">superset.init.containerSecurityContext</a></td>
+			<td id="superset--init--containerSecurityContext"><a href="./values.yaml#L1042">superset.init.containerSecurityContext</a></td>
 			<td>
 object
 </td>
@@ -874,7 +874,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--createAdmin"><a href="./values.yaml#L980">superset.init.createAdmin</a></td>
+			<td id="superset--init--createAdmin"><a href="./values.yaml#L979">superset.init.createAdmin</a></td>
 			<td>
 bool
 </td>
@@ -886,7 +886,7 @@ true
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--enabled"><a href="./values.yaml#L975">superset.init.enabled</a></td>
+			<td id="superset--init--enabled"><a href="./values.yaml#L974">superset.init.enabled</a></td>
 			<td>
 bool
 </td>
@@ -898,7 +898,7 @@ true
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--extraContainers"><a href="./values.yaml#L1037">superset.init.extraContainers</a></td>
+			<td id="superset--init--extraContainers"><a href="./values.yaml#L1036">superset.init.extraContainers</a></td>
 			<td>
 list
 </td>
@@ -910,7 +910,7 @@ list
 			<td>Launch additional containers into init job pod</td>
 		</tr>
 		<tr>
-			<td id="superset--init--initContainers"><a href="./values.yaml#L989">superset.init.initContainers</a></td>
+			<td id="superset--init--initContainers"><a href="./values.yaml#L988">superset.init.initContainers</a></td>
 			<td>
 list
 </td>
@@ -922,7 +922,7 @@ a container waiting for postgres
 			<td>List of initContainers</td>
 		</tr>
 		<tr>
-			<td id="superset--init--initscript"><a href="./values.yaml#L1002">superset.init.initscript</a></td>
+			<td id="superset--init--initscript"><a href="./values.yaml#L1001">superset.init.initscript</a></td>
 			<td>
 string
 </td>
@@ -934,7 +934,7 @@ a script to create admin user and initialize roles
 			<td>A Superset init script</td>
 		</tr>
 		<tr>
-			<td id="superset--init--jobAnnotations--"helm--sh/hook""><a href="./values.yaml#L977">superset.init.jobAnnotations."helm.sh/hook"</a></td>
+			<td id="superset--init--jobAnnotations--"helm--sh/hook""><a href="./values.yaml#L976">superset.init.jobAnnotations."helm.sh/hook"</a></td>
 			<td>
 string
 </td>
@@ -946,7 +946,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--jobAnnotations--"helm--sh/hook-delete-policy""><a href="./values.yaml#L978">superset.init.jobAnnotations."helm.sh/hook-delete-policy"</a></td>
+			<td id="superset--init--jobAnnotations--"helm--sh/hook-delete-policy""><a href="./values.yaml#L977">superset.init.jobAnnotations."helm.sh/hook-delete-policy"</a></td>
 			<td>
 string
 </td>
@@ -958,7 +958,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--loadExamples"><a href="./values.yaml#L979">superset.init.loadExamples</a></td>
+			<td id="superset--init--loadExamples"><a href="./values.yaml#L978">superset.init.loadExamples</a></td>
 			<td>
 bool
 </td>
@@ -970,7 +970,7 @@ false
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--podAnnotations"><a href="./values.yaml#L1039">superset.init.podAnnotations</a></td>
+			<td id="superset--init--podAnnotations"><a href="./values.yaml#L1038">superset.init.podAnnotations</a></td>
 			<td>
 object
 </td>
@@ -982,7 +982,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--podLabels"><a href="./values.yaml#L1041">superset.init.podLabels</a></td>
+			<td id="superset--init--podLabels"><a href="./values.yaml#L1040">superset.init.podLabels</a></td>
 			<td>
 object
 </td>
@@ -994,7 +994,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--podSecurityContext"><a href="./values.yaml#L1042">superset.init.podSecurityContext</a></td>
+			<td id="superset--init--podSecurityContext"><a href="./values.yaml#L1041">superset.init.podSecurityContext</a></td>
 			<td>
 object
 </td>
@@ -1006,7 +1006,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--priorityClassName"><a href="./values.yaml#L1051">superset.init.priorityClassName</a></td>
+			<td id="superset--init--priorityClassName"><a href="./values.yaml#L1050">superset.init.priorityClassName</a></td>
 			<td>
 string
 </td>
@@ -1018,7 +1018,7 @@ null
 			<td>Set priorityClassName for init job pods</td>
 		</tr>
 		<tr>
-			<td id="superset--init--resources"><a href="./values.yaml#L961">superset.init.resources</a></td>
+			<td id="superset--init--resources"><a href="./values.yaml#L960">superset.init.resources</a></td>
 			<td>
 object
 </td>
@@ -1030,7 +1030,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--tolerations"><a href="./values.yaml#L1045">superset.init.tolerations</a></td>
+			<td id="superset--init--tolerations"><a href="./values.yaml#L1044">superset.init.tolerations</a></td>
 			<td>
 list
 </td>
@@ -1042,7 +1042,7 @@ list
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--init--topologySpreadConstraints"><a href="./values.yaml#L1049">superset.init.topologySpreadConstraints</a></td>
+			<td id="superset--init--topologySpreadConstraints"><a href="./values.yaml#L1048">superset.init.topologySpreadConstraints</a></td>
 			<td>
 list
 </td>
@@ -1054,7 +1054,7 @@ list
 			<td>TopologySpreadConstrains to be added to init job</td>
 		</tr>
 		<tr>
-			<td id="superset--initImage--pullPolicy"><a href="./values.yaml#L434">superset.initImage.pullPolicy</a></td>
+			<td id="superset--initImage--pullPolicy"><a href="./values.yaml#L433">superset.initImage.pullPolicy</a></td>
 			<td>
 string
 </td>
@@ -1066,7 +1066,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--initImage--repository"><a href="./values.yaml#L432">superset.initImage.repository</a></td>
+			<td id="superset--initImage--repository"><a href="./values.yaml#L431">superset.initImage.repository</a></td>
 			<td>
 string
 </td>
@@ -1078,7 +1078,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--initImage--tag"><a href="./values.yaml#L433">superset.initImage.tag</a></td>
+			<td id="superset--initImage--tag"><a href="./values.yaml#L432">superset.initImage.tag</a></td>
 			<td>
 string
 </td>
@@ -1090,7 +1090,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--nameOverride"><a href="./values.yaml#L163">superset.nameOverride</a></td>
+			<td id="superset--nameOverride"><a href="./values.yaml#L162">superset.nameOverride</a></td>
 			<td>
 string
 </td>
@@ -1102,7 +1102,7 @@ null
 			<td>Provide a name to override the name of the chart</td>
 		</tr>
 		<tr>
-			<td id="superset--nodeSelector"><a href="./values.yaml#L1153">superset.nodeSelector</a></td>
+			<td id="superset--nodeSelector"><a href="./values.yaml#L1152">superset.nodeSelector</a></td>
 			<td>
 object
 </td>
@@ -1114,17 +1114,17 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--postgresql"><a href="./values.yaml#L1056">superset.postgresql</a></td>
+			<td id="superset--postgresql"><a href="./values.yaml#L1055">superset.postgresql</a></td>
 			<td>
 object
 </td>
 			<td><div style="max-width: 300px;">
-          <a href="./values.yaml#L1056">see default</a>
+          <a href="./values.yaml#L1055">see default</a>
         </div></td>
 			<td>Configuration values for the postgresql dependency. ref: https://github.com/bitnami/charts/tree/main/bitnami/postgresql</td>
 		</tr>
 		<tr>
-			<td id="superset--priorityClassName"><a href="./values.yaml#L1163">superset.priorityClassName</a></td>
+			<td id="superset--priorityClassName"><a href="./values.yaml#L1162">superset.priorityClassName</a></td>
 			<td>
 string
 </td>
@@ -1136,17 +1136,17 @@ null
 			<td>Set priorityClassName for superset pods</td>
 		</tr>
 		<tr>
-			<td id="superset--redis"><a href="./values.yaml#L1102">superset.redis</a></td>
+			<td id="superset--redis"><a href="./values.yaml#L1101">superset.redis</a></td>
 			<td>
 object
 </td>
 			<td><div style="max-width: 300px;">
-          <a href="./values.yaml#L1102">see default</a>
+          <a href="./values.yaml#L1101">see default</a>
         </div></td>
 			<td>Configuration values for the Redis dependency. ref: https://github.com/bitnami/charts/blob/master/bitnami/redis More documentation can be found here: https://artifacthub.io/packages/helm/bitnami/redis</td>
 		</tr>
 		<tr>
-			<td id="superset--resources"><a href="./values.yaml#L467">superset.resources</a></td>
+			<td id="superset--resources"><a href="./values.yaml#L466">superset.resources</a></td>
 			<td>
 object
 </td>
@@ -1158,7 +1158,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--runAsUser"><a href="./values.yaml#L172">superset.runAsUser</a></td>
+			<td id="superset--runAsUser"><a href="./values.yaml#L171">superset.runAsUser</a></td>
 			<td>
 int
 </td>
@@ -1170,7 +1170,7 @@ int
 			<td>User ID directive. This user must have enough permissions to run the bootstrap script Running containers as root is not recommended in production. Change this to another UID - e.g. 1000 to be more secure</td>
 		</tr>
 		<tr>
-			<td id="superset--secretEnv"><a href="./values.yaml#L175">superset.secretEnv</a></td>
+			<td id="superset--secretEnv"><a href="./values.yaml#L174">superset.secretEnv</a></td>
 			<td>
 object
 </td>
@@ -1184,7 +1184,7 @@ object
 			<td>Specify rather or not helm should create the secret described in `secret-env.yaml` template</td>
 		</tr>
 		<tr>
-			<td id="superset--secretEnv--create"><a href="./values.yaml#L178">superset.secretEnv.create</a></td>
+			<td id="superset--secretEnv--create"><a href="./values.yaml#L177">superset.secretEnv.create</a></td>
 			<td>
 bool
 </td>
@@ -1196,7 +1196,7 @@ false
 			<td>Change to false in order to support externally created secret (Binami "Sealed Secrets" for Kubernetes or External Secrets Operator) note: when externally creating the secret, the chart still expects to pull values from a secret with the name of the release defaults to `release-name-superset-env` - full logic located in _helpers.tpl file: `define "superset.fullname"`</td>
 		</tr>
 		<tr>
-			<td id="superset--service--annotations"><a href="./values.yaml#L439">superset.service.annotations</a></td>
+			<td id="superset--service--annotations"><a href="./values.yaml#L438">superset.service.annotations</a></td>
 			<td>
 object
 </td>
@@ -1208,7 +1208,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--service--loadBalancerIP"><a href="./values.yaml#L442">superset.service.loadBalancerIP</a></td>
+			<td id="superset--service--loadBalancerIP"><a href="./values.yaml#L441">superset.service.loadBalancerIP</a></td>
 			<td>
 string
 </td>
@@ -1220,7 +1220,7 @@ null
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--service--nodePort--http"><a href="./values.yaml#L445">superset.service.nodePort.http</a></td>
+			<td id="superset--service--nodePort--http"><a href="./values.yaml#L444">superset.service.nodePort.http</a></td>
 			<td>
 int
 </td>
@@ -1232,7 +1232,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--service--port"><a href="./values.yaml#L438">superset.service.port</a></td>
+			<td id="superset--service--port"><a href="./values.yaml#L437">superset.service.port</a></td>
 			<td>
 int
 </td>
@@ -1244,7 +1244,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--service--type"><a href="./values.yaml#L437">superset.service.type</a></td>
+			<td id="superset--service--type"><a href="./values.yaml#L436">superset.service.type</a></td>
 			<td>
 string
 </td>
@@ -1256,7 +1256,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--serviceAccount--annotations"><a href="./values.yaml#L185">superset.serviceAccount.annotations</a></td>
+			<td id="superset--serviceAccount--annotations"><a href="./values.yaml#L184">superset.serviceAccount.annotations</a></td>
 			<td>
 object
 </td>
@@ -1268,7 +1268,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--serviceAccount--create"><a href="./values.yaml#L184">superset.serviceAccount.create</a></td>
+			<td id="superset--serviceAccount--create"><a href="./values.yaml#L183">superset.serviceAccount.create</a></td>
 			<td>
 bool
 </td>
@@ -1280,7 +1280,7 @@ false
 			<td>Create custom service account for Superset. If create: true and serviceAccountName is not provided, `superset.fullname` will be used.</td>
 		</tr>
 		<tr>
-			<td id="superset--serviceAccountName"><a href="./values.yaml#L181">superset.serviceAccountName</a></td>
+			<td id="superset--serviceAccountName"><a href="./values.yaml#L180">superset.serviceAccountName</a></td>
 			<td>
 string
 </td>
@@ -1292,7 +1292,7 @@ null
 			<td>Specify service account name to be used</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--affinity"><a href="./values.yaml#L743">superset.supersetCeleryBeat.affinity</a></td>
+			<td id="superset--supersetCeleryBeat--affinity"><a href="./values.yaml#L742">superset.supersetCeleryBeat.affinity</a></td>
 			<td>
 object
 </td>
@@ -1304,7 +1304,7 @@ object
 			<td>Affinity to be added to supersetCeleryBeat deployment</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--command"><a href="./values.yaml#L717">superset.supersetCeleryBeat.command</a></td>
+			<td id="superset--supersetCeleryBeat--command"><a href="./values.yaml#L716">superset.supersetCeleryBeat.command</a></td>
 			<td>
 list
 </td>
@@ -1316,7 +1316,7 @@ a `celery beat` command
 			<td>Command</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--containerSecurityContext"><a href="./values.yaml#L760">superset.supersetCeleryBeat.containerSecurityContext</a></td>
+			<td id="superset--supersetCeleryBeat--containerSecurityContext"><a href="./values.yaml#L759">superset.supersetCeleryBeat.containerSecurityContext</a></td>
 			<td>
 object
 </td>
@@ -1328,7 +1328,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--deploymentAnnotations"><a href="./values.yaml#L741">superset.supersetCeleryBeat.deploymentAnnotations</a></td>
+			<td id="superset--supersetCeleryBeat--deploymentAnnotations"><a href="./values.yaml#L740">superset.supersetCeleryBeat.deploymentAnnotations</a></td>
 			<td>
 object
 </td>
@@ -1340,7 +1340,7 @@ object
 			<td>Annotations to be added to supersetCeleryBeat deployment</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--enabled"><a href="./values.yaml#L706">superset.supersetCeleryBeat.enabled</a></td>
+			<td id="superset--supersetCeleryBeat--enabled"><a href="./values.yaml#L705">superset.supersetCeleryBeat.enabled</a></td>
 			<td>
 bool
 </td>
@@ -1352,7 +1352,7 @@ false
 			<td>This is only required if you intend to use alerts and reports</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--extraContainers"><a href="./values.yaml#L739">superset.supersetCeleryBeat.extraContainers</a></td>
+			<td id="superset--supersetCeleryBeat--extraContainers"><a href="./values.yaml#L738">superset.supersetCeleryBeat.extraContainers</a></td>
 			<td>
 list
 </td>
@@ -1364,7 +1364,7 @@ list
 			<td>Launch additional containers into supersetCeleryBeat pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--forceReload"><a href="./values.yaml#L722">superset.supersetCeleryBeat.forceReload</a></td>
+			<td id="superset--supersetCeleryBeat--forceReload"><a href="./values.yaml#L721">superset.supersetCeleryBeat.forceReload</a></td>
 			<td>
 bool
 </td>
@@ -1376,7 +1376,7 @@ false
 			<td>If true, forces deployment to reload on each upgrade</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--initContainers"><a href="./values.yaml#L725">superset.supersetCeleryBeat.initContainers</a></td>
+			<td id="superset--supersetCeleryBeat--initContainers"><a href="./values.yaml#L724">superset.supersetCeleryBeat.initContainers</a></td>
 			<td>
 list
 </td>
@@ -1388,7 +1388,7 @@ a container waiting for postgres
 			<td>List of init containers</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--podAnnotations"><a href="./values.yaml#L747">superset.supersetCeleryBeat.podAnnotations</a></td>
+			<td id="superset--supersetCeleryBeat--podAnnotations"><a href="./values.yaml#L746">superset.supersetCeleryBeat.podAnnotations</a></td>
 			<td>
 object
 </td>
@@ -1400,7 +1400,7 @@ object
 			<td>Annotations to be added to supersetCeleryBeat pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--podDisruptionBudget"><a href="./values.yaml#L708">superset.supersetCeleryBeat.podDisruptionBudget</a></td>
+			<td id="superset--supersetCeleryBeat--podDisruptionBudget"><a href="./values.yaml#L707">superset.supersetCeleryBeat.podDisruptionBudget</a></td>
 			<td>
 object
 </td>
@@ -1416,7 +1416,7 @@ object
 			<td>Sets the [pod disruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for supersetCeleryBeat pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--podDisruptionBudget--enabled"><a href="./values.yaml#L710">superset.supersetCeleryBeat.podDisruptionBudget.enabled</a></td>
+			<td id="superset--supersetCeleryBeat--podDisruptionBudget--enabled"><a href="./values.yaml#L709">superset.supersetCeleryBeat.podDisruptionBudget.enabled</a></td>
 			<td>
 bool
 </td>
@@ -1428,7 +1428,7 @@ false
 			<td>Whether the pod disruption budget should be created</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--podDisruptionBudget--maxUnavailable"><a href="./values.yaml#L714">superset.supersetCeleryBeat.podDisruptionBudget.maxUnavailable</a></td>
+			<td id="superset--supersetCeleryBeat--podDisruptionBudget--maxUnavailable"><a href="./values.yaml#L713">superset.supersetCeleryBeat.podDisruptionBudget.maxUnavailable</a></td>
 			<td>
 int
 </td>
@@ -1440,7 +1440,7 @@ int
 			<td>If set, minAvailable must not be set - see https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--podDisruptionBudget--minAvailable"><a href="./values.yaml#L712">superset.supersetCeleryBeat.podDisruptionBudget.minAvailable</a></td>
+			<td id="superset--supersetCeleryBeat--podDisruptionBudget--minAvailable"><a href="./values.yaml#L711">superset.supersetCeleryBeat.podDisruptionBudget.minAvailable</a></td>
 			<td>
 int
 </td>
@@ -1452,7 +1452,7 @@ int
 			<td>If set, maxUnavailable must not be set - see https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--podLabels"><a href="./values.yaml#L749">superset.supersetCeleryBeat.podLabels</a></td>
+			<td id="superset--supersetCeleryBeat--podLabels"><a href="./values.yaml#L748">superset.supersetCeleryBeat.podLabels</a></td>
 			<td>
 object
 </td>
@@ -1464,7 +1464,7 @@ object
 			<td>Labels to be added to supersetCeleryBeat pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--podSecurityContext"><a href="./values.yaml#L759">superset.supersetCeleryBeat.podSecurityContext</a></td>
+			<td id="superset--supersetCeleryBeat--podSecurityContext"><a href="./values.yaml#L758">superset.supersetCeleryBeat.podSecurityContext</a></td>
 			<td>
 object
 </td>
@@ -1476,7 +1476,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--priorityClassName"><a href="./values.yaml#L762">superset.supersetCeleryBeat.priorityClassName</a></td>
+			<td id="superset--supersetCeleryBeat--priorityClassName"><a href="./values.yaml#L761">superset.supersetCeleryBeat.priorityClassName</a></td>
 			<td>
 string
 </td>
@@ -1488,7 +1488,7 @@ null
 			<td>Set priorityClassName for CeleryBeat pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--resources"><a href="./values.yaml#L751">superset.supersetCeleryBeat.resources</a></td>
+			<td id="superset--supersetCeleryBeat--resources"><a href="./values.yaml#L750">superset.supersetCeleryBeat.resources</a></td>
 			<td>
 object
 </td>
@@ -1500,7 +1500,7 @@ object
 			<td>Resource settings for the CeleryBeat pods - these settings overwrite might existing values from the global resources object defined above.</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryBeat--topologySpreadConstraints"><a href="./values.yaml#L745">superset.supersetCeleryBeat.topologySpreadConstraints</a></td>
+			<td id="superset--supersetCeleryBeat--topologySpreadConstraints"><a href="./values.yaml#L744">superset.supersetCeleryBeat.topologySpreadConstraints</a></td>
 			<td>
 list
 </td>
@@ -1512,7 +1512,7 @@ list
 			<td>TopologySpreadConstrains to be added to supersetCeleryBeat deployments</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--affinity"><a href="./values.yaml#L839">superset.supersetCeleryFlower.affinity</a></td>
+			<td id="superset--supersetCeleryFlower--affinity"><a href="./values.yaml#L838">superset.supersetCeleryFlower.affinity</a></td>
 			<td>
 object
 </td>
@@ -1524,7 +1524,7 @@ object
 			<td>Affinity to be added to supersetCeleryFlower deployment</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--command"><a href="./values.yaml#L780">superset.supersetCeleryFlower.command</a></td>
+			<td id="superset--supersetCeleryFlower--command"><a href="./values.yaml#L779">superset.supersetCeleryFlower.command</a></td>
 			<td>
 list
 </td>
@@ -1536,7 +1536,7 @@ a `celery flower` command
 			<td>Command</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--containerSecurityContext"><a href="./values.yaml#L856">superset.supersetCeleryFlower.containerSecurityContext</a></td>
+			<td id="superset--supersetCeleryFlower--containerSecurityContext"><a href="./values.yaml#L855">superset.supersetCeleryFlower.containerSecurityContext</a></td>
 			<td>
 object
 </td>
@@ -1548,7 +1548,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--deploymentAnnotations"><a href="./values.yaml#L837">superset.supersetCeleryFlower.deploymentAnnotations</a></td>
+			<td id="superset--supersetCeleryFlower--deploymentAnnotations"><a href="./values.yaml#L836">superset.supersetCeleryFlower.deploymentAnnotations</a></td>
 			<td>
 object
 </td>
@@ -1560,7 +1560,7 @@ object
 			<td>Annotations to be added to supersetCeleryFlower deployment</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--enabled"><a href="./values.yaml#L768">superset.supersetCeleryFlower.enabled</a></td>
+			<td id="superset--supersetCeleryFlower--enabled"><a href="./values.yaml#L767">superset.supersetCeleryFlower.enabled</a></td>
 			<td>
 bool
 </td>
@@ -1572,7 +1572,7 @@ false
 			<td>Enables a Celery flower deployment (management UI to monitor celery jobs) WARNING: on superset 1.x, this requires a Superset image that has `flower<1.0.0` installed (which is NOT the case of the default images) flower>=1.0.0 requires Celery 5+ which Superset 1.5 does not support</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--extraContainers"><a href="./values.yaml#L835">superset.supersetCeleryFlower.extraContainers</a></td>
+			<td id="superset--supersetCeleryFlower--extraContainers"><a href="./values.yaml#L834">superset.supersetCeleryFlower.extraContainers</a></td>
 			<td>
 list
 </td>
@@ -1584,7 +1584,7 @@ list
 			<td>Launch additional containers into supersetCeleryFlower pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--initContainers"><a href="./values.yaml#L821">superset.supersetCeleryFlower.initContainers</a></td>
+			<td id="superset--supersetCeleryFlower--initContainers"><a href="./values.yaml#L820">superset.supersetCeleryFlower.initContainers</a></td>
 			<td>
 list
 </td>
@@ -1596,7 +1596,7 @@ a container waiting for postgres and redis
 			<td>List of init containers</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--livenessProbe--failureThreshold"><a href="./values.yaml#L807">superset.supersetCeleryFlower.livenessProbe.failureThreshold</a></td>
+			<td id="superset--supersetCeleryFlower--livenessProbe--failureThreshold"><a href="./values.yaml#L806">superset.supersetCeleryFlower.livenessProbe.failureThreshold</a></td>
 			<td>
 int
 </td>
@@ -1608,7 +1608,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--livenessProbe--httpGet--path"><a href="./values.yaml#L803">superset.supersetCeleryFlower.livenessProbe.httpGet.path</a></td>
+			<td id="superset--supersetCeleryFlower--livenessProbe--httpGet--path"><a href="./values.yaml#L802">superset.supersetCeleryFlower.livenessProbe.httpGet.path</a></td>
 			<td>
 string
 </td>
@@ -1620,7 +1620,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--livenessProbe--httpGet--port"><a href="./values.yaml#L804">superset.supersetCeleryFlower.livenessProbe.httpGet.port</a></td>
+			<td id="superset--supersetCeleryFlower--livenessProbe--httpGet--port"><a href="./values.yaml#L803">superset.supersetCeleryFlower.livenessProbe.httpGet.port</a></td>
 			<td>
 string
 </td>
@@ -1632,7 +1632,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--livenessProbe--initialDelaySeconds"><a href="./values.yaml#L805">superset.supersetCeleryFlower.livenessProbe.initialDelaySeconds</a></td>
+			<td id="superset--supersetCeleryFlower--livenessProbe--initialDelaySeconds"><a href="./values.yaml#L804">superset.supersetCeleryFlower.livenessProbe.initialDelaySeconds</a></td>
 			<td>
 int
 </td>
@@ -1644,7 +1644,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--livenessProbe--periodSeconds"><a href="./values.yaml#L808">superset.supersetCeleryFlower.livenessProbe.periodSeconds</a></td>
+			<td id="superset--supersetCeleryFlower--livenessProbe--periodSeconds"><a href="./values.yaml#L807">superset.supersetCeleryFlower.livenessProbe.periodSeconds</a></td>
 			<td>
 int
 </td>
@@ -1656,7 +1656,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--livenessProbe--successThreshold"><a href="./values.yaml#L809">superset.supersetCeleryFlower.livenessProbe.successThreshold</a></td>
+			<td id="superset--supersetCeleryFlower--livenessProbe--successThreshold"><a href="./values.yaml#L808">superset.supersetCeleryFlower.livenessProbe.successThreshold</a></td>
 			<td>
 int
 </td>
@@ -1668,7 +1668,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--livenessProbe--timeoutSeconds"><a href="./values.yaml#L806">superset.supersetCeleryFlower.livenessProbe.timeoutSeconds</a></td>
+			<td id="superset--supersetCeleryFlower--livenessProbe--timeoutSeconds"><a href="./values.yaml#L805">superset.supersetCeleryFlower.livenessProbe.timeoutSeconds</a></td>
 			<td>
 int
 </td>
@@ -1680,7 +1680,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--podAnnotations"><a href="./values.yaml#L843">superset.supersetCeleryFlower.podAnnotations</a></td>
+			<td id="superset--supersetCeleryFlower--podAnnotations"><a href="./values.yaml#L842">superset.supersetCeleryFlower.podAnnotations</a></td>
 			<td>
 object
 </td>
@@ -1692,7 +1692,7 @@ object
 			<td>Annotations to be added to supersetCeleryFlower pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--podDisruptionBudget"><a href="./values.yaml#L771">superset.supersetCeleryFlower.podDisruptionBudget</a></td>
+			<td id="superset--supersetCeleryFlower--podDisruptionBudget"><a href="./values.yaml#L770">superset.supersetCeleryFlower.podDisruptionBudget</a></td>
 			<td>
 object
 </td>
@@ -1708,7 +1708,7 @@ object
 			<td>Sets the [pod disruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for supersetCeleryFlower pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--podDisruptionBudget--enabled"><a href="./values.yaml#L773">superset.supersetCeleryFlower.podDisruptionBudget.enabled</a></td>
+			<td id="superset--supersetCeleryFlower--podDisruptionBudget--enabled"><a href="./values.yaml#L772">superset.supersetCeleryFlower.podDisruptionBudget.enabled</a></td>
 			<td>
 bool
 </td>
@@ -1720,7 +1720,7 @@ false
 			<td>Whether the pod disruption budget should be created</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--podDisruptionBudget--maxUnavailable"><a href="./values.yaml#L777">superset.supersetCeleryFlower.podDisruptionBudget.maxUnavailable</a></td>
+			<td id="superset--supersetCeleryFlower--podDisruptionBudget--maxUnavailable"><a href="./values.yaml#L776">superset.supersetCeleryFlower.podDisruptionBudget.maxUnavailable</a></td>
 			<td>
 int
 </td>
@@ -1732,7 +1732,7 @@ int
 			<td>If set, minAvailable must not be set - see https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--podDisruptionBudget--minAvailable"><a href="./values.yaml#L775">superset.supersetCeleryFlower.podDisruptionBudget.minAvailable</a></td>
+			<td id="superset--supersetCeleryFlower--podDisruptionBudget--minAvailable"><a href="./values.yaml#L774">superset.supersetCeleryFlower.podDisruptionBudget.minAvailable</a></td>
 			<td>
 int
 </td>
@@ -1744,7 +1744,7 @@ int
 			<td>If set, maxUnavailable must not be set - see https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--podLabels"><a href="./values.yaml#L845">superset.supersetCeleryFlower.podLabels</a></td>
+			<td id="superset--supersetCeleryFlower--podLabels"><a href="./values.yaml#L844">superset.supersetCeleryFlower.podLabels</a></td>
 			<td>
 object
 </td>
@@ -1756,7 +1756,7 @@ object
 			<td>Labels to be added to supersetCeleryFlower pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--podSecurityContext"><a href="./values.yaml#L855">superset.supersetCeleryFlower.podSecurityContext</a></td>
+			<td id="superset--supersetCeleryFlower--podSecurityContext"><a href="./values.yaml#L854">superset.supersetCeleryFlower.podSecurityContext</a></td>
 			<td>
 object
 </td>
@@ -1768,7 +1768,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--priorityClassName"><a href="./values.yaml#L858">superset.supersetCeleryFlower.priorityClassName</a></td>
+			<td id="superset--supersetCeleryFlower--priorityClassName"><a href="./values.yaml#L857">superset.supersetCeleryFlower.priorityClassName</a></td>
 			<td>
 string
 </td>
@@ -1780,7 +1780,7 @@ null
 			<td>Set priorityClassName for supersetCeleryFlower pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--readinessProbe--failureThreshold"><a href="./values.yaml#L816">superset.supersetCeleryFlower.readinessProbe.failureThreshold</a></td>
+			<td id="superset--supersetCeleryFlower--readinessProbe--failureThreshold"><a href="./values.yaml#L815">superset.supersetCeleryFlower.readinessProbe.failureThreshold</a></td>
 			<td>
 int
 </td>
@@ -1792,7 +1792,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--readinessProbe--httpGet--path"><a href="./values.yaml#L812">superset.supersetCeleryFlower.readinessProbe.httpGet.path</a></td>
+			<td id="superset--supersetCeleryFlower--readinessProbe--httpGet--path"><a href="./values.yaml#L811">superset.supersetCeleryFlower.readinessProbe.httpGet.path</a></td>
 			<td>
 string
 </td>
@@ -1804,7 +1804,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--readinessProbe--httpGet--port"><a href="./values.yaml#L813">superset.supersetCeleryFlower.readinessProbe.httpGet.port</a></td>
+			<td id="superset--supersetCeleryFlower--readinessProbe--httpGet--port"><a href="./values.yaml#L812">superset.supersetCeleryFlower.readinessProbe.httpGet.port</a></td>
 			<td>
 string
 </td>
@@ -1816,7 +1816,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--readinessProbe--initialDelaySeconds"><a href="./values.yaml#L814">superset.supersetCeleryFlower.readinessProbe.initialDelaySeconds</a></td>
+			<td id="superset--supersetCeleryFlower--readinessProbe--initialDelaySeconds"><a href="./values.yaml#L813">superset.supersetCeleryFlower.readinessProbe.initialDelaySeconds</a></td>
 			<td>
 int
 </td>
@@ -1828,7 +1828,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--readinessProbe--periodSeconds"><a href="./values.yaml#L817">superset.supersetCeleryFlower.readinessProbe.periodSeconds</a></td>
+			<td id="superset--supersetCeleryFlower--readinessProbe--periodSeconds"><a href="./values.yaml#L816">superset.supersetCeleryFlower.readinessProbe.periodSeconds</a></td>
 			<td>
 int
 </td>
@@ -1840,7 +1840,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--readinessProbe--successThreshold"><a href="./values.yaml#L818">superset.supersetCeleryFlower.readinessProbe.successThreshold</a></td>
+			<td id="superset--supersetCeleryFlower--readinessProbe--successThreshold"><a href="./values.yaml#L817">superset.supersetCeleryFlower.readinessProbe.successThreshold</a></td>
 			<td>
 int
 </td>
@@ -1852,7 +1852,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--readinessProbe--timeoutSeconds"><a href="./values.yaml#L815">superset.supersetCeleryFlower.readinessProbe.timeoutSeconds</a></td>
+			<td id="superset--supersetCeleryFlower--readinessProbe--timeoutSeconds"><a href="./values.yaml#L814">superset.supersetCeleryFlower.readinessProbe.timeoutSeconds</a></td>
 			<td>
 int
 </td>
@@ -1864,7 +1864,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--replicaCount"><a href="./values.yaml#L769">superset.supersetCeleryFlower.replicaCount</a></td>
+			<td id="superset--supersetCeleryFlower--replicaCount"><a href="./values.yaml#L768">superset.supersetCeleryFlower.replicaCount</a></td>
 			<td>
 int
 </td>
@@ -1876,7 +1876,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--resources"><a href="./values.yaml#L847">superset.supersetCeleryFlower.resources</a></td>
+			<td id="superset--supersetCeleryFlower--resources"><a href="./values.yaml#L846">superset.supersetCeleryFlower.resources</a></td>
 			<td>
 object
 </td>
@@ -1888,7 +1888,7 @@ object
 			<td>Resource settings for the CeleryBeat pods - these settings overwrite might existing values from the global resources object defined above.</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--service--annotations"><a href="./values.yaml#L786">superset.supersetCeleryFlower.service.annotations</a></td>
+			<td id="superset--supersetCeleryFlower--service--annotations"><a href="./values.yaml#L785">superset.supersetCeleryFlower.service.annotations</a></td>
 			<td>
 object
 </td>
@@ -1900,7 +1900,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--service--loadBalancerIP"><a href="./values.yaml#L787">superset.supersetCeleryFlower.service.loadBalancerIP</a></td>
+			<td id="superset--supersetCeleryFlower--service--loadBalancerIP"><a href="./values.yaml#L786">superset.supersetCeleryFlower.service.loadBalancerIP</a></td>
 			<td>
 string
 </td>
@@ -1912,7 +1912,7 @@ null
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--service--nodePort--http"><a href="./values.yaml#L791">superset.supersetCeleryFlower.service.nodePort.http</a></td>
+			<td id="superset--supersetCeleryFlower--service--nodePort--http"><a href="./values.yaml#L790">superset.supersetCeleryFlower.service.nodePort.http</a></td>
 			<td>
 int
 </td>
@@ -1924,7 +1924,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--service--port"><a href="./values.yaml#L788">superset.supersetCeleryFlower.service.port</a></td>
+			<td id="superset--supersetCeleryFlower--service--port"><a href="./values.yaml#L787">superset.supersetCeleryFlower.service.port</a></td>
 			<td>
 int
 </td>
@@ -1936,7 +1936,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--service--type"><a href="./values.yaml#L785">superset.supersetCeleryFlower.service.type</a></td>
+			<td id="superset--supersetCeleryFlower--service--type"><a href="./values.yaml#L784">superset.supersetCeleryFlower.service.type</a></td>
 			<td>
 string
 </td>
@@ -1948,7 +1948,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--startupProbe--failureThreshold"><a href="./values.yaml#L798">superset.supersetCeleryFlower.startupProbe.failureThreshold</a></td>
+			<td id="superset--supersetCeleryFlower--startupProbe--failureThreshold"><a href="./values.yaml#L797">superset.supersetCeleryFlower.startupProbe.failureThreshold</a></td>
 			<td>
 int
 </td>
@@ -1960,7 +1960,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--startupProbe--httpGet--path"><a href="./values.yaml#L794">superset.supersetCeleryFlower.startupProbe.httpGet.path</a></td>
+			<td id="superset--supersetCeleryFlower--startupProbe--httpGet--path"><a href="./values.yaml#L793">superset.supersetCeleryFlower.startupProbe.httpGet.path</a></td>
 			<td>
 string
 </td>
@@ -1972,7 +1972,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--startupProbe--httpGet--port"><a href="./values.yaml#L795">superset.supersetCeleryFlower.startupProbe.httpGet.port</a></td>
+			<td id="superset--supersetCeleryFlower--startupProbe--httpGet--port"><a href="./values.yaml#L794">superset.supersetCeleryFlower.startupProbe.httpGet.port</a></td>
 			<td>
 string
 </td>
@@ -1984,7 +1984,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--startupProbe--initialDelaySeconds"><a href="./values.yaml#L796">superset.supersetCeleryFlower.startupProbe.initialDelaySeconds</a></td>
+			<td id="superset--supersetCeleryFlower--startupProbe--initialDelaySeconds"><a href="./values.yaml#L795">superset.supersetCeleryFlower.startupProbe.initialDelaySeconds</a></td>
 			<td>
 int
 </td>
@@ -1996,7 +1996,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--startupProbe--periodSeconds"><a href="./values.yaml#L799">superset.supersetCeleryFlower.startupProbe.periodSeconds</a></td>
+			<td id="superset--supersetCeleryFlower--startupProbe--periodSeconds"><a href="./values.yaml#L798">superset.supersetCeleryFlower.startupProbe.periodSeconds</a></td>
 			<td>
 int
 </td>
@@ -2008,7 +2008,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--startupProbe--successThreshold"><a href="./values.yaml#L800">superset.supersetCeleryFlower.startupProbe.successThreshold</a></td>
+			<td id="superset--supersetCeleryFlower--startupProbe--successThreshold"><a href="./values.yaml#L799">superset.supersetCeleryFlower.startupProbe.successThreshold</a></td>
 			<td>
 int
 </td>
@@ -2020,7 +2020,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--startupProbe--timeoutSeconds"><a href="./values.yaml#L797">superset.supersetCeleryFlower.startupProbe.timeoutSeconds</a></td>
+			<td id="superset--supersetCeleryFlower--startupProbe--timeoutSeconds"><a href="./values.yaml#L796">superset.supersetCeleryFlower.startupProbe.timeoutSeconds</a></td>
 			<td>
 int
 </td>
@@ -2032,7 +2032,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetCeleryFlower--topologySpreadConstraints"><a href="./values.yaml#L841">superset.supersetCeleryFlower.topologySpreadConstraints</a></td>
+			<td id="superset--supersetCeleryFlower--topologySpreadConstraints"><a href="./values.yaml#L840">superset.supersetCeleryFlower.topologySpreadConstraints</a></td>
 			<td>
 list
 </td>
@@ -2044,7 +2044,7 @@ list
 			<td>TopologySpreadConstrains to be added to supersetCeleryFlower deployments</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--affinity"><a href="./values.yaml#L558">superset.supersetNode.affinity</a></td>
+			<td id="superset--supersetNode--affinity"><a href="./values.yaml#L557">superset.supersetNode.affinity</a></td>
 			<td>
 object
 </td>
@@ -2056,7 +2056,7 @@ object
 			<td>Affinity to be added to supersetNode deployment</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--autoscaling--enabled"><a href="./values.yaml#L495">superset.supersetNode.autoscaling.enabled</a></td>
+			<td id="superset--supersetNode--autoscaling--enabled"><a href="./values.yaml#L494">superset.supersetNode.autoscaling.enabled</a></td>
 			<td>
 bool
 </td>
@@ -2068,7 +2068,7 @@ true
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--autoscaling--maxReplicas"><a href="./values.yaml#L497">superset.supersetNode.autoscaling.maxReplicas</a></td>
+			<td id="superset--supersetNode--autoscaling--maxReplicas"><a href="./values.yaml#L496">superset.supersetNode.autoscaling.maxReplicas</a></td>
 			<td>
 int
 </td>
@@ -2080,7 +2080,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--autoscaling--minReplicas"><a href="./values.yaml#L496">superset.supersetNode.autoscaling.minReplicas</a></td>
+			<td id="superset--supersetNode--autoscaling--minReplicas"><a href="./values.yaml#L495">superset.supersetNode.autoscaling.minReplicas</a></td>
 			<td>
 int
 </td>
@@ -2092,7 +2092,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--autoscaling--targetCPUUtilizationPercentage"><a href="./values.yaml#L498">superset.supersetNode.autoscaling.targetCPUUtilizationPercentage</a></td>
+			<td id="superset--supersetNode--autoscaling--targetCPUUtilizationPercentage"><a href="./values.yaml#L497">superset.supersetNode.autoscaling.targetCPUUtilizationPercentage</a></td>
 			<td>
 int
 </td>
@@ -2104,17 +2104,17 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--command"><a href="./values.yaml#L511">superset.supersetNode.command</a></td>
+			<td id="superset--supersetNode--command"><a href="./values.yaml#L510">superset.supersetNode.command</a></td>
 			<td>
 list
 </td>
 			<td><div style="max-width: 300px;">
-          <a href="./values.yaml#L511">see default</a>
+          <a href="./values.yaml#L510">see default</a>
         </div></td>
 			<td>Startup command</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--connections--db_host"><a href="./values.yaml#L529">superset.supersetNode.connections.db_host</a></td>
+			<td id="superset--supersetNode--connections--db_host"><a href="./values.yaml#L528">superset.supersetNode.connections.db_host</a></td>
 			<td>
 string
 </td>
@@ -2126,7 +2126,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--connections--db_name"><a href="./values.yaml#L533">superset.supersetNode.connections.db_name</a></td>
+			<td id="superset--supersetNode--connections--db_name"><a href="./values.yaml#L532">superset.supersetNode.connections.db_name</a></td>
 			<td>
 string
 </td>
@@ -2138,7 +2138,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--connections--db_pass"><a href="./values.yaml#L532">superset.supersetNode.connections.db_pass</a></td>
+			<td id="superset--supersetNode--connections--db_pass"><a href="./values.yaml#L531">superset.supersetNode.connections.db_pass</a></td>
 			<td>
 string
 </td>
@@ -2150,7 +2150,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--connections--db_port"><a href="./values.yaml#L530">superset.supersetNode.connections.db_port</a></td>
+			<td id="superset--supersetNode--connections--db_port"><a href="./values.yaml#L529">superset.supersetNode.connections.db_port</a></td>
 			<td>
 string
 </td>
@@ -2162,7 +2162,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--connections--db_user"><a href="./values.yaml#L531">superset.supersetNode.connections.db_user</a></td>
+			<td id="superset--supersetNode--connections--db_user"><a href="./values.yaml#L530">superset.supersetNode.connections.db_user</a></td>
 			<td>
 string
 </td>
@@ -2174,7 +2174,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--connections--redis_cache_db"><a href="./values.yaml#L521">superset.supersetNode.connections.redis_cache_db</a></td>
+			<td id="superset--supersetNode--connections--redis_cache_db"><a href="./values.yaml#L520">superset.supersetNode.connections.redis_cache_db</a></td>
 			<td>
 string
 </td>
@@ -2186,7 +2186,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--connections--redis_celery_db"><a href="./values.yaml#L522">superset.supersetNode.connections.redis_celery_db</a></td>
+			<td id="superset--supersetNode--connections--redis_celery_db"><a href="./values.yaml#L521">superset.supersetNode.connections.redis_celery_db</a></td>
 			<td>
 string
 </td>
@@ -2198,7 +2198,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--connections--redis_host"><a href="./values.yaml#L517">superset.supersetNode.connections.redis_host</a></td>
+			<td id="superset--supersetNode--connections--redis_host"><a href="./values.yaml#L516">superset.supersetNode.connections.redis_host</a></td>
 			<td>
 string
 </td>
@@ -2210,7 +2210,7 @@ string
 			<td>Change in case of bringing your own redis and then also set redis.enabled:false</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--connections--redis_port"><a href="./values.yaml#L518">superset.supersetNode.connections.redis_port</a></td>
+			<td id="superset--supersetNode--connections--redis_port"><a href="./values.yaml#L517">superset.supersetNode.connections.redis_port</a></td>
 			<td>
 string
 </td>
@@ -2222,7 +2222,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--connections--redis_ssl--enabled"><a href="./values.yaml#L526">superset.supersetNode.connections.redis_ssl.enabled</a></td>
+			<td id="superset--supersetNode--connections--redis_ssl--enabled"><a href="./values.yaml#L525">superset.supersetNode.connections.redis_ssl.enabled</a></td>
 			<td>
 bool
 </td>
@@ -2234,7 +2234,7 @@ false
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--connections--redis_ssl--ssl_cert_reqs"><a href="./values.yaml#L527">superset.supersetNode.connections.redis_ssl.ssl_cert_reqs</a></td>
+			<td id="superset--supersetNode--connections--redis_ssl--ssl_cert_reqs"><a href="./values.yaml#L526">superset.supersetNode.connections.redis_ssl.ssl_cert_reqs</a></td>
 			<td>
 string
 </td>
@@ -2246,7 +2246,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--connections--redis_user"><a href="./values.yaml#L519">superset.supersetNode.connections.redis_user</a></td>
+			<td id="superset--supersetNode--connections--redis_user"><a href="./values.yaml#L518">superset.supersetNode.connections.redis_user</a></td>
 			<td>
 string
 </td>
@@ -2258,7 +2258,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--containerSecurityContext"><a href="./values.yaml#L602">superset.supersetNode.containerSecurityContext</a></td>
+			<td id="superset--supersetNode--containerSecurityContext"><a href="./values.yaml#L601">superset.supersetNode.containerSecurityContext</a></td>
 			<td>
 object
 </td>
@@ -2270,7 +2270,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--deploymentAnnotations"><a href="./values.yaml#L554">superset.supersetNode.deploymentAnnotations</a></td>
+			<td id="superset--supersetNode--deploymentAnnotations"><a href="./values.yaml#L553">superset.supersetNode.deploymentAnnotations</a></td>
 			<td>
 object
 </td>
@@ -2282,7 +2282,7 @@ object
 			<td>Annotations to be added to supersetNode deployment</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--deploymentLabels"><a href="./values.yaml#L556">superset.supersetNode.deploymentLabels</a></td>
+			<td id="superset--supersetNode--deploymentLabels"><a href="./values.yaml#L555">superset.supersetNode.deploymentLabels</a></td>
 			<td>
 object
 </td>
@@ -2294,7 +2294,7 @@ object
 			<td>Labels to be added to supersetNode deployment</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--env"><a href="./values.yaml#L534">superset.supersetNode.env</a></td>
+			<td id="superset--supersetNode--env"><a href="./values.yaml#L533">superset.supersetNode.env</a></td>
 			<td>
 object
 </td>
@@ -2306,7 +2306,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--extraContainers"><a href="./values.yaml#L552">superset.supersetNode.extraContainers</a></td>
+			<td id="superset--supersetNode--extraContainers"><a href="./values.yaml#L551">superset.supersetNode.extraContainers</a></td>
 			<td>
 list
 </td>
@@ -2318,7 +2318,7 @@ list
 			<td>Launch additional containers into supersetNode pod</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--forceReload"><a href="./values.yaml#L536">superset.supersetNode.forceReload</a></td>
+			<td id="superset--supersetNode--forceReload"><a href="./values.yaml#L535">superset.supersetNode.forceReload</a></td>
 			<td>
 bool
 </td>
@@ -2330,7 +2330,7 @@ false
 			<td>If true, forces deployment to reload on each upgrade</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--initContainers"><a href="./values.yaml#L539">superset.supersetNode.initContainers</a></td>
+			<td id="superset--supersetNode--initContainers"><a href="./values.yaml#L538">superset.supersetNode.initContainers</a></td>
 			<td>
 list
 </td>
@@ -2342,7 +2342,7 @@ a container waiting for postgres
 			<td>Init containers</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--livenessProbe--failureThreshold"><a href="./values.yaml#L580">superset.supersetNode.livenessProbe.failureThreshold</a></td>
+			<td id="superset--supersetNode--livenessProbe--failureThreshold"><a href="./values.yaml#L579">superset.supersetNode.livenessProbe.failureThreshold</a></td>
 			<td>
 int
 </td>
@@ -2354,7 +2354,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--livenessProbe--httpGet--path"><a href="./values.yaml#L576">superset.supersetNode.livenessProbe.httpGet.path</a></td>
+			<td id="superset--supersetNode--livenessProbe--httpGet--path"><a href="./values.yaml#L575">superset.supersetNode.livenessProbe.httpGet.path</a></td>
 			<td>
 string
 </td>
@@ -2366,7 +2366,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--livenessProbe--httpGet--port"><a href="./values.yaml#L577">superset.supersetNode.livenessProbe.httpGet.port</a></td>
+			<td id="superset--supersetNode--livenessProbe--httpGet--port"><a href="./values.yaml#L576">superset.supersetNode.livenessProbe.httpGet.port</a></td>
 			<td>
 string
 </td>
@@ -2378,7 +2378,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--livenessProbe--initialDelaySeconds"><a href="./values.yaml#L578">superset.supersetNode.livenessProbe.initialDelaySeconds</a></td>
+			<td id="superset--supersetNode--livenessProbe--initialDelaySeconds"><a href="./values.yaml#L577">superset.supersetNode.livenessProbe.initialDelaySeconds</a></td>
 			<td>
 int
 </td>
@@ -2390,7 +2390,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--livenessProbe--periodSeconds"><a href="./values.yaml#L581">superset.supersetNode.livenessProbe.periodSeconds</a></td>
+			<td id="superset--supersetNode--livenessProbe--periodSeconds"><a href="./values.yaml#L580">superset.supersetNode.livenessProbe.periodSeconds</a></td>
 			<td>
 int
 </td>
@@ -2402,7 +2402,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--livenessProbe--successThreshold"><a href="./values.yaml#L582">superset.supersetNode.livenessProbe.successThreshold</a></td>
+			<td id="superset--supersetNode--livenessProbe--successThreshold"><a href="./values.yaml#L581">superset.supersetNode.livenessProbe.successThreshold</a></td>
 			<td>
 int
 </td>
@@ -2414,7 +2414,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--livenessProbe--timeoutSeconds"><a href="./values.yaml#L579">superset.supersetNode.livenessProbe.timeoutSeconds</a></td>
+			<td id="superset--supersetNode--livenessProbe--timeoutSeconds"><a href="./values.yaml#L578">superset.supersetNode.livenessProbe.timeoutSeconds</a></td>
 			<td>
 int
 </td>
@@ -2426,7 +2426,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--podAnnotations"><a href="./values.yaml#L562">superset.supersetNode.podAnnotations</a></td>
+			<td id="superset--supersetNode--podAnnotations"><a href="./values.yaml#L561">superset.supersetNode.podAnnotations</a></td>
 			<td>
 object
 </td>
@@ -2438,7 +2438,7 @@ object
 			<td>Annotations to be added to supersetNode pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--podDisruptionBudget"><a href="./values.yaml#L501">superset.supersetNode.podDisruptionBudget</a></td>
+			<td id="superset--supersetNode--podDisruptionBudget"><a href="./values.yaml#L500">superset.supersetNode.podDisruptionBudget</a></td>
 			<td>
 object
 </td>
@@ -2454,7 +2454,7 @@ object
 			<td>Sets the [pod disruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for supersetNode pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--podDisruptionBudget--enabled"><a href="./values.yaml#L503">superset.supersetNode.podDisruptionBudget.enabled</a></td>
+			<td id="superset--supersetNode--podDisruptionBudget--enabled"><a href="./values.yaml#L502">superset.supersetNode.podDisruptionBudget.enabled</a></td>
 			<td>
 bool
 </td>
@@ -2466,7 +2466,7 @@ false
 			<td>Whether the pod disruption budget should be created</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--podDisruptionBudget--maxUnavailable"><a href="./values.yaml#L507">superset.supersetNode.podDisruptionBudget.maxUnavailable</a></td>
+			<td id="superset--supersetNode--podDisruptionBudget--maxUnavailable"><a href="./values.yaml#L506">superset.supersetNode.podDisruptionBudget.maxUnavailable</a></td>
 			<td>
 int
 </td>
@@ -2478,7 +2478,7 @@ int
 			<td>If set, minAvailable must not be set - see https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--podDisruptionBudget--minAvailable"><a href="./values.yaml#L505">superset.supersetNode.podDisruptionBudget.minAvailable</a></td>
+			<td id="superset--supersetNode--podDisruptionBudget--minAvailable"><a href="./values.yaml#L504">superset.supersetNode.podDisruptionBudget.minAvailable</a></td>
 			<td>
 int
 </td>
@@ -2490,7 +2490,7 @@ int
 			<td>If set, maxUnavailable must not be set - see https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--podLabels"><a href="./values.yaml#L564">superset.supersetNode.podLabels</a></td>
+			<td id="superset--supersetNode--podLabels"><a href="./values.yaml#L563">superset.supersetNode.podLabels</a></td>
 			<td>
 object
 </td>
@@ -2502,7 +2502,7 @@ object
 			<td>Labels to be added to supersetNode pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--podSecurityContext"><a href="./values.yaml#L601">superset.supersetNode.podSecurityContext</a></td>
+			<td id="superset--supersetNode--podSecurityContext"><a href="./values.yaml#L600">superset.supersetNode.podSecurityContext</a></td>
 			<td>
 object
 </td>
@@ -2514,7 +2514,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--readinessProbe--failureThreshold"><a href="./values.yaml#L589">superset.supersetNode.readinessProbe.failureThreshold</a></td>
+			<td id="superset--supersetNode--readinessProbe--failureThreshold"><a href="./values.yaml#L588">superset.supersetNode.readinessProbe.failureThreshold</a></td>
 			<td>
 int
 </td>
@@ -2526,7 +2526,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--readinessProbe--httpGet--path"><a href="./values.yaml#L585">superset.supersetNode.readinessProbe.httpGet.path</a></td>
+			<td id="superset--supersetNode--readinessProbe--httpGet--path"><a href="./values.yaml#L584">superset.supersetNode.readinessProbe.httpGet.path</a></td>
 			<td>
 string
 </td>
@@ -2538,7 +2538,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--readinessProbe--httpGet--port"><a href="./values.yaml#L586">superset.supersetNode.readinessProbe.httpGet.port</a></td>
+			<td id="superset--supersetNode--readinessProbe--httpGet--port"><a href="./values.yaml#L585">superset.supersetNode.readinessProbe.httpGet.port</a></td>
 			<td>
 string
 </td>
@@ -2550,7 +2550,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--readinessProbe--initialDelaySeconds"><a href="./values.yaml#L587">superset.supersetNode.readinessProbe.initialDelaySeconds</a></td>
+			<td id="superset--supersetNode--readinessProbe--initialDelaySeconds"><a href="./values.yaml#L586">superset.supersetNode.readinessProbe.initialDelaySeconds</a></td>
 			<td>
 int
 </td>
@@ -2562,7 +2562,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--readinessProbe--periodSeconds"><a href="./values.yaml#L590">superset.supersetNode.readinessProbe.periodSeconds</a></td>
+			<td id="superset--supersetNode--readinessProbe--periodSeconds"><a href="./values.yaml#L589">superset.supersetNode.readinessProbe.periodSeconds</a></td>
 			<td>
 int
 </td>
@@ -2574,7 +2574,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--readinessProbe--successThreshold"><a href="./values.yaml#L591">superset.supersetNode.readinessProbe.successThreshold</a></td>
+			<td id="superset--supersetNode--readinessProbe--successThreshold"><a href="./values.yaml#L590">superset.supersetNode.readinessProbe.successThreshold</a></td>
 			<td>
 int
 </td>
@@ -2586,7 +2586,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--readinessProbe--timeoutSeconds"><a href="./values.yaml#L588">superset.supersetNode.readinessProbe.timeoutSeconds</a></td>
+			<td id="superset--supersetNode--readinessProbe--timeoutSeconds"><a href="./values.yaml#L587">superset.supersetNode.readinessProbe.timeoutSeconds</a></td>
 			<td>
 int
 </td>
@@ -2598,7 +2598,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--replicas--enabled"><a href="./values.yaml#L492">superset.supersetNode.replicas.enabled</a></td>
+			<td id="superset--supersetNode--replicas--enabled"><a href="./values.yaml#L491">superset.supersetNode.replicas.enabled</a></td>
 			<td>
 bool
 </td>
@@ -2610,7 +2610,7 @@ true
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--replicas--replicaCount"><a href="./values.yaml#L493">superset.supersetNode.replicas.replicaCount</a></td>
+			<td id="superset--supersetNode--replicas--replicaCount"><a href="./values.yaml#L492">superset.supersetNode.replicas.replicaCount</a></td>
 			<td>
 int
 </td>
@@ -2622,7 +2622,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--resources"><a href="./values.yaml#L593">superset.supersetNode.resources</a></td>
+			<td id="superset--supersetNode--resources"><a href="./values.yaml#L592">superset.supersetNode.resources</a></td>
 			<td>
 object
 </td>
@@ -2634,7 +2634,7 @@ object
 			<td>Resource settings for the supersetNode pods - these settings overwrite might existing values from the global resources object defined above.</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--startupProbe--failureThreshold"><a href="./values.yaml#L571">superset.supersetNode.startupProbe.failureThreshold</a></td>
+			<td id="superset--supersetNode--startupProbe--failureThreshold"><a href="./values.yaml#L570">superset.supersetNode.startupProbe.failureThreshold</a></td>
 			<td>
 int
 </td>
@@ -2646,7 +2646,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--startupProbe--httpGet--path"><a href="./values.yaml#L567">superset.supersetNode.startupProbe.httpGet.path</a></td>
+			<td id="superset--supersetNode--startupProbe--httpGet--path"><a href="./values.yaml#L566">superset.supersetNode.startupProbe.httpGet.path</a></td>
 			<td>
 string
 </td>
@@ -2658,7 +2658,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--startupProbe--httpGet--port"><a href="./values.yaml#L568">superset.supersetNode.startupProbe.httpGet.port</a></td>
+			<td id="superset--supersetNode--startupProbe--httpGet--port"><a href="./values.yaml#L567">superset.supersetNode.startupProbe.httpGet.port</a></td>
 			<td>
 string
 </td>
@@ -2670,7 +2670,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--startupProbe--initialDelaySeconds"><a href="./values.yaml#L569">superset.supersetNode.startupProbe.initialDelaySeconds</a></td>
+			<td id="superset--supersetNode--startupProbe--initialDelaySeconds"><a href="./values.yaml#L568">superset.supersetNode.startupProbe.initialDelaySeconds</a></td>
 			<td>
 int
 </td>
@@ -2682,7 +2682,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--startupProbe--periodSeconds"><a href="./values.yaml#L572">superset.supersetNode.startupProbe.periodSeconds</a></td>
+			<td id="superset--supersetNode--startupProbe--periodSeconds"><a href="./values.yaml#L571">superset.supersetNode.startupProbe.periodSeconds</a></td>
 			<td>
 int
 </td>
@@ -2694,7 +2694,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--startupProbe--successThreshold"><a href="./values.yaml#L573">superset.supersetNode.startupProbe.successThreshold</a></td>
+			<td id="superset--supersetNode--startupProbe--successThreshold"><a href="./values.yaml#L572">superset.supersetNode.startupProbe.successThreshold</a></td>
 			<td>
 int
 </td>
@@ -2706,7 +2706,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--startupProbe--timeoutSeconds"><a href="./values.yaml#L570">superset.supersetNode.startupProbe.timeoutSeconds</a></td>
+			<td id="superset--supersetNode--startupProbe--timeoutSeconds"><a href="./values.yaml#L569">superset.supersetNode.startupProbe.timeoutSeconds</a></td>
 			<td>
 int
 </td>
@@ -2718,7 +2718,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--strategy"><a href="./values.yaml#L603">superset.supersetNode.strategy</a></td>
+			<td id="superset--supersetNode--strategy"><a href="./values.yaml#L602">superset.supersetNode.strategy</a></td>
 			<td>
 object
 </td>
@@ -2730,7 +2730,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetNode--topologySpreadConstraints"><a href="./values.yaml#L560">superset.supersetNode.topologySpreadConstraints</a></td>
+			<td id="superset--supersetNode--topologySpreadConstraints"><a href="./values.yaml#L559">superset.supersetNode.topologySpreadConstraints</a></td>
 			<td>
 list
 </td>
@@ -2742,7 +2742,7 @@ list
 			<td>TopologySpreadConstrains to be added to supersetNode deployments</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--affinity"><a href="./values.yaml#L917">superset.supersetWebsockets.affinity</a></td>
+			<td id="superset--supersetWebsockets--affinity"><a href="./values.yaml#L916">superset.supersetWebsockets.affinity</a></td>
 			<td>
 object
 </td>
@@ -2754,7 +2754,7 @@ object
 			<td>Affinity to be added to supersetWebsockets deployment</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--command"><a href="./values.yaml#L911">superset.supersetWebsockets.command</a></td>
+			<td id="superset--supersetWebsockets--command"><a href="./values.yaml#L910">superset.supersetWebsockets.command</a></td>
 			<td>
 list
 </td>
@@ -2766,17 +2766,17 @@ list
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--config"><a href="./values.yaml#L884">superset.supersetWebsockets.config</a></td>
+			<td id="superset--supersetWebsockets--config"><a href="./values.yaml#L883">superset.supersetWebsockets.config</a></td>
 			<td>
 object
 </td>
 			<td><div style="max-width: 300px;">
-          <a href="./values.yaml#L884">see default</a>
+          <a href="./values.yaml#L883">see default</a>
         </div></td>
 			<td>The config.json to pass to the server, see https://github.com/apache/superset/tree/master/superset-websocket Note that the configuration can also read from environment variables (which will have priority), see https://github.com/apache/superset/blob/master/superset-websocket/src/config.ts for a list of supported variables</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--containerSecurityContext"><a href="./values.yaml#L924">superset.supersetWebsockets.containerSecurityContext</a></td>
+			<td id="superset--supersetWebsockets--containerSecurityContext"><a href="./values.yaml#L923">superset.supersetWebsockets.containerSecurityContext</a></td>
 			<td>
 object
 </td>
@@ -2788,7 +2788,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--deploymentAnnotations"><a href="./values.yaml#L915">superset.supersetWebsockets.deploymentAnnotations</a></td>
+			<td id="superset--supersetWebsockets--deploymentAnnotations"><a href="./values.yaml#L914">superset.supersetWebsockets.deploymentAnnotations</a></td>
 			<td>
 object
 </td>
@@ -2800,7 +2800,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--enabled"><a href="./values.yaml#L863">superset.supersetWebsockets.enabled</a></td>
+			<td id="superset--supersetWebsockets--enabled"><a href="./values.yaml#L862">superset.supersetWebsockets.enabled</a></td>
 			<td>
 bool
 </td>
@@ -2812,7 +2812,7 @@ false
 			<td>This is only required if you intend to use `GLOBAL_ASYNC_QUERIES` in `ws` mode see https://github.com/apache/superset/blob/master/CONTRIBUTING.md#async-chart-queries</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--extraContainers"><a href="./values.yaml#L914">superset.supersetWebsockets.extraContainers</a></td>
+			<td id="superset--supersetWebsockets--extraContainers"><a href="./values.yaml#L913">superset.supersetWebsockets.extraContainers</a></td>
 			<td>
 list
 </td>
@@ -2824,7 +2824,7 @@ list
 			<td>Launch additional containers into supersetWebsockets pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--image--pullPolicy"><a href="./values.yaml#L880">superset.supersetWebsockets.image.pullPolicy</a></td>
+			<td id="superset--supersetWebsockets--image--pullPolicy"><a href="./values.yaml#L879">superset.supersetWebsockets.image.pullPolicy</a></td>
 			<td>
 string
 </td>
@@ -2836,7 +2836,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--image--repository"><a href="./values.yaml#L878">superset.supersetWebsockets.image.repository</a></td>
+			<td id="superset--supersetWebsockets--image--repository"><a href="./values.yaml#L877">superset.supersetWebsockets.image.repository</a></td>
 			<td>
 string
 </td>
@@ -2848,7 +2848,7 @@ string
 			<td>There is no official image (yet), this one is community-supported</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--image--tag"><a href="./values.yaml#L879">superset.supersetWebsockets.image.tag</a></td>
+			<td id="superset--supersetWebsockets--image--tag"><a href="./values.yaml#L878">superset.supersetWebsockets.image.tag</a></td>
 			<td>
 string
 </td>
@@ -2860,7 +2860,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--ingress--path"><a href="./values.yaml#L874">superset.supersetWebsockets.ingress.path</a></td>
+			<td id="superset--supersetWebsockets--ingress--path"><a href="./values.yaml#L873">superset.supersetWebsockets.ingress.path</a></td>
 			<td>
 string
 </td>
@@ -2872,7 +2872,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--ingress--pathType"><a href="./values.yaml#L875">superset.supersetWebsockets.ingress.pathType</a></td>
+			<td id="superset--supersetWebsockets--ingress--pathType"><a href="./values.yaml#L874">superset.supersetWebsockets.ingress.pathType</a></td>
 			<td>
 string
 </td>
@@ -2884,7 +2884,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--livenessProbe--failureThreshold"><a href="./values.yaml#L940">superset.supersetWebsockets.livenessProbe.failureThreshold</a></td>
+			<td id="superset--supersetWebsockets--livenessProbe--failureThreshold"><a href="./values.yaml#L939">superset.supersetWebsockets.livenessProbe.failureThreshold</a></td>
 			<td>
 int
 </td>
@@ -2896,7 +2896,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--livenessProbe--httpGet--path"><a href="./values.yaml#L936">superset.supersetWebsockets.livenessProbe.httpGet.path</a></td>
+			<td id="superset--supersetWebsockets--livenessProbe--httpGet--path"><a href="./values.yaml#L935">superset.supersetWebsockets.livenessProbe.httpGet.path</a></td>
 			<td>
 string
 </td>
@@ -2908,7 +2908,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--livenessProbe--httpGet--port"><a href="./values.yaml#L937">superset.supersetWebsockets.livenessProbe.httpGet.port</a></td>
+			<td id="superset--supersetWebsockets--livenessProbe--httpGet--port"><a href="./values.yaml#L936">superset.supersetWebsockets.livenessProbe.httpGet.port</a></td>
 			<td>
 string
 </td>
@@ -2920,7 +2920,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--livenessProbe--initialDelaySeconds"><a href="./values.yaml#L938">superset.supersetWebsockets.livenessProbe.initialDelaySeconds</a></td>
+			<td id="superset--supersetWebsockets--livenessProbe--initialDelaySeconds"><a href="./values.yaml#L937">superset.supersetWebsockets.livenessProbe.initialDelaySeconds</a></td>
 			<td>
 int
 </td>
@@ -2932,7 +2932,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--livenessProbe--periodSeconds"><a href="./values.yaml#L941">superset.supersetWebsockets.livenessProbe.periodSeconds</a></td>
+			<td id="superset--supersetWebsockets--livenessProbe--periodSeconds"><a href="./values.yaml#L940">superset.supersetWebsockets.livenessProbe.periodSeconds</a></td>
 			<td>
 int
 </td>
@@ -2944,7 +2944,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--livenessProbe--successThreshold"><a href="./values.yaml#L942">superset.supersetWebsockets.livenessProbe.successThreshold</a></td>
+			<td id="superset--supersetWebsockets--livenessProbe--successThreshold"><a href="./values.yaml#L941">superset.supersetWebsockets.livenessProbe.successThreshold</a></td>
 			<td>
 int
 </td>
@@ -2956,7 +2956,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--livenessProbe--timeoutSeconds"><a href="./values.yaml#L939">superset.supersetWebsockets.livenessProbe.timeoutSeconds</a></td>
+			<td id="superset--supersetWebsockets--livenessProbe--timeoutSeconds"><a href="./values.yaml#L938">superset.supersetWebsockets.livenessProbe.timeoutSeconds</a></td>
 			<td>
 int
 </td>
@@ -2968,7 +2968,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--podAnnotations"><a href="./values.yaml#L920">superset.supersetWebsockets.podAnnotations</a></td>
+			<td id="superset--supersetWebsockets--podAnnotations"><a href="./values.yaml#L919">superset.supersetWebsockets.podAnnotations</a></td>
 			<td>
 object
 </td>
@@ -2980,7 +2980,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--podDisruptionBudget"><a href="./values.yaml#L866">superset.supersetWebsockets.podDisruptionBudget</a></td>
+			<td id="superset--supersetWebsockets--podDisruptionBudget"><a href="./values.yaml#L865">superset.supersetWebsockets.podDisruptionBudget</a></td>
 			<td>
 object
 </td>
@@ -2996,7 +2996,7 @@ object
 			<td>Sets the [pod disruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for supersetWebsockets pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--podDisruptionBudget--enabled"><a href="./values.yaml#L868">superset.supersetWebsockets.podDisruptionBudget.enabled</a></td>
+			<td id="superset--supersetWebsockets--podDisruptionBudget--enabled"><a href="./values.yaml#L867">superset.supersetWebsockets.podDisruptionBudget.enabled</a></td>
 			<td>
 bool
 </td>
@@ -3008,7 +3008,7 @@ false
 			<td>Whether the pod disruption budget should be created</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--podDisruptionBudget--maxUnavailable"><a href="./values.yaml#L872">superset.supersetWebsockets.podDisruptionBudget.maxUnavailable</a></td>
+			<td id="superset--supersetWebsockets--podDisruptionBudget--maxUnavailable"><a href="./values.yaml#L871">superset.supersetWebsockets.podDisruptionBudget.maxUnavailable</a></td>
 			<td>
 int
 </td>
@@ -3020,7 +3020,7 @@ int
 			<td>If set, minAvailable must not be set - see https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--podDisruptionBudget--minAvailable"><a href="./values.yaml#L870">superset.supersetWebsockets.podDisruptionBudget.minAvailable</a></td>
+			<td id="superset--supersetWebsockets--podDisruptionBudget--minAvailable"><a href="./values.yaml#L869">superset.supersetWebsockets.podDisruptionBudget.minAvailable</a></td>
 			<td>
 int
 </td>
@@ -3032,7 +3032,7 @@ int
 			<td>If set, maxUnavailable must not be set - see https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--podLabels"><a href="./values.yaml#L921">superset.supersetWebsockets.podLabels</a></td>
+			<td id="superset--supersetWebsockets--podLabels"><a href="./values.yaml#L920">superset.supersetWebsockets.podLabels</a></td>
 			<td>
 object
 </td>
@@ -3044,7 +3044,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--podSecurityContext"><a href="./values.yaml#L923">superset.supersetWebsockets.podSecurityContext</a></td>
+			<td id="superset--supersetWebsockets--podSecurityContext"><a href="./values.yaml#L922">superset.supersetWebsockets.podSecurityContext</a></td>
 			<td>
 object
 </td>
@@ -3056,7 +3056,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--priorityClassName"><a href="./values.yaml#L953">superset.supersetWebsockets.priorityClassName</a></td>
+			<td id="superset--supersetWebsockets--priorityClassName"><a href="./values.yaml#L952">superset.supersetWebsockets.priorityClassName</a></td>
 			<td>
 string
 </td>
@@ -3068,7 +3068,7 @@ null
 			<td>Set priorityClassName for supersetWebsockets pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--readinessProbe--failureThreshold"><a href="./values.yaml#L949">superset.supersetWebsockets.readinessProbe.failureThreshold</a></td>
+			<td id="superset--supersetWebsockets--readinessProbe--failureThreshold"><a href="./values.yaml#L948">superset.supersetWebsockets.readinessProbe.failureThreshold</a></td>
 			<td>
 int
 </td>
@@ -3080,7 +3080,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--readinessProbe--httpGet--path"><a href="./values.yaml#L945">superset.supersetWebsockets.readinessProbe.httpGet.path</a></td>
+			<td id="superset--supersetWebsockets--readinessProbe--httpGet--path"><a href="./values.yaml#L944">superset.supersetWebsockets.readinessProbe.httpGet.path</a></td>
 			<td>
 string
 </td>
@@ -3092,7 +3092,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--readinessProbe--httpGet--port"><a href="./values.yaml#L946">superset.supersetWebsockets.readinessProbe.httpGet.port</a></td>
+			<td id="superset--supersetWebsockets--readinessProbe--httpGet--port"><a href="./values.yaml#L945">superset.supersetWebsockets.readinessProbe.httpGet.port</a></td>
 			<td>
 string
 </td>
@@ -3104,7 +3104,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--readinessProbe--initialDelaySeconds"><a href="./values.yaml#L947">superset.supersetWebsockets.readinessProbe.initialDelaySeconds</a></td>
+			<td id="superset--supersetWebsockets--readinessProbe--initialDelaySeconds"><a href="./values.yaml#L946">superset.supersetWebsockets.readinessProbe.initialDelaySeconds</a></td>
 			<td>
 int
 </td>
@@ -3116,7 +3116,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--readinessProbe--periodSeconds"><a href="./values.yaml#L950">superset.supersetWebsockets.readinessProbe.periodSeconds</a></td>
+			<td id="superset--supersetWebsockets--readinessProbe--periodSeconds"><a href="./values.yaml#L949">superset.supersetWebsockets.readinessProbe.periodSeconds</a></td>
 			<td>
 int
 </td>
@@ -3128,7 +3128,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--readinessProbe--successThreshold"><a href="./values.yaml#L951">superset.supersetWebsockets.readinessProbe.successThreshold</a></td>
+			<td id="superset--supersetWebsockets--readinessProbe--successThreshold"><a href="./values.yaml#L950">superset.supersetWebsockets.readinessProbe.successThreshold</a></td>
 			<td>
 int
 </td>
@@ -3140,7 +3140,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--readinessProbe--timeoutSeconds"><a href="./values.yaml#L948">superset.supersetWebsockets.readinessProbe.timeoutSeconds</a></td>
+			<td id="superset--supersetWebsockets--readinessProbe--timeoutSeconds"><a href="./values.yaml#L947">superset.supersetWebsockets.readinessProbe.timeoutSeconds</a></td>
 			<td>
 int
 </td>
@@ -3152,7 +3152,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--replicaCount"><a href="./values.yaml#L864">superset.supersetWebsockets.replicaCount</a></td>
+			<td id="superset--supersetWebsockets--replicaCount"><a href="./values.yaml#L863">superset.supersetWebsockets.replicaCount</a></td>
 			<td>
 int
 </td>
@@ -3164,7 +3164,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--resources"><a href="./values.yaml#L912">superset.supersetWebsockets.resources</a></td>
+			<td id="superset--supersetWebsockets--resources"><a href="./values.yaml#L911">superset.supersetWebsockets.resources</a></td>
 			<td>
 object
 </td>
@@ -3176,7 +3176,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--service--annotations"><a href="./values.yaml#L905">superset.supersetWebsockets.service.annotations</a></td>
+			<td id="superset--supersetWebsockets--service--annotations"><a href="./values.yaml#L904">superset.supersetWebsockets.service.annotations</a></td>
 			<td>
 object
 </td>
@@ -3188,7 +3188,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--service--loadBalancerIP"><a href="./values.yaml#L906">superset.supersetWebsockets.service.loadBalancerIP</a></td>
+			<td id="superset--supersetWebsockets--service--loadBalancerIP"><a href="./values.yaml#L905">superset.supersetWebsockets.service.loadBalancerIP</a></td>
 			<td>
 string
 </td>
@@ -3200,7 +3200,7 @@ null
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--service--nodePort--http"><a href="./values.yaml#L910">superset.supersetWebsockets.service.nodePort.http</a></td>
+			<td id="superset--supersetWebsockets--service--nodePort--http"><a href="./values.yaml#L909">superset.supersetWebsockets.service.nodePort.http</a></td>
 			<td>
 int
 </td>
@@ -3212,7 +3212,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--service--port"><a href="./values.yaml#L907">superset.supersetWebsockets.service.port</a></td>
+			<td id="superset--supersetWebsockets--service--port"><a href="./values.yaml#L906">superset.supersetWebsockets.service.port</a></td>
 			<td>
 int
 </td>
@@ -3224,7 +3224,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--service--type"><a href="./values.yaml#L904">superset.supersetWebsockets.service.type</a></td>
+			<td id="superset--supersetWebsockets--service--type"><a href="./values.yaml#L903">superset.supersetWebsockets.service.type</a></td>
 			<td>
 string
 </td>
@@ -3236,7 +3236,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--startupProbe--failureThreshold"><a href="./values.yaml#L931">superset.supersetWebsockets.startupProbe.failureThreshold</a></td>
+			<td id="superset--supersetWebsockets--startupProbe--failureThreshold"><a href="./values.yaml#L930">superset.supersetWebsockets.startupProbe.failureThreshold</a></td>
 			<td>
 int
 </td>
@@ -3248,7 +3248,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--startupProbe--httpGet--path"><a href="./values.yaml#L927">superset.supersetWebsockets.startupProbe.httpGet.path</a></td>
+			<td id="superset--supersetWebsockets--startupProbe--httpGet--path"><a href="./values.yaml#L926">superset.supersetWebsockets.startupProbe.httpGet.path</a></td>
 			<td>
 string
 </td>
@@ -3260,7 +3260,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--startupProbe--httpGet--port"><a href="./values.yaml#L928">superset.supersetWebsockets.startupProbe.httpGet.port</a></td>
+			<td id="superset--supersetWebsockets--startupProbe--httpGet--port"><a href="./values.yaml#L927">superset.supersetWebsockets.startupProbe.httpGet.port</a></td>
 			<td>
 string
 </td>
@@ -3272,7 +3272,7 @@ string
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--startupProbe--initialDelaySeconds"><a href="./values.yaml#L929">superset.supersetWebsockets.startupProbe.initialDelaySeconds</a></td>
+			<td id="superset--supersetWebsockets--startupProbe--initialDelaySeconds"><a href="./values.yaml#L928">superset.supersetWebsockets.startupProbe.initialDelaySeconds</a></td>
 			<td>
 int
 </td>
@@ -3284,7 +3284,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--startupProbe--periodSeconds"><a href="./values.yaml#L932">superset.supersetWebsockets.startupProbe.periodSeconds</a></td>
+			<td id="superset--supersetWebsockets--startupProbe--periodSeconds"><a href="./values.yaml#L931">superset.supersetWebsockets.startupProbe.periodSeconds</a></td>
 			<td>
 int
 </td>
@@ -3296,7 +3296,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--startupProbe--successThreshold"><a href="./values.yaml#L933">superset.supersetWebsockets.startupProbe.successThreshold</a></td>
+			<td id="superset--supersetWebsockets--startupProbe--successThreshold"><a href="./values.yaml#L932">superset.supersetWebsockets.startupProbe.successThreshold</a></td>
 			<td>
 int
 </td>
@@ -3308,7 +3308,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--startupProbe--timeoutSeconds"><a href="./values.yaml#L930">superset.supersetWebsockets.startupProbe.timeoutSeconds</a></td>
+			<td id="superset--supersetWebsockets--startupProbe--timeoutSeconds"><a href="./values.yaml#L929">superset.supersetWebsockets.startupProbe.timeoutSeconds</a></td>
 			<td>
 int
 </td>
@@ -3320,7 +3320,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--strategy"><a href="./values.yaml#L922">superset.supersetWebsockets.strategy</a></td>
+			<td id="superset--supersetWebsockets--strategy"><a href="./values.yaml#L921">superset.supersetWebsockets.strategy</a></td>
 			<td>
 object
 </td>
@@ -3332,7 +3332,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWebsockets--topologySpreadConstraints"><a href="./values.yaml#L919">superset.supersetWebsockets.topologySpreadConstraints</a></td>
+			<td id="superset--supersetWebsockets--topologySpreadConstraints"><a href="./values.yaml#L918">superset.supersetWebsockets.topologySpreadConstraints</a></td>
 			<td>
 list
 </td>
@@ -3344,7 +3344,7 @@ list
 			<td>TopologySpreadConstrains to be added to supersetWebsockets deployments</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--affinity"><a href="./values.yaml#L659">superset.supersetWorker.affinity</a></td>
+			<td id="superset--supersetWorker--affinity"><a href="./values.yaml#L658">superset.supersetWorker.affinity</a></td>
 			<td>
 object
 </td>
@@ -3356,7 +3356,7 @@ object
 			<td>Affinity to be added to supersetWorker deployment</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--autoscaling--enabled"><a href="./values.yaml#L616">superset.supersetWorker.autoscaling.enabled</a></td>
+			<td id="superset--supersetWorker--autoscaling--enabled"><a href="./values.yaml#L615">superset.supersetWorker.autoscaling.enabled</a></td>
 			<td>
 bool
 </td>
@@ -3368,7 +3368,7 @@ false
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--autoscaling--maxReplicas"><a href="./values.yaml#L618">superset.supersetWorker.autoscaling.maxReplicas</a></td>
+			<td id="superset--supersetWorker--autoscaling--maxReplicas"><a href="./values.yaml#L617">superset.supersetWorker.autoscaling.maxReplicas</a></td>
 			<td>
 int
 </td>
@@ -3380,7 +3380,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--autoscaling--minReplicas"><a href="./values.yaml#L617">superset.supersetWorker.autoscaling.minReplicas</a></td>
+			<td id="superset--supersetWorker--autoscaling--minReplicas"><a href="./values.yaml#L616">superset.supersetWorker.autoscaling.minReplicas</a></td>
 			<td>
 int
 </td>
@@ -3392,7 +3392,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--autoscaling--targetCPUUtilizationPercentage"><a href="./values.yaml#L619">superset.supersetWorker.autoscaling.targetCPUUtilizationPercentage</a></td>
+			<td id="superset--supersetWorker--autoscaling--targetCPUUtilizationPercentage"><a href="./values.yaml#L618">superset.supersetWorker.autoscaling.targetCPUUtilizationPercentage</a></td>
 			<td>
 int
 </td>
@@ -3404,7 +3404,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--command"><a href="./values.yaml#L631">superset.supersetWorker.command</a></td>
+			<td id="superset--supersetWorker--command"><a href="./values.yaml#L630">superset.supersetWorker.command</a></td>
 			<td>
 list
 </td>
@@ -3416,7 +3416,7 @@ a `celery worker` command
 			<td>Worker startup command</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--containerSecurityContext"><a href="./values.yaml#L676">superset.supersetWorker.containerSecurityContext</a></td>
+			<td id="superset--supersetWorker--containerSecurityContext"><a href="./values.yaml#L675">superset.supersetWorker.containerSecurityContext</a></td>
 			<td>
 object
 </td>
@@ -3428,7 +3428,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--deploymentAnnotations"><a href="./values.yaml#L655">superset.supersetWorker.deploymentAnnotations</a></td>
+			<td id="superset--supersetWorker--deploymentAnnotations"><a href="./values.yaml#L654">superset.supersetWorker.deploymentAnnotations</a></td>
 			<td>
 object
 </td>
@@ -3440,7 +3440,7 @@ object
 			<td>Annotations to be added to supersetWorker deployment</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--deploymentLabels"><a href="./values.yaml#L657">superset.supersetWorker.deploymentLabels</a></td>
+			<td id="superset--supersetWorker--deploymentLabels"><a href="./values.yaml#L656">superset.supersetWorker.deploymentLabels</a></td>
 			<td>
 object
 </td>
@@ -3452,7 +3452,7 @@ object
 			<td>Labels to be added to supersetWorker deployment</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--extraContainers"><a href="./values.yaml#L653">superset.supersetWorker.extraContainers</a></td>
+			<td id="superset--supersetWorker--extraContainers"><a href="./values.yaml#L652">superset.supersetWorker.extraContainers</a></td>
 			<td>
 list
 </td>
@@ -3464,7 +3464,7 @@ list
 			<td>Launch additional containers into supersetWorker pod</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--forceReload"><a href="./values.yaml#L636">superset.supersetWorker.forceReload</a></td>
+			<td id="superset--supersetWorker--forceReload"><a href="./values.yaml#L635">superset.supersetWorker.forceReload</a></td>
 			<td>
 bool
 </td>
@@ -3476,7 +3476,7 @@ false
 			<td>If true, forces deployment to reload on each upgrade</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--initContainers"><a href="./values.yaml#L639">superset.supersetWorker.initContainers</a></td>
+			<td id="superset--supersetWorker--initContainers"><a href="./values.yaml#L638">superset.supersetWorker.initContainers</a></td>
 			<td>
 list
 </td>
@@ -3488,7 +3488,7 @@ a container waiting for postgres and redis
 			<td>Init container</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--livenessProbe--exec--command"><a href="./values.yaml#L687">superset.supersetWorker.livenessProbe.exec.command</a></td>
+			<td id="superset--supersetWorker--livenessProbe--exec--command"><a href="./values.yaml#L686">superset.supersetWorker.livenessProbe.exec.command</a></td>
 			<td>
 list
 </td>
@@ -3500,7 +3500,7 @@ a `celery inspect ping` command
 			<td>Liveness probe command</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--livenessProbe--failureThreshold"><a href="./values.yaml#L693">superset.supersetWorker.livenessProbe.failureThreshold</a></td>
+			<td id="superset--supersetWorker--livenessProbe--failureThreshold"><a href="./values.yaml#L692">superset.supersetWorker.livenessProbe.failureThreshold</a></td>
 			<td>
 int
 </td>
@@ -3512,7 +3512,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--livenessProbe--initialDelaySeconds"><a href="./values.yaml#L691">superset.supersetWorker.livenessProbe.initialDelaySeconds</a></td>
+			<td id="superset--supersetWorker--livenessProbe--initialDelaySeconds"><a href="./values.yaml#L690">superset.supersetWorker.livenessProbe.initialDelaySeconds</a></td>
 			<td>
 int
 </td>
@@ -3524,7 +3524,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--livenessProbe--periodSeconds"><a href="./values.yaml#L694">superset.supersetWorker.livenessProbe.periodSeconds</a></td>
+			<td id="superset--supersetWorker--livenessProbe--periodSeconds"><a href="./values.yaml#L693">superset.supersetWorker.livenessProbe.periodSeconds</a></td>
 			<td>
 int
 </td>
@@ -3536,7 +3536,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--livenessProbe--successThreshold"><a href="./values.yaml#L695">superset.supersetWorker.livenessProbe.successThreshold</a></td>
+			<td id="superset--supersetWorker--livenessProbe--successThreshold"><a href="./values.yaml#L694">superset.supersetWorker.livenessProbe.successThreshold</a></td>
 			<td>
 int
 </td>
@@ -3548,7 +3548,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--livenessProbe--timeoutSeconds"><a href="./values.yaml#L692">superset.supersetWorker.livenessProbe.timeoutSeconds</a></td>
+			<td id="superset--supersetWorker--livenessProbe--timeoutSeconds"><a href="./values.yaml#L691">superset.supersetWorker.livenessProbe.timeoutSeconds</a></td>
 			<td>
 int
 </td>
@@ -3560,7 +3560,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--podAnnotations"><a href="./values.yaml#L663">superset.supersetWorker.podAnnotations</a></td>
+			<td id="superset--supersetWorker--podAnnotations"><a href="./values.yaml#L662">superset.supersetWorker.podAnnotations</a></td>
 			<td>
 object
 </td>
@@ -3572,7 +3572,7 @@ object
 			<td>Annotations to be added to supersetWorker pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--podDisruptionBudget"><a href="./values.yaml#L622">superset.supersetWorker.podDisruptionBudget</a></td>
+			<td id="superset--supersetWorker--podDisruptionBudget"><a href="./values.yaml#L621">superset.supersetWorker.podDisruptionBudget</a></td>
 			<td>
 object
 </td>
@@ -3588,7 +3588,7 @@ object
 			<td>Sets the [pod disruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for supersetWorker pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--podDisruptionBudget--enabled"><a href="./values.yaml#L624">superset.supersetWorker.podDisruptionBudget.enabled</a></td>
+			<td id="superset--supersetWorker--podDisruptionBudget--enabled"><a href="./values.yaml#L623">superset.supersetWorker.podDisruptionBudget.enabled</a></td>
 			<td>
 bool
 </td>
@@ -3600,7 +3600,7 @@ false
 			<td>Whether the pod disruption budget should be created</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--podDisruptionBudget--maxUnavailable"><a href="./values.yaml#L628">superset.supersetWorker.podDisruptionBudget.maxUnavailable</a></td>
+			<td id="superset--supersetWorker--podDisruptionBudget--maxUnavailable"><a href="./values.yaml#L627">superset.supersetWorker.podDisruptionBudget.maxUnavailable</a></td>
 			<td>
 int
 </td>
@@ -3612,7 +3612,7 @@ int
 			<td>If set, minAvailable must not be set - see https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--podDisruptionBudget--minAvailable"><a href="./values.yaml#L626">superset.supersetWorker.podDisruptionBudget.minAvailable</a></td>
+			<td id="superset--supersetWorker--podDisruptionBudget--minAvailable"><a href="./values.yaml#L625">superset.supersetWorker.podDisruptionBudget.minAvailable</a></td>
 			<td>
 int
 </td>
@@ -3624,7 +3624,7 @@ int
 			<td>If set, maxUnavailable must not be set - see https://kubernetes.io/docs/tasks/run-application/configure-pdb/#specifying-a-poddisruptionbudget</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--podLabels"><a href="./values.yaml#L665">superset.supersetWorker.podLabels</a></td>
+			<td id="superset--supersetWorker--podLabels"><a href="./values.yaml#L664">superset.supersetWorker.podLabels</a></td>
 			<td>
 object
 </td>
@@ -3636,7 +3636,7 @@ object
 			<td>Labels to be added to supersetWorker pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--podSecurityContext"><a href="./values.yaml#L675">superset.supersetWorker.podSecurityContext</a></td>
+			<td id="superset--supersetWorker--podSecurityContext"><a href="./values.yaml#L674">superset.supersetWorker.podSecurityContext</a></td>
 			<td>
 object
 </td>
@@ -3648,7 +3648,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--priorityClassName"><a href="./values.yaml#L701">superset.supersetWorker.priorityClassName</a></td>
+			<td id="superset--supersetWorker--priorityClassName"><a href="./values.yaml#L700">superset.supersetWorker.priorityClassName</a></td>
 			<td>
 string
 </td>
@@ -3660,7 +3660,7 @@ null
 			<td>Set priorityClassName for supersetWorker pods</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--readinessProbe"><a href="./values.yaml#L699">superset.supersetWorker.readinessProbe</a></td>
+			<td id="superset--supersetWorker--readinessProbe"><a href="./values.yaml#L698">superset.supersetWorker.readinessProbe</a></td>
 			<td>
 object
 </td>
@@ -3672,7 +3672,7 @@ object
 			<td>No startup/readiness probes by default since we don't really care about its startup time (it doesn't serve traffic)</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--replicas--enabled"><a href="./values.yaml#L613">superset.supersetWorker.replicas.enabled</a></td>
+			<td id="superset--supersetWorker--replicas--enabled"><a href="./values.yaml#L612">superset.supersetWorker.replicas.enabled</a></td>
 			<td>
 bool
 </td>
@@ -3684,7 +3684,7 @@ true
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--replicas--replicaCount"><a href="./values.yaml#L614">superset.supersetWorker.replicas.replicaCount</a></td>
+			<td id="superset--supersetWorker--replicas--replicaCount"><a href="./values.yaml#L613">superset.supersetWorker.replicas.replicaCount</a></td>
 			<td>
 int
 </td>
@@ -3696,7 +3696,7 @@ int
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--resources"><a href="./values.yaml#L667">superset.supersetWorker.resources</a></td>
+			<td id="superset--supersetWorker--resources"><a href="./values.yaml#L666">superset.supersetWorker.resources</a></td>
 			<td>
 object
 </td>
@@ -3708,7 +3708,7 @@ object
 			<td>Resource settings for the supersetWorker pods - these settings overwrite might existing values from the global resources object defined above.</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--startupProbe"><a href="./values.yaml#L697">superset.supersetWorker.startupProbe</a></td>
+			<td id="superset--supersetWorker--startupProbe"><a href="./values.yaml#L696">superset.supersetWorker.startupProbe</a></td>
 			<td>
 object
 </td>
@@ -3720,7 +3720,7 @@ object
 			<td>No startup/readiness probes by default since we don't really care about its startup time (it doesn't serve traffic)</td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--strategy"><a href="./values.yaml#L677">superset.supersetWorker.strategy</a></td>
+			<td id="superset--supersetWorker--strategy"><a href="./values.yaml#L676">superset.supersetWorker.strategy</a></td>
 			<td>
 object
 </td>
@@ -3732,7 +3732,7 @@ object
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--supersetWorker--topologySpreadConstraints"><a href="./values.yaml#L661">superset.supersetWorker.topologySpreadConstraints</a></td>
+			<td id="superset--supersetWorker--topologySpreadConstraints"><a href="./values.yaml#L660">superset.supersetWorker.topologySpreadConstraints</a></td>
 			<td>
 list
 </td>
@@ -3744,7 +3744,7 @@ list
 			<td>TopologySpreadConstrains to be added to supersetWorker deployments</td>
 		</tr>
 		<tr>
-			<td id="superset--tolerations"><a href="./values.yaml#L1155">superset.tolerations</a></td>
+			<td id="superset--tolerations"><a href="./values.yaml#L1154">superset.tolerations</a></td>
 			<td>
 list
 </td>
@@ -3756,7 +3756,7 @@ list
 			<td></td>
 		</tr>
 		<tr>
-			<td id="superset--topologySpreadConstraints"><a href="./values.yaml#L1160">superset.topologySpreadConstraints</a></td>
+			<td id="superset--topologySpreadConstraints"><a href="./values.yaml#L1159">superset.topologySpreadConstraints</a></td>
 			<td>
 list
 </td>
