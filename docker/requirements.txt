@@ -1,4 +1,9 @@
+# Apache Superset with:
+# - Trino database support
+# - PostgreSQL support (typically for the metadata database)
+# Constrained to Superset 6.x releases only
+apache-superset[trino,postgres]>=6.0.0,<7.0.0
+
+# Required for OAuth2 / OIDC authentication integration
 Authlib
-sqlalchemy-trino
-# database drivers
-psycopg2-binary
+

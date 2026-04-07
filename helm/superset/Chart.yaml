@@ -15,11 +15,11 @@
 #
 
 apiVersion: v2
-appVersion: 5.0.0
+appVersion: 6.0.0
 dependencies:
   - name: superset
     repository: https://apache.github.io/superset
-    version: 0.15.0
+    version: 0.15.2
 description: Apache Superset is a modern, enterprise-ready business intelligence
   web application
 home: https://superset.apache.org/
@@ -36,4 +36,4 @@ name: superset
 sources:
   - https://github.com/apache/superset
   - https://github.com/okdp/charts/tree/main/charts/superset
-version: 0.15.0-1.1
+version: 0.15.2-1.0
