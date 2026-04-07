@@ -36,4 +36,4 @@ name: superset
 sources:
   - https://github.com/apache/superset
   - https://github.com/okdp/charts/tree/main/charts/superset
-version: 0.15.2-1.0
+version: 6.0.0-1.0
