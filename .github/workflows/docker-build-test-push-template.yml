@@ -54,7 +54,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout Repo ⚡️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
 #      - name: Free up disk space 📦
 #        uses: okdp/gh-workflows/.github/actions/free-disk-space@v1
@@ -84,14 +84,14 @@ jobs:
             echo "Set image tag to: $ci_tag"
 
       - name: Login into ${{ steps.ci_registry.outputs.ci_registry }} registry 🔐
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ${{ steps.ci_registry.outputs.ci_registry }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push image ${{ steps.image-tag.outputs.ci_tag }} 📤
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: ${{ inputs.context }}
           file: ${{ inputs.dockerfile }}

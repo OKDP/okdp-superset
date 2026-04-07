@@ -58,7 +58,7 @@ jobs:
       latest_git_tag: ${{ steps.latest-image-tag.outputs.latest_git_tag }}
     steps:
       - name: Checkout Repo ⚡️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Get latest GitHub Release tag name 📥
         id: latest-image-tag
@@ -70,7 +70,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout release tag ${{ needs.latest-image-tag.outputs.latest_git_tag }} ⚡️
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           ref: ${{ needs.latest-image-tag.outputs.latest_git_tag }}
@@ -91,7 +91,7 @@ jobs:
       ### Publish steps
       ### The publish and periodic rebuilds are based on the latest stable github release tag
       - name: Login into ${{ steps.registry.outputs.registry }} registry 🔐
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ${{ steps.registry.outputs.registry }}
           username: ${{ secrets.REGISTRY_USERNAME }}
@@ -112,7 +112,7 @@ jobs:
            echo "Set image tags to: $IMAGE_TAGS"
 
       - name: Build and push to ${{ steps.registry.outputs.registry_repo }} repository 📤
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: ${{ inputs.context }}
           file: ${{ inputs.dockerfile }}
