@@ -195,7 +195,7 @@ superset:
   configFromSecret: '{{ template "okdp.superset.fullname" . }}-config'
 
   # -- The name of the secret which we will use to populate env vars in deployed pods
-  # It stores superset credentials like SUPERSET_SECRET_KEY and sql jdbc uri to load examples, etc
+  # This can be useful for secret keys, etc.
   envFromSecret: '{{ template "okdp.superset.fullname" . }}-superset-env'
   # -- (tpl) List of OKDP external secrets
   envFromSecrets:
@@ -207,8 +207,7 @@ superset:
     - '{{ template "okdp.superset.fullname" . }}-redis-env'
 
   # -- Extra environment variables that will be passed into pods
-  extraEnv:
-    {}
+  extraEnv: {}
     # Different gunicorn settings, refer to the gunicorn documentation
     # https://docs.gunicorn.org/en/stable/settings.html#
     # These variables are used as Flags at the gunicorn startup
@@ -231,14 +230,25 @@ superset:
     # OAUTH_WHITELIST_REGEX: ...
 
   # -- Extra environment variables in RAW format that will be passed into pods
-  extraEnvRaw: {}
+  extraEnvRaw: []
+    # Load DB password from other secret (e.g. for zalando operator)
+    # - name: DB_PASS
+    #   valueFrom:
+    #     secretKeyRef:
+    #       name: superset.superset-postgres.credentials.postgresql.acid.zalan.do
+    #       key: password
 
   # -- Extra environment variables to pass as secrets
   extraSecretEnv: {}
+    # MAPBOX_API_KEY: ...
+    # # Google API Keys: https://console.cloud.google.com/apis/credentials
+    # GOOGLE_KEY: ...
+    # GOOGLE_SECRET: ...
+    #   # Generate your own secret key for encryption. Use openssl rand -base64 42 to generate a good key
+    #  SUPERSET_SECRET_KEY: 'CHANGE_ME_TO_A_COMPLEX_RANDOM_SECRET'
 
   # -- Extra files to be mounted as ConfigMap on the path specified in `extraConfigMountPath`
-  extraConfigs:
-    {}
+  extraConfigs: {}
     # import_datasources.yaml: |
     #     databases:
     #     - allow_file_upload: true
@@ -254,8 +264,7 @@ superset:
   # -- Extra files to be mounted as Secrets on the path specified in `configMountPath`
   extraSecrets: {}
 
-  extraVolumes:
-    []
+  extraVolumes: []
     # - name: customConfig
     #   configMap:
     #     name: '{{ template "superset.fullname" . }}-custom-config'
@@ -264,8 +273,7 @@ superset:
     #     secretName: my-secret
     #     defaultMode: 0600
 
-  extraVolumeMounts:
-    []
+  extraVolumeMounts: []
     # - name: customConfig
     #   mountPath: /mnt/config
     #   readOnly: true
@@ -411,8 +419,7 @@ superset:
         SQLALCHEMY_EXAMPLES_URI = sqlalchemy_examples_uri
 
   # -- Same as above but the values are files
-  configOverridesFiles:
-    {}
+  configOverridesFiles: {}
     # extend_timeout: extend_timeout.py
     # enable_oauth: enable_oauth.py
 
@@ -422,21 +429,20 @@ superset:
 
   image:
     repository: quay.io/okdp/superset
-    tag: 5.0.0
+    tag: 6.0.0
     pullPolicy: IfNotPresent
 
   imagePullSecrets: []
 
   initImage:
     repository: quay.io/okdp/superset
-    tag: 5.0.0-dockerize
+    tag: 6.0.0-dockerize
     pullPolicy: IfNotPresent
 
   service:
     type: ClusterIP
     port: 8088
-    annotations:
-      {}
+    annotations: {}
       # cloud.google.com/load-balancer-type: "Internal"
     loadBalancerIP: ~
     nodePort:
@@ -446,8 +452,7 @@ superset:
   ingress:
     enabled: false
     ingressClassName: ~
-    annotations:
-      {}
+    annotations: {}
       # kubernetes.io/tls-acme: "true"
       ## Extend timeout to allow long running queries.
       # nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
@@ -463,8 +468,7 @@ superset:
     #    hosts:
     #      - chart-example.local
 
-  resources:
-    {}
+  resources: {}
     # We usually recommend not to specify default resources and to leave this as a conscious
     # choice for the user. This also increases chances charts run on environments with little
     # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -491,9 +495,9 @@ superset:
       enabled: true
       replicaCount: 1
     autoscaling:
-      enabled: true
+      enabled: false
       minReplicas: 1
-      maxReplicas: 3
+      maxReplicas: 100
       targetCPUUtilizationPercentage: 80
       # targetMemoryUtilizationPercentage: 80
     # -- Sets the [pod disruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for supersetNode pods
@@ -525,6 +529,8 @@ superset:
         enabled: false
         ssl_cert_reqs: CERT_NONE
       # You need to change below configuration incase bringing own PostgresSQL instance and also set postgresql.enabled:false
+      # -- Database type for Superset metadata (Supported types: "postgresql", "mysql")
+      db_type: "postgresql"
       db_host: "{{ .Release.Name }}-postgresql"
       db_port: "5432"
       db_user: superset
@@ -589,8 +595,7 @@ superset:
       periodSeconds: 15
       successThreshold: 1
     # -- Resource settings for the supersetNode pods - these settings overwrite might existing values from the global resources object defined above.
-    resources:
-      {}
+    resources: {}
       # limits:
       #  cpu: 100m
       #  memory: 128Mi
@@ -599,8 +604,7 @@ superset:
       #  memory: 128Mi
     podSecurityContext: {}
     containerSecurityContext: {}
-    strategy:
-      {}
+    strategy: {}
       # type: RollingUpdate
       # rollingUpdate:
       #   maxSurge: 25%
@@ -663,8 +667,7 @@ superset:
     # -- Labels to be added to supersetWorker pods
     podLabels: {}
     # -- Resource settings for the supersetWorker pods - these settings overwrite might existing values from the global resources object defined above.
-    resources:
-      {}
+    resources: {}
       # limits:
       #  cpu: 100m
       #  memory: 128Mi
@@ -673,8 +676,7 @@ superset:
       #  memory: 128Mi
     podSecurityContext: {}
     containerSecurityContext: {}
-    strategy:
-      {}
+    strategy: {}
       # type: RollingUpdate
       # rollingUpdate:
       #   maxSurge: 25%
@@ -747,8 +749,7 @@ superset:
     # -- Labels to be added to supersetCeleryBeat pods
     podLabels: {}
     # -- Resource settings for the CeleryBeat pods - these settings overwrite might existing values from the global resources object defined above.
-    resources:
-      {}
+    resources: {}
       # limits:
       #  cpu: 100m
       #  memory: 128Mi
@@ -843,8 +844,7 @@ superset:
     # -- Labels to be added to supersetCeleryFlower pods
     podLabels: {}
     # -- Resource settings for the CeleryBeat pods - these settings overwrite might existing values from the global resources object defined above.
-    resources:
-      {}
+    resources: {}
       # limits:
       #  cpu: 100m
       #  memory: 128Mi
@@ -858,7 +858,7 @@ superset:
 
   supersetWebsockets:
     # -- This is only required if you intend to use `GLOBAL_ASYNC_QUERIES` in `ws` mode
-    # see https://github.com/apache/superset/blob/master/CONTRIBUTING.md#async-chart-queries
+  # see https://superset.apache.org/docs/contributing/misc#async-chart-queries
     enabled: false
     replicaCount: 1
     # -- Sets the [pod disruption budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) for supersetWebsockets pods
@@ -875,7 +875,7 @@ superset:
     image:
       # -- There is no official image (yet), this one is community-supported
       repository: quay.io/okdp/superset
-      tag: 5.0.0-websocket
+      tag: 6.0.0-websocket
       pullPolicy: IfNotPresent
     # -- The config.json to pass to the server, see https://github.com/apache/superset/tree/master/superset-websocket
     # Note that the configuration can also read from environment variables (which will have priority), see https://github.com/apache/superset/blob/master/superset-websocket/src/config.ts for a list of supported variables
@@ -957,8 +957,7 @@ superset:
     # cause the process to be killed due to OOM if it exceeds limit
     # Make sure you are giving a strong password for the admin user creation( else make sure you are changing after setup)
     # Also change the admin email to your own custom email.
-    resources:
-      {}
+    resources: {}
       # limits:
       #   cpu:
       #   memory:
@@ -1056,7 +1055,6 @@ superset:
     ##
     ## Use the PostgreSQL chart dependency.
     ## Set to false if bringing your own PostgreSQL.
-    ## Disable bitnami postgresql helm chart to use pgcluster
     enabled: true
 
     ## Authentication parameters
