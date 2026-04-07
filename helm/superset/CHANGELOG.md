@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.15.2-1.0](https://github.com/OKDP/okdp-superset/compare/helm-okdp-superset/v0.15.0-1.1...helm-okdp-superset/v0.15.2-1.0) (2026-04-07)
+
+
+### chore
+
+* release 0.15.2-1.0 ([e9038f5](https://github.com/OKDP/okdp-superset/commit/e9038f5f8602fa22d1a1a83d502c9a98a7b9d7ce))
+* release 6.0.0-1.0 ([83e934b](https://github.com/OKDP/okdp-superset/commit/83e934b1bd6892a74e3bfd99f93c624ec0779008))
+
 ## [0.15.0-1.1](https://github.com/OKDP/okdp-superset/compare/helm-okdp-superset/v0.15.0-1.0...helm-okdp-superset/v0.15.0-1.1) (2025-11-24)
 
 
