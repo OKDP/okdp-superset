@@ -45,6 +45,13 @@ okdp:
       ## Set up max age of session to 8 hours
       PERMANENT_SESSION_LIFETIME = timedelta(hours=8)
       ENABLE_PROXY_FIX = True
+      PROXY_FIX_CONFIG = {
+        "x_for": 1,
+        "x_proto": 1,
+        "x_host": 1,
+        "x_port": 1,
+        "x_prefix": 1,
+      }
     
     # -- Turn On/Off your preferred superset <a href='https://github.com/apache/superset/blob/master/RESOURCES/FEATURE_FLAGS.md'>feature flags</a>.
     # @notationType -- python
@@ -155,7 +162,26 @@ okdp:
     # and <a href="https://superset.apache.org/docs/security/#provided-roles">Superset provided roles</a>
     # @section -- OKDP Specifc configuration
     oauth2_superset_roles_mapping: &oauth2_superset_roles_mapping |
-       
+
+  trino:
+    oauth:
+      # -- Enable Oauth2 authentication
+      # @section -- OKDP Specifc configuration
+      enabled: false
+      # -- Specify the OIDC provider base URL `without` the trailing discovery configuration `/.well-known/openid-configuration`
+      # @section -- OKDP Specifc configuration
+      base_url: ""
+      # -- Specify your OIDC client Id
+      # @section -- OKDP Specifc configuration
+      client_id: ""
+      # -- Specify your OIDC client secret
+      # For public clients, the 'client_secret' is not required
+      # @section -- OKDP Specifc configuration
+      client_secret: ""
+      # -- Specify the scopes as space separated values
+      # Example: "openid profile email roles"
+      # @section -- OKDP Specifc configuration
+      scope: ""
 
 superset:
   # -- Provide a name to override the name of the chart
@@ -201,10 +227,12 @@ superset:
   envFromSecrets:
     # -- External OKDP secret which stores superset database credentials
     - '{{ template "okdp.superset.fullname" . }}-db-env'
-    # -- External OKDP secret which stores Oauth credentials
+    # -- External OKDP secret which stores OAuth credentials
     - '{{ template "okdp.superset.fullname" . }}-oauth2-env'
     # -- External OKDP secret which stores Redis credentials
     - '{{ template "okdp.superset.fullname" . }}-redis-env'
+    # -- External OKDP secret which stores Trino OAuth2 credentials
+    - '{{ template "okdp.superset.fullname" . }}-trino-oauth2-env'
 
   # -- Extra environment variables that will be passed into pods
   extraEnv: {}
@@ -313,11 +341,12 @@ superset:
     # See also <a href="https://superset.apache.org/docs/configuration/configuring-superset/#custom-oauth2-configuration">Custom OAuth2 Configuration</a>
     # @default -- see `values.yaml`
     oauth_enabled: |
+      import os
+      
       AUTH_OAUTH_ENABLED = eval(os.environ["AUTH_OAUTH_ENABLED"].title())
       if AUTH_OAUTH_ENABLED:
         from flask_appbuilder.security.manager import AUTH_OAUTH
-        import os
-
+        
         oauth2_providers = [
             {   'name':'dex',
                 'token_key':'access_token',
@@ -360,6 +389,26 @@ superset:
         OAUTH_PROVIDERS = list(filter(lambda e: e['name'] == AUTH_OAUTH_PROVIDER, oauth2_providers))
         AUTH_TYPE = AUTH_OAUTH
 
+    # -- Add support for Apache Trino OAuth2
+    trino_oauth_enabled: |
+      import os
+      
+      TRINO_OAUTH_ENABLED = eval(os.environ["TRINO_OAUTH_ENABLED"].title())
+      if TRINO_OAUTH_ENABLED:
+        superset_domain = os.environ["SUPERSET_DOMAIN"].strip().strip("/")
+        redirect_uri = f"https://{superset_domain}/api/v1/database/oauth2/"
+    
+        DATABASE_OAUTH2_REDIRECT_URI = redirect_uri
+        DATABASE_OAUTH2_CLIENTS = {
+          "Trino": {
+              "id": os.environ["TRINO_OAUTH_CLIENT_ID"],
+              "secret": os.environ["TRINO_OAUTH_CLIENT_SECRET"],
+              "scope": os.getenv("TRINO_OAUTH_SCOPE", "openid profile email groups"),
+              "authorization_request_uri": f'{os.environ["TRINO_AUTH_OAUTH_BASE_URL"].rstrip("/")}/auth',
+              "token_request_uri": f'{os.environ["TRINO_AUTH_OAUTH_BASE_URL"].rstrip("/")}/token',
+          }
+        }
+
     # -- Add custom security manager implementation for keycloak and DEX IDPs
     # @notationType -- python
     # See also <a href="https://superset.apache.org/docs/configuration/configuring-superset/#custom-oauth2-configuration">Custom OAuth2 Configuration</a>
@@ -378,12 +427,15 @@ superset:
                   # and expects that authorization server checks the token, and response with user details
                   me = self.appbuilder.sm.oauth_remotes[provider].get('userinfo').json()
                   log.info("Received userinfo {0} from oidc provider {1}".format(me, provider))
-                  userinfo = { 
-                      'name' : me['name'], 
-                      'email' : me['email'], 
-                      'sub' : me['sub'], 
-                      'groups': me['groups'],
-                      'role_keys': me['groups']
+                  userinfo = {
+                        'username': me.get('preferred_username', me.get('email', me.get('name', ''))),
+                        'first_name': me.get('given_name', ''),
+                        'last_name': me.get('family_name', ''),
+                        'name': me.get('name', ''),
+                        'email': me.get('email', ''),
+                        'sub': me.get('sub', ''),
+                        'groups': me.get('groups', []),
+                        'role_keys': me.get('groups', []),
                   }
                   log.info("Effective role mapping: {0}".format(userinfo))
                   return userinfo
@@ -393,10 +445,10 @@ superset:
                   me = self.appbuilder.sm.oauth_remotes[provider].get('userinfo').json()
                   log.info("Received userinfo {0} from oidc provider {1}".format(me, provider))
                   userinfo = { 
-                      'name' : me.get('name', ''), 
-                      'preferred_username': me.get('preferred_username', ''),
-                      'given_name': me.get('given_name', ''),
-                      'family_name': me.get('family_name', ''),
+                      'username' : me.get('preferred_username', ''),
+                      'first_name': me.get('given_name', ''),
+                      'last_name': me.get('family_name', ''),
+                      'name': me.get('name', ''),
                       'email' : me.get('email', ''), 
                       'sub' : me.get('sub', ''), 
                       'groups': me.get('groups', []),
