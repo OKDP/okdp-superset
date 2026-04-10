@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.15.2-2.0](https://github.com/OKDP/okdp-superset/compare/helm-okdp-superset/v0.15.2-1.0...helm-okdp-superset/v0.15.2-2.0) (2026-04-10)
+
+
+### chore
+
+* release 0.15.2-2.0 ([2dde524](https://github.com/OKDP/okdp-superset/commit/2dde524de81aef6e5a9a58b3ea46c7c43908c8d0))
+
+
+### Features
+
+* add OAuth2 support for Trino ([fe4e46b](https://github.com/OKDP/okdp-superset/commit/fe4e46b6af05bb5c602b9b6a227d0f7426e4167d))
+
 ## [0.15.2-1.0](https://github.com/OKDP/okdp-superset/compare/helm-okdp-superset/v0.15.0-1.1...helm-okdp-superset/v0.15.2-1.0) (2026-04-07)
 
 
