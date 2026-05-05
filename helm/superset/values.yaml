@@ -34,11 +34,11 @@ okdp:
     # ```
     #
     # See also <a href='https://superset.apache.org/docs/configuration/configuring-superset/#superset_configpy'>Superset configuration.</a>
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     superset_secret_key: "bnAL0bMMkEeQuw5ZOsFNrO5FGRmBFJwYIlkU3qoFU0txlvFJkLurRw9k"
     # -- Define superset extra configuration as python code
     # @notationType -- python
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     # @default -- see `values.yaml`
     extra_config: &extra_config |
       from datetime import timedelta
@@ -73,16 +73,16 @@ okdp:
     #
     # </details>
     # 
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     feature_flags: &feature_flags |
           
     # Examples configuration
     load_examples:
       # -- Load examples at chart deployment time
-      # @section -- OKDP Specifc configuration
+      # @section -- OKDP Specific configuration
       enabled: false
       # -- Specify the database URL where the examples will be loaded
-      # @section -- OKDP Specifc configuration
+      # @section -- OKDP Specific configuration
       # @default -- see `values.yaml`
       jdbc_uri: 'postgresql+psycopg2://superset:superset@{{ .Release.Name }}-postgresql:5432'
       # jdbc_uri: 'trino://trino@trino:8080/nessie/examples'
@@ -90,30 +90,30 @@ okdp:
   # Oauth2 configuration
   oauth:
     # -- Enable Oauth2 authentication
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     enabled: false
     # -- Specify the OIDC provider. One of `` `dex` or `keycloak`
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     provider: ""
     # -- Specify the OIDC provider base URL `without` the trailing discovery configuration `/.well-known/openid-configuration`
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     base_url: ""
     # -- Specify your OIDC client Id
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     client_id: ""
     # -- Specify your OIDC client secret
     # For public clients, the 'client_secret' is not required
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     client_secret: ""
     # -- Specify the scopes as space separated values
     # Example: "openid profile email roles"
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     scope: ""
     # -- Enable or disable PKCE usage
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     use_pkce: false
     # -- Enable or disable SSL certificate verification
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     ssl_certificate_verify: false
     # -- Configure user self registration, allowing to create Flask users from Authorized User
     # @notationType -- python
@@ -133,7 +133,7 @@ okdp:
     #
     # See also <a href='https://superset.apache.org/docs/configuration/configuring-superset/#custom-oauth2-configuration'>Custom OAuth2 Configuration.</a>
     #
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     auth_registration: &auth_registration |
        
     # -- Map the OAUTH groups to the Superset roles
@@ -160,27 +160,27 @@ okdp:
     #
     # See also <a href='https://superset.apache.org/docs/configuration/configuring-superset/#mapping-oauth-groups-to-superset-roles'>Mapping OAUTH groups to Superset roles</a>
     # and <a href="https://superset.apache.org/docs/security/#provided-roles">Superset provided roles</a>
-    # @section -- OKDP Specifc configuration
+    # @section -- OKDP Specific configuration
     oauth2_superset_roles_mapping: &oauth2_superset_roles_mapping |
 
   trino:
     oauth:
       # -- Enable Oauth2 authentication
-      # @section -- OKDP Specifc configuration
+      # @section -- OKDP Specific configuration
       enabled: false
       # -- Specify the OIDC provider base URL `without` the trailing discovery configuration `/.well-known/openid-configuration`
-      # @section -- OKDP Specifc configuration
+      # @section -- OKDP Specific configuration
       base_url: ""
       # -- Specify your OIDC client Id
-      # @section -- OKDP Specifc configuration
+      # @section -- OKDP Specific configuration
       client_id: ""
       # -- Specify your OIDC client secret
       # For public clients, the 'client_secret' is not required
-      # @section -- OKDP Specifc configuration
+      # @section -- OKDP Specific configuration
       client_secret: ""
       # -- Specify the scopes as space separated values
       # Example: "openid profile email roles"
-      # @section -- OKDP Specifc configuration
+      # @section -- OKDP Specific configuration
       scope: ""
 
 superset:
