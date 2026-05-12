@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.15.3-2.0](https://github.com/OKDP/okdp-superset/compare/helm-okdp-superset/v0.15.2-2.0...helm-okdp-superset/v0.15.3-2.0) (2026-05-12)
+
+
+### Documentation
+
+* rewrite README + fix broken install commands ([63382ce](https://github.com/OKDP/okdp-superset/commit/63382ce307dc82416e3c097fd332f011e1d84135))
+* rewrite README and fix broken helm commands ([558e7ef](https://github.com/OKDP/okdp-superset/commit/558e7ef3d5b5063b73fe48cb0792965c72557fdd))
+
 ## [0.15.2-2.0](https://github.com/OKDP/okdp-superset/compare/helm-okdp-superset/v0.15.2-1.0...helm-okdp-superset/v0.15.2-2.0) (2026-04-10)
 
 
