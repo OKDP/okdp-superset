@@ -1,6 +1,6 @@
 <!-- Section 0 — Product image -->
 
-<img src="https://superset.apache.org/img/superset-logo-horiz.svg" alt="Apache Superset" height="48" align="right" />
+<img src="https://superset.apache.org/img/superset-logo-horiz.svg" alt="Apache Superset" height="80" align="right" />
 
 <!-- Section 1 — Badges -->
 
