@@ -207,11 +207,7 @@ dashboards|11
 slices|121
 ```
 
-<!-- Section 16 — Contributing + License -->
-
-## Contributing
-
-Please follow the [OKDP contribution guide](https://github.com/OKDP/.github/blob/main/CONTRIBUTING.md): fork-based workflow, Conventional Commits, all PRs linked to an issue, ≥ 1 maintainer approval, all CI checks green.
+<!-- Section 16 — License -->
 
 ## License
 
