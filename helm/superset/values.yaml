@@ -92,7 +92,7 @@ okdp:
     # -- Enable Oauth2 authentication
     # @section -- OKDP Specific configuration
     enabled: false
-    # -- Specify the OIDC provider. One of `` `dex` or `keycloak`
+    # -- Specify the OIDC provider. One of `dex` or `keycloak`
     # @section -- OKDP Specific configuration
     provider: ""
     # -- Specify the OIDC provider base URL `without` the trailing discovery configuration `/.well-known/openid-configuration`
@@ -151,7 +151,7 @@ okdp:
     #   "admins": ["Admin"],
     #   "team1": ["Gamma", "sql_lab"],
     #   "team2": ["Alpha"],
-    #   # keycloack
+    #   # keycloak
     #   "/team1": ["Admin"],
     # }
     # ```
@@ -196,9 +196,9 @@ superset:
   # Running containers as root is not recommended in production. Change this to another UID - e.g. 1000 to be more secure
   runAsUser: 0
 
-  # -- Specify rather or not helm should create the secret described in `secret-env.yaml` template
+  # -- Specify whether or not helm should create the secret described in `secret-env.yaml` template
   secretEnv:
-    # -- Change to false in order to support externally created secret (Binami "Sealed Secrets" for Kubernetes or External Secrets Operator)
+    # -- Change to false in order to support externally created secret (Bitnami "Sealed Secrets" for Kubernetes or External Secrets Operator)
     # note: when externally creating the secret, the chart still expects to pull values from a secret with the name of the release defaults to `release-name-superset-env` - full logic located in _helpers.tpl file: `define "superset.fullname"`
     create: false
 
@@ -580,7 +580,7 @@ superset:
       redis_ssl:
         enabled: false
         ssl_cert_reqs: CERT_NONE
-      # You need to change below configuration incase bringing own PostgresSQL instance and also set postgresql.enabled:false
+      # You need to change below configuration in case bringing own PostgreSQL instance and also set postgresql.enabled:false
       # -- Database type for Superset metadata (Supported types: "postgresql", "mysql")
       db_type: "postgresql"
       db_host: "{{ .Release.Name }}-postgresql"
@@ -1186,7 +1186,7 @@ superset:
       ## docker registry secret names (list)
       # pullSecrets: nil
       ##
-      ## Configure persistance
+      ## Configure persistence
       persistence:
         ##
         ## Use a PVC to persist data.

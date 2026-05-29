@@ -190,7 +190,7 @@ AUTH_ROLES_MAPPING = {
   "admins": ["Admin"],
   "team1": ["Gamma", "sql_lab"],
   "team2": ["Alpha"],
-  # keycloack
+  # keycloak
   "/team1": ["Admin"],
 }
 ```
@@ -210,7 +210,7 @@ string
 ""
 </pre>
 </div></td>
-			<td>Specify the OIDC provider. One of `` `dex` or `keycloak`</td>
+			<td>Specify the OIDC provider. One of `dex` or `keycloak`</td>
 		</tr>
 		<tr>
 			<td id="okdp--oauth--scope"><a href="./values.yaml#L111">okdp.oauth.scope</a></td>
@@ -1265,7 +1265,7 @@ object
 }
 </pre>
 </div></td>
-			<td>Specify rather or not helm should create the secret described in `secret-env.yaml` template</td>
+			<td>Specify whether or not helm should create the secret described in `secret-env.yaml` template</td>
 		</tr>
 		<tr>
 			<td id="superset--secretEnv--create"><a href="./values.yaml#L203">superset.secretEnv.create</a></td>
@@ -1277,7 +1277,7 @@ bool
 false
 </pre>
 </div></td>
-			<td>Change to false in order to support externally created secret (Binami "Sealed Secrets" for Kubernetes or External Secrets Operator) note: when externally creating the secret, the chart still expects to pull values from a secret with the name of the release defaults to `release-name-superset-env` - full logic located in _helpers.tpl file: `define "superset.fullname"`</td>
+			<td>Change to false in order to support externally created secret (Bitnami "Sealed Secrets" for Kubernetes or External Secrets Operator) note: when externally creating the secret, the chart still expects to pull values from a secret with the name of the release defaults to `release-name-superset-env` - full logic located in _helpers.tpl file: `define "superset.fullname"`</td>
 		</tr>
 		<tr>
 			<td id="superset--service--annotations"><a href="./values.yaml#L497">superset.service.annotations</a></td>

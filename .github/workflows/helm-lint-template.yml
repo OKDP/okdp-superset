@@ -25,7 +25,7 @@ on:
         type: string
         default: 'superset'
       skip_chart_test:
-        description: Wether to deploy and test the chart
+        description: Whether to deploy and test the chart
         required: false
         type: boolean
         default: false
@@ -130,7 +130,7 @@ jobs:
                   --set=superset.image.tag=${CI_TAG} \
                   --set=superset.initImage.repository=$REGISTRY_REPO/${{ inputs.image }} \
                   --set=superset.initImage.tag=${CI_TAG}-dockerize \
-                  --set=superset.supersetWebsockets.repository=$REGISTRY_REPO/${{ inputs.image }} \
+                  --set=superset.supersetWebsockets.image.repository=$REGISTRY_REPO/${{ inputs.image }} \
                   --set=superset.supersetWebsockets.image.tag=${CI_TAG}-websocket" \
              --print-config
 
