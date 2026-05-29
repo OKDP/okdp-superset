@@ -4,7 +4,7 @@
   "description": "Superset docker image",
   "repository": {
     "type": "git",
-    "url": "https://github.com/okdp/superset"
+    "url": "https://github.com/OKDP/okdp-superset"
   },
   "homepage": "https://okdp.io/",
   "license": "Apache-2.0"
