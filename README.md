@@ -94,12 +94,12 @@ helm upgrade --cleanup-on-fail --install my-release \
 
 ```sh
 kubectl get pods
-# NAME                                          READY   STATUS      RESTARTS       AGE
-# my-release-postgresql-0                       1/1     Running     0              2m
-# my-release-redis-master-0                     1/1     Running     0              2m
-# my-release-superset-78c5797746-vg8fx          1/1     Running     0              2m
-# my-release-superset-init-db-t4fjw             0/1     Completed  0              2m
-# my-release-superset-worker-848cd5895d-2svb4   1/1     Running     0              2m
+# NAME                                  READY   STATUS      RESTARTS   AGE
+# my-release-postgresql-0               1/1     Running     0          2m
+# my-release-redis-master-0             1/1     Running     0          2m
+# my-release-superset-<hash>            1/1     Running     0          2m
+# my-release-superset-init-db-<hash>    0/1     Completed   0          2m
+# my-release-superset-worker-<hash>     1/1     Running     0          2m
 ```
 
 A few `RESTARTS` on `my-release-superset-*` and `my-release-superset-worker-*` are normal on a resource-constrained cluster (laptop, kind) — the liveness/readiness probes have aggressive timeouts and may fail under load. As long as the pods reach `READY 1/1` and `/health` returns `200`, the release is healthy.
