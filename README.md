@@ -66,10 +66,19 @@ A `helm install` creates the Superset web Deployment, the Celery worker Deployme
 
 ## Prerequisites
 
-- Kubernetes cluster — known-good tested baseline: **Kubernetes 1.30** (kind), works with `>= 1.19`.
-- [Helm](https://helm.sh/) — known-good tested baseline: **Helm 3.18**, works with `>= 3`.
+- A Kubernetes cluster with a default `StorageClass` providing dynamic PV provisioning (the bundled PostgreSQL and Redis subcharts request PVCs by default).
+- [Helm](https://helm.sh/) `>= 3`.
 - `openssl` to generate the Flask secret key in [Quick Start](#quick-start).
-- A default `StorageClass` providing dynamic PV provisioning (the bundled PostgreSQL and Redis subcharts request PVCs by default).
+
+### Toolchain tested
+
+| Tool | Version |
+|:-----|:--------|
+| Kubernetes (Kind) | `1.30.0` |
+| Kind | `0.23.0` |
+| Helm CLI | `3.18.4` |
+| kubectl | `1.33.2` |
+| Docker | `28.2.2` |
 
 ## Quick Start
 
