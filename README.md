@@ -32,16 +32,6 @@ This repository builds and publishes:
 - Security-patched rebuilds of the upstream `-dockerize` and `-websocket` image variants used as init and websocket sidecars by the chart.
 - A Helm chart that wraps the official Apache Superset chart ([`helm/superset/Chart.yaml`](helm/superset/Chart.yaml) depends on `superset` `0.15.2`) and adds the OKDP defaults listed in [Why this project](#why-this-project).
 
-## Architecture
-
-The diagram below shows the components that a `helm install` of this chart creates inside a Kubernetes cluster, plus the external services Superset can be wired to (an OAuth2/OIDC IdP and a Trino coordinator). For the upstream Superset runtime design (Flask, Celery, Redis as broker, metadata DB), see the [official Apache Superset documentation](https://superset.apache.org/docs/intro).
-
-<p align="center">
-  <img src="docs/assets/architecture.svg" alt="OKDP Superset — deployment architecture" />
-</p>
-
-A `helm install` creates the Superset web Deployment, the Celery worker Deployment, plus an embedded PostgreSQL ([`helm/superset/values.yaml#L1106`](helm/superset/values.yaml#L1106)) and Redis ([`helm/superset/values.yaml#L1151`](helm/superset/values.yaml#L1151)). Both can be disabled to bring your own (`superset.postgresql.enabled: false` / `superset.redis.enabled: false`). External IdPs (Keycloak, Dex) and the Trino coordinator are reached over the network; the chart wires the corresponding env vars and Python `configOverrides` for you.
-
 ## Components
 
 All artefacts are published under [`quay.io/okdp`](https://quay.io/organization/okdp):
@@ -63,6 +53,16 @@ All artefacts are published under [`quay.io/okdp`](https://quay.io/organization/
 - `<superset-version>` matches the upstream Apache Superset release (e.g. `6.0.0`).
 - `<superset-version>-<okdp-build>` adds an OKDP-specific build number (e.g. `6.0.0-1.0`) — bumped whenever the OKDP layer changes without a Superset upgrade.
 - Chart versions follow `<chart-version>-<okdp-build>` (e.g. `0.15.2-2.0`) where `<chart-version>` matches the upstream Apache Superset Helm chart.
+
+## Architecture
+
+The diagram below shows the components that a `helm install` of this chart creates inside a Kubernetes cluster, plus the external services Superset can be wired to (an OAuth2/OIDC IdP and a Trino coordinator). For the upstream Superset runtime design (Flask, Celery, Redis as broker, metadata DB), see the [official Apache Superset documentation](https://superset.apache.org/docs/intro).
+
+<p align="center">
+  <img src="docs/assets/architecture.svg" alt="OKDP Superset — deployment architecture" />
+</p>
+
+A `helm install` creates the Superset web Deployment, the Celery worker Deployment, plus an embedded PostgreSQL ([`helm/superset/values.yaml#L1106`](helm/superset/values.yaml#L1106)) and Redis ([`helm/superset/values.yaml#L1151`](helm/superset/values.yaml#L1151)). Both can be disabled to bring your own (`superset.postgresql.enabled: false` / `superset.redis.enabled: false`). External IdPs (Keycloak, Dex) and the Trino coordinator are reached over the network; the chart wires the corresponding env vars and Python `configOverrides` for you.
 
 ## Prerequisites
 
@@ -201,6 +201,7 @@ slices|121
 ## Troubleshooting
 
 - **`helm install` fails with `Could not locate a version matching provided version string`** — OCI chart pulls do not resolve a default version; always pass `--version <chart-version>` to `helm install`, `helm upgrade` and `helm pull`.
+- **`helm install` fails with `Error: failed post-install: timed out waiting for the condition`** — the default Helm timeout (5 min) is too short on resource-constrained clusters (laptop, kind). The init-db Job runs upstream `bitnami/postgresql:latest` and `bitnami/redis:latest` images, whose `latest` tag forces `imagePullPolicy: Always` and re-pulls them at every install. Pass `--timeout 15m` (or higher) to give the post-install hook enough time.
 - **Pods stuck in `Pending`** — no default `StorageClass`, so PVCs cannot be bound. Either provision a default `StorageClass`, or disable persistence for testing: `--set superset.postgresql.primary.persistence.enabled=false --set superset.redis.master.persistence.enabled=false`.
 - **After login, the browser loops back to `/login/`** — most often a mismatch between `okdp.oauth.base_url` and the IdP. Check that `base_url` does **not** end with `/.well-known/openid-configuration` (it is appended automatically), and that the IdP callback URL is set to `https://<your-superset-host>/oauth-authorized/<provider>`.
 - **Web pod logs `ImportError: Authlib not installed`** — the deployment is not using the OKDP image. Set `superset.image.repository=quay.io/okdp/superset` and a matching `superset.image.tag` (or use the chart defaults).
