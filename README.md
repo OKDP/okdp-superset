@@ -215,9 +215,9 @@ slices|121
 - **After login, the browser loops back to `/login/`** — most often a mismatch between `okdp.oauth.base_url` and the IdP. Check that `base_url` does **not** end with `/.well-known/openid-configuration` (it is appended automatically), and that the IdP callback URL is set to `https://<your-superset-host>/oauth-authorized/<provider>`.
 - **Web pod logs `ImportError: Authlib not installed`** — the deployment is not using the OKDP image. Set `superset.image.repository=quay.io/okdp/superset` and a matching `superset.image.tag` (or use the chart defaults).
 
-## License
+## Contributing & License
 
-Apache License 2.0 — see [LICENSE](LICENSE).
+Contributions follow the [OKDP contribution guide](https://github.com/OKDP/.github/blob/main/CONTRIBUTING.md). Released under the [Apache License 2.0](LICENSE).
 
 ---
 
