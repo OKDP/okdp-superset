@@ -32,34 +32,12 @@ This repository builds and publishes:
 - Security-patched rebuilds of the upstream `-dockerize` and `-websocket` image variants used as init and websocket sidecars by the chart.
 - A Helm chart that wraps the official Apache Superset chart ([`helm/superset/Chart.yaml`](helm/superset/Chart.yaml) depends on `superset` `0.15.2`) and adds the OKDP defaults listed in [Why this project](#why-this-project).
 
-## Components
-
-All artefacts are published under [`quay.io/okdp`](https://quay.io/organization/okdp):
-
-| Artefact | Registry | Description |
-|:---------|:---------|:------------|
-| Docker image | [`quay.io/okdp/superset`](https://quay.io/repository/okdp/superset) | Apache Superset + Trino + PostgreSQL drivers + Authlib pre-installed. |
-| `-dockerize` variant | `quay.io/okdp/superset:<v>-dockerize` | Security-patched rebuild of `apache/superset:<v>-dockerize` (init utility). |
-| `-websocket` variant | `quay.io/okdp/superset:<v>-websocket` | Security-patched rebuild of `apache/superset:<v>-websocket` (websocket sidecar). |
-| Helm chart | [`quay.io/okdp/charts/superset`](https://quay.io/repository/okdp/charts/superset) | Wrapping chart with OKDP defaults. |
-
-### Tag format
-
-| Image | Tag examples |
-|:------|:-------------|
-| `quay.io/okdp/superset` | `6.0.0`, `6.0.0-1.0`, `6.0.0-dockerize`, `6.0.0-1.0-dockerize`, `6.0.0-websocket`, `6.0.0-1.0-websocket` |
-| `quay.io/okdp/charts/superset` | `0.15.2-2.0`, `0.15.2-1.0`, `0.15.0-1.1` |
-
-- `<superset-version>` matches the upstream Apache Superset release (e.g. `6.0.0`).
-- `<superset-version>-<okdp-build>` adds an OKDP-specific build number (e.g. `6.0.0-1.0`) — bumped whenever the OKDP layer changes without a Superset upgrade.
-- Chart versions follow `<chart-version>-<okdp-build>` (e.g. `0.15.2-2.0`) where `<chart-version>` matches the upstream Apache Superset Helm chart.
-
 ## Architecture
 
 The diagram below shows the components that a `helm install` of this chart creates inside a Kubernetes cluster, plus the external services Superset can be wired to (an OAuth2/OIDC IdP and a Trino coordinator). For the upstream Superset runtime design (Flask, Celery, Redis as broker, metadata DB), see the [official Apache Superset documentation](https://superset.apache.org/docs/intro).
 
 <p align="center">
-  <img src="docs/assets/architecture.svg" alt="OKDP Superset — deployment architecture" />
+  <img src="docs/assets/architecture.png" alt="OKDP Superset — deployment architecture" width="800" />
 </p>
 
 A `helm install` creates the Superset web Deployment, the Celery worker Deployment, plus an embedded PostgreSQL ([`helm/superset/values.yaml#L1106`](helm/superset/values.yaml#L1106)) and Redis ([`helm/superset/values.yaml#L1151`](helm/superset/values.yaml#L1151)). Both can be disabled to bring your own (`superset.postgresql.enabled: false` / `superset.redis.enabled: false`). External IdPs (Keycloak, Dex) and the Trino coordinator are reached over the network; the chart wires the corresponding env vars and Python `configOverrides` for you.
@@ -126,18 +104,6 @@ helm upgrade --cleanup-on-fail --install my-release \
 
 A complete reference of the chart values is available in the [Helm chart README](helm/superset/README.md), auto-generated from [`helm/superset/values.yaml`](helm/superset/values.yaml) by [helm-docs](https://github.com/norwoodj/helm-docs).
 
-## Cleanup
-
-```sh
-helm uninstall my-release
-```
-
-The PostgreSQL and Redis subcharts use StatefulSets with PVCs that are **not** deleted by `helm uninstall`. To fully wipe the metadata DB:
-
-```sh
-kubectl delete pvc -l app.kubernetes.io/instance=my-release
-```
-
 ## Configuration
 
 The chart exposes two top-level value sections:
@@ -158,12 +124,39 @@ The most important OKDP-specific keys (full reference in [`helm/superset/values.
 
 Upstream Apache Superset chart values (e.g. `superset.image`, `superset.ingress`, `superset.init.adminUser`, `superset.postgresql.enabled`, `superset.redis.enabled`) are passed through to the official subchart.
 
-## Alternatives
+## Components
 
-- **Apache Superset upstream Helm chart** ([`apache.github.io/superset`](https://apache.github.io/superset)) — bare chart without OAuth2 providers, Trino bundling, externalized secrets or multi-arch images.
-- **Apache Superset on Docker Compose** ([`apache/superset` Docker Compose](https://github.com/apache/superset/blob/master/docker-compose.yml)) — official non-Kubernetes deployment, mostly for local development.
-- **[Metabase](https://www.metabase.com/)** — open-source BI tool, simpler to deploy but less extensible than Superset for SQL-heavy dashboards.
-- **[Redash](https://github.com/getredash/redash)** — open-source SQL dashboarding tool, smaller scope than Superset.
+All artefacts are published under [`quay.io/okdp`](https://quay.io/organization/okdp):
+
+| Artefact | Registry | Description |
+|:---------|:---------|:------------|
+| Docker image | [`quay.io/okdp/superset`](https://quay.io/repository/okdp/superset) | Apache Superset + Trino + PostgreSQL drivers + Authlib pre-installed. |
+| `-dockerize` variant | `quay.io/okdp/superset:<v>-dockerize` | Security-patched rebuild of `apache/superset:<v>-dockerize` (init utility). |
+| `-websocket` variant | `quay.io/okdp/superset:<v>-websocket` | Security-patched rebuild of `apache/superset:<v>-websocket` (websocket sidecar). |
+| Helm chart | [`quay.io/okdp/charts/superset`](https://quay.io/repository/okdp/charts/superset) | Wrapping chart with OKDP defaults. |
+
+### Tag format
+
+| Image | Tag examples |
+|:------|:-------------|
+| `quay.io/okdp/superset` | `6.0.0`, `6.0.0-1.0`, `6.0.0-dockerize`, `6.0.0-1.0-dockerize`, `6.0.0-websocket`, `6.0.0-1.0-websocket` |
+| `quay.io/okdp/charts/superset` | `0.15.2-2.0`, `0.15.2-1.0`, `0.15.0-1.1` |
+
+- `<superset-version>` matches the upstream Apache Superset release (e.g. `6.0.0`).
+- `<superset-version>-<okdp-build>` adds an OKDP-specific build number (e.g. `6.0.0-1.0`) — bumped whenever the OKDP layer changes without a Superset upgrade.
+- Chart versions follow `<chart-version>-<okdp-build>` (e.g. `0.15.2-2.0`) where `<chart-version>` matches the upstream Apache Superset Helm chart.
+
+## OKDP Integration
+
+This chart is consumed by the [`OKDP/okdp-sandbox`](https://github.com/OKDP/okdp-sandbox) environment via [`OKDP/platform-packages`](https://github.com/OKDP/platform-packages/blob/main/packages/services/superset/superset.yaml) — wired to Keycloak (OAuth2/OIDC) for login and to Trino as a datasource.
+
+## Troubleshooting
+
+- **`helm install` fails with `Could not locate a version matching provided version string`** — OCI chart pulls do not resolve a default version; always pass `--version <chart-version>` to `helm install`, `helm upgrade` and `helm pull`.
+- **`helm install` fails with `Error: failed post-install: timed out waiting for the condition`** — the default Helm timeout (5 min) is too short on resource-constrained clusters (laptop, kind). The init-db Job runs upstream `bitnami/postgresql:latest` and `bitnami/redis:latest` images, whose `latest` tag forces `imagePullPolicy: Always` and re-pulls them at every install. Pass `--timeout 15m` (or higher) to give the post-install hook enough time.
+- **Pods stuck in `Pending`** — no default `StorageClass`, so PVCs cannot be bound. Either provision a default `StorageClass`, or disable persistence for testing: `--set superset.postgresql.primary.persistence.enabled=false --set superset.redis.master.persistence.enabled=false`.
+- **After login, the browser loops back to `/login/`** — most often a mismatch between `okdp.oauth.base_url` and the IdP. Check that `base_url` does **not** end with `/.well-known/openid-configuration` (it is appended automatically), and that the IdP callback URL is set to `https://<your-superset-host>/oauth-authorized/<provider>`.
+- **Web pod logs `ImportError: Authlib not installed`** — the deployment is not using the OKDP image. Set `superset.image.repository=quay.io/okdp/superset` and a matching `superset.image.tag` (or use the chart defaults).
 
 ## Build
 
@@ -207,13 +200,24 @@ dashboards|11
 slices|121
 ```
 
-## Troubleshooting
+## Cleanup
 
-- **`helm install` fails with `Could not locate a version matching provided version string`** — OCI chart pulls do not resolve a default version; always pass `--version <chart-version>` to `helm install`, `helm upgrade` and `helm pull`.
-- **`helm install` fails with `Error: failed post-install: timed out waiting for the condition`** — the default Helm timeout (5 min) is too short on resource-constrained clusters (laptop, kind). The init-db Job runs upstream `bitnami/postgresql:latest` and `bitnami/redis:latest` images, whose `latest` tag forces `imagePullPolicy: Always` and re-pulls them at every install. Pass `--timeout 15m` (or higher) to give the post-install hook enough time.
-- **Pods stuck in `Pending`** — no default `StorageClass`, so PVCs cannot be bound. Either provision a default `StorageClass`, or disable persistence for testing: `--set superset.postgresql.primary.persistence.enabled=false --set superset.redis.master.persistence.enabled=false`.
-- **After login, the browser loops back to `/login/`** — most often a mismatch between `okdp.oauth.base_url` and the IdP. Check that `base_url` does **not** end with `/.well-known/openid-configuration` (it is appended automatically), and that the IdP callback URL is set to `https://<your-superset-host>/oauth-authorized/<provider>`.
-- **Web pod logs `ImportError: Authlib not installed`** — the deployment is not using the OKDP image. Set `superset.image.repository=quay.io/okdp/superset` and a matching `superset.image.tag` (or use the chart defaults).
+```sh
+helm uninstall my-release
+```
+
+The PostgreSQL and Redis subcharts use StatefulSets with PVCs that are **not** deleted by `helm uninstall`. To fully wipe the metadata DB:
+
+```sh
+kubectl delete pvc -l app.kubernetes.io/instance=my-release
+```
+
+## Alternatives
+
+- **Apache Superset upstream Helm chart** ([`apache.github.io/superset`](https://apache.github.io/superset)) — bare chart without OAuth2 providers, Trino bundling, externalized secrets or multi-arch images.
+- **Apache Superset on Docker Compose** ([`apache/superset` Docker Compose](https://github.com/apache/superset/blob/master/docker-compose.yml)) — official non-Kubernetes deployment, mostly for local development.
+- **[Metabase](https://www.metabase.com/)** — open-source BI tool, simpler to deploy but less extensible than Superset for SQL-heavy dashboards.
+- **[Redash](https://github.com/getredash/redash)** — open-source SQL dashboarding tool, smaller scope than Superset.
 
 ## Contributing & License
 
