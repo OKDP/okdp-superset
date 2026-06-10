@@ -1,0 +1,103 @@
+#
+# Copyright 2026 The OKDP Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+name: trivy-scan
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - docker-rebuild
+      - release-please
+    types:
+      - completed
+    branches:
+      - main
+
+  schedule:
+    - cron: '0 12 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  latest-image-tag:
+    if: >-
+      github.repository_owner == 'OKDP' &&
+      (
+        github.event_name == 'workflow_dispatch' ||
+        github.event_name == 'schedule' ||
+        github.event.workflow_run.conclusion == 'success'
+      )
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      latest_tag: ${{ steps.latest-image-tag.outputs.latest_tag }}
+      base_tag: ${{ steps.image-tags.outputs.base_tag }}
+    steps:
+      - name: Checkout Repo ⚡️
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+
+      - name: Get latest GitHub Release tag name 📥
+        id: latest-image-tag
+        uses: okdp/gh-workflows/.github/actions/latest-image-tag@8d94358b6324815c1bb0dab94f5d56a2784fa981 # v1
+
+      - name: Get image tags
+        id: image-tags
+        env:
+          LATEST_TAG: ${{ steps.latest-image-tag.outputs.latest_tag }}
+        run: |
+          echo "base_tag=${LATEST_TAG%%-*}" >> "$GITHUB_OUTPUT"
+
+  trivy-scan:
+    needs: [latest-image-tag]
+    name: scan-${{ matrix.image }}:${{ matrix.tag == 'base' && needs.latest-image-tag.outputs.base_tag || needs.latest-image-tag.outputs.latest_tag }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        image: ['superset', 'dockerize', 'websocket']
+        tag: ['base', 'latest']
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout Repo ⚡️
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+
+      - name: Set up container registry 📦
+        id: registry
+        env:
+          REGISTRY: ${{ vars.REGISTRY || 'quay.io' }}
+        run: |
+          echo "registry_repo=${REGISTRY}/${GITHUB_REPOSITORY_OWNER@L}" >> $GITHUB_OUTPUT
+
+      - name: Run Trivy vulnerability scanner 🔎
+        if: matrix.tag == 'latest' || needs.latest-image-tag.outputs.base_tag != needs.latest-image-tag.outputs.latest_tag
+        uses: aquasecurity/trivy-action@57a97c7e7821a5776cebc9bb87c984fa69cba8f1 # v0.35.0
+        with:
+          image-ref: ${{ steps.registry.outputs.registry_repo }}/superset:${{ matrix.tag == 'base' && needs.latest-image-tag.outputs.base_tag || needs.latest-image-tag.outputs.latest_tag }}${{ matrix.image != 'superset' && format('-{0}', matrix.image) || '' }}
+          format: 'sarif'
+          output: 'trivy-results-${{ matrix.image }}-${{ matrix.tag }}.sarif'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Upload Trivy scan results to GitHub Security tab 📤
+        uses: github/codeql-action/upload-sarif@b6a472f63d85b9c78a3ac5e89422239fc15e9b3c # v3.28.1
+        if: always() && (matrix.tag == 'latest' || needs.latest-image-tag.outputs.base_tag != needs.latest-image-tag.outputs.latest_tag)
+        with:
+          sarif_file: 'trivy-results-${{ matrix.image }}-${{ matrix.tag }}.sarif'
+          category: trivy-superset-${{ matrix.tag == 'base' && needs.latest-image-tag.outputs.base_tag || needs.latest-image-tag.outputs.latest_tag }}${{ matrix.image != 'superset' && format('-{0}', matrix.image) || '' }}
