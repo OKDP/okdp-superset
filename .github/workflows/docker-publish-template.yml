@@ -45,6 +45,9 @@ on:
         type: string
         default: ""
 
+permissions:
+  contents: read
+
 defaults:
   run:
     shell: bash
@@ -58,7 +61,7 @@ jobs:
       latest_git_tag: ${{ steps.latest-image-tag.outputs.latest_git_tag }}
     steps:
       - name: Checkout Repo ⚡️
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
 
       - name: Get latest GitHub Release tag name 📥
         id: latest-image-tag
@@ -70,7 +73,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout release tag ${{ needs.latest-image-tag.outputs.latest_git_tag }} ⚡️
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           fetch-depth: 0
           ref: ${{ needs.latest-image-tag.outputs.latest_git_tag }}
@@ -91,7 +94,7 @@ jobs:
       ### Publish steps
       ### The publish and periodic rebuilds are based on the latest stable github release tag
       - name: Login into ${{ steps.registry.outputs.registry }} registry 🔐
-        uses: docker/login-action@v4
+        uses: docker/login-action@650006c6eb7dba73a995cc03b0b2d7f5ca915bee # v4.2.0
         with:
           registry: ${{ steps.registry.outputs.registry }}
           username: ${{ secrets.REGISTRY_USERNAME }}
@@ -99,20 +102,25 @@ jobs:
 
       - name: Set image tags
         id: image-tags
+        env:
+          LATEST_TAG: ${{ needs.latest-image-tag.outputs.latest_tag }}
+          REGISTRY_REPO: ${{ steps.registry.outputs.registry_repo }}
+          IMAGE: ${{ inputs.image }}
+          ADD_TAG_SUFFIX: ${{ inputs.add-tag-suffix }}
         run: |
-           IMAGE_TAG=$(echo "${{ needs.latest-image-tag.outputs.latest_tag }}" | awk -F- '{ print $1 }')
-           if [ "$IMAGE_TAG" != "${{ needs.latest-image-tag.outputs.latest_tag }}" ]
+           IMAGE_TAG=$(echo "$LATEST_TAG" | awk -F- '{ print $1 }')
+           if [ "$IMAGE_TAG" != "$LATEST_TAG" ]
            then
-             IMAGE_TAGS="${{ steps.registry.outputs.registry_repo }}/${{ inputs.image }}:${IMAGE_TAG}${{ inputs.add-tag-suffix }},"
+             IMAGE_TAGS="${REGISTRY_REPO}/${IMAGE}:${IMAGE_TAG}${ADD_TAG_SUFFIX},"
            fi
 
-           IMAGE_TAGS+="${{ steps.registry.outputs.registry_repo }}/${{ inputs.image }}:${{ needs.latest-image-tag.outputs.latest_tag }}${{ inputs.add-tag-suffix }}"
+           IMAGE_TAGS+="${REGISTRY_REPO}/${IMAGE}:${LATEST_TAG}${ADD_TAG_SUFFIX}"
            
            echo "tags=${IMAGE_TAGS}" >> $GITHUB_OUTPUT
            echo "Set image tags to: $IMAGE_TAGS"
 
       - name: Build and push to ${{ steps.registry.outputs.registry_repo }} repository 📤
-        uses: docker/build-push-action@v7
+        uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf # v7.2.0
         with:
           context: ${{ inputs.context }}
           file: ${{ inputs.dockerfile }}
@@ -125,4 +133,3 @@ jobs:
             org.opencontainers.image.description="${{ inputs.image }} image"
             org.opencontainers.image.source="https://github.com/${{ github.repository }}"
             org.opencontainers.image.licenses="Apache-2.0"
-

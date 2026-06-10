@@ -35,6 +35,9 @@ on:
         type: string
         default: "ghcr.io"
 
+permissions:
+  contents: write
+
 defaults:
   run:
     shell: bash
@@ -45,21 +48,21 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout Repo ⚡️
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           fetch-depth: 0
       
       - name: Setup helm
-        uses: azure/setup-helm@v4.2.0
+        uses: azure/setup-helm@b9e51907a09c216f16ebe8536097933489208112 # v4.3.0
         with:
           version: v3.15.1
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@39cd14951b08e74b54015e9e001cdefcf80e669f # v5.1.1
         with:
           python-version: '3.10'
 
       - name: Set up chart-testing
-        uses: helm/chart-testing-action@v2.6.1
+        uses: helm/chart-testing-action@e6669bcd63d7cb57cb4380c33043eebe5d111992 # v2.6.1
   
       - name: Run chart-testing (list-changed) ✅
         id: list-changed
@@ -93,18 +96,26 @@ jobs:
 
       - name: Set CI Repo and image tag
         if: steps.list-changed.outputs.changed == 'true' && inputs.skip_chart_test != 'true'
+        env:
+          BRANCH: ${{ steps.get-branch.outputs.branch }}
+          CI_REGISTRY: ${{ vars.CI_REGISTRY || inputs.ci_registry }}
+          REPO_OWNER: ${{ github.repository_owner }}
         run: |
-          echo "CI_TAG=${{ steps.get-branch.outputs.branch }}" >> $GITHUB_ENV
-          echo "REGISTRY_REPO=${{ vars.CI_REGISTRY || inputs.ci_registry }}/${GITHUB_REPOSITORY_OWNER@L}" >> $GITHUB_ENV
+          echo "CI_TAG=$BRANCH" >> $GITHUB_ENV
+          echo "REGISTRY_REPO=$CI_REGISTRY/${REPO_OWNER@L}" >> $GITHUB_ENV
 
       - name: Create CI registry secret 🔐
         if: steps.list-changed.outputs.changed == 'true' && inputs.skip_chart_test != 'true'
+        env:
+          CI_REGISTRY: ${{ inputs.ci_registry }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           kubectl create secret docker-registry ci-registry-secret \
-            --docker-server=${{ inputs.ci_registry }} \
-            --docker-username="${{ github.actor }}" \
-            --docker-password="${{ secrets.GITHUB_TOKEN }}" \
-            --docker-email="${{ github.actor }}@users.noreply.github.com" \
+            --docker-server="$CI_REGISTRY" \
+            --docker-username="$GITHUB_ACTOR" \
+            --docker-password="$GITHUB_TOKEN" \
+            --docker-email="$GITHUB_ACTOR@users.noreply.github.com" \
             -n default
 
       - name: Patch default service account with imagePullSecret 🧩
@@ -118,6 +129,8 @@ jobs:
 
       - name: Run chart-testing (install) ✅
         if: steps.list-changed.outputs.changed == 'true' && inputs.skip_chart_test != 'true'
+        env:
+          IMAGE: ${{ inputs.image }}
         run: |
           kubectl get events -A -w &
           (while true; do
@@ -126,11 +139,11 @@ jobs:
           sleep 15
           done) &
           ct install --config .ct.yml --namespace default \
-             --helm-extra-set-args "--set=superset.image.repository=$REGISTRY_REPO/${{ inputs.image }} \
+             --helm-extra-set-args "--set=superset.image.repository=$REGISTRY_REPO/$IMAGE \
                   --set=superset.image.tag=${CI_TAG} \
-                  --set=superset.initImage.repository=$REGISTRY_REPO/${{ inputs.image }} \
+                  --set=superset.initImage.repository=$REGISTRY_REPO/$IMAGE \
                   --set=superset.initImage.tag=${CI_TAG}-dockerize \
-                  --set=superset.supersetWebsockets.image.repository=$REGISTRY_REPO/${{ inputs.image }} \
+                  --set=superset.supersetWebsockets.image.repository=$REGISTRY_REPO/$IMAGE \
                   --set=superset.supersetWebsockets.image.tag=${CI_TAG}-websocket" \
              --print-config
 
@@ -148,11 +161,10 @@ jobs:
         if: |
             ${{ ((github.event_name == 'push') || (github.event_name == 'pull_request'
                   && github.event.pull_request.head.repo.full_name == github.repository)) }}
-        uses: EndBug/add-and-commit@v9
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
         with:
           pull: "--rebase --autostash"
           add: "**/README.md"
           message: '[helm-docs] Update readme'
           author_name: github-actions[bot]
           author_email: 41898282+github-actions[bot]@users.noreply.github.com
-
