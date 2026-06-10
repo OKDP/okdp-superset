@@ -52,8 +52,8 @@ on:
   workflow_dispatch:
   
 permissions:
-  packages: write
-  contents: write
+  packages: read
+  contents: read
 
 # https://docs.github.com/en/actions/using-jobs/using-concurrency
 concurrency:
@@ -68,6 +68,9 @@ defaults:
 jobs:
   superset-docker:
     name: build-${{ matrix.image }}
+    permissions:
+      contents: read
+      packages: write
     strategy:
       fail-fast: false
       matrix:
@@ -80,6 +83,8 @@ jobs:
 
   helm-lint:
     name: helm-lint
+    permissions:
+      contents: write
     uses: ./.github/workflows/helm-lint-template.yml
     needs: [superset-docker]
 

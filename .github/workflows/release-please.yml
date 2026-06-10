@@ -48,7 +48,7 @@ jobs:
     # The pull request should come from the same repo (github_token from the fork does not have write permissions)
     if: github.repository_owner == 'OKDP' && github.event.pull_request.merged == true && github.event.pull_request.head.repo.full_name == github.repository
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: googleapis/release-please-action@7987652d64b4581673a76e33ad5e98e3dd56832f # v4.1.3
         id: release-please
 
   docker-publish:
@@ -76,4 +76,3 @@ jobs:
       version: ${{ needs.release-please.outputs.helm-version }}
       git_tag_name: ${{ needs.release-please.outputs.helm-tag_name }}
     secrets: inherit
-
