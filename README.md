@@ -43,7 +43,7 @@ This repository builds and publishes:
 The diagram below shows the components that a `helm install` of this chart creates inside a Kubernetes cluster, plus the external services Superset can be wired to (an OAuth2/OIDC IdP and a Trino coordinator). For the upstream Superset runtime design (Flask, Celery, Redis as broker, metadata DB), see the [official Apache Superset documentation](https://superset.apache.org/docs/intro).
 
 <p align="center">
-  <img src="docs/assets/architecture.png" alt="OKDP Superset — deployment architecture" width="800" />
+  <img src="docs/assets/architecture.svg" alt="OKDP Superset — deployment architecture" />
 </p>
 
 A `helm install` creates the Superset web Deployment, the Celery worker Deployment, plus an embedded PostgreSQL ([`helm/superset/values.yaml#L1106`](helm/superset/values.yaml#L1106)) and Redis ([`helm/superset/values.yaml#L1151`](helm/superset/values.yaml#L1151)). Both can be disabled to bring your own (`superset.postgresql.enabled: false` / `superset.redis.enabled: false`). External IdPs (Keycloak, Dex) and the Trino coordinator are reached over the network; the chart wires the corresponding env vars and Python `configOverrides` for you.
