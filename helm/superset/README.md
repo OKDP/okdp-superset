@@ -3869,4 +3869,4 @@ list
 ## Source Code
 
 * <https://github.com/apache/superset>
-* <https://github.com/okdp/charts/tree/main/charts/superset>
+* <https://github.com/OKDP/okdp-superset/tree/main/helm/superset>

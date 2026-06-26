@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" font-family="Helvetica, Arial, sans-serif" font-size="11">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="440" y="24" text-anchor="middle" font-size="14" font-weight="bold">OKDP Superset — deployment architecture</text>
+
+  <!-- Kubernetes cluster boundary (dashed) -->
+  <rect x="260" y="50" width="600" height="400" rx="8" ry="8" fill="#fff" stroke="#000" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="276" y="68" font-weight="bold" font-style="italic">Kubernetes cluster (Helm release: my-release)</text>
+
+  <!-- External: User browser -->
+  <rect x="40" y="90" width="160" height="50" rx="4" ry="4" fill="#fff" stroke="#000" stroke-width="1"/>
+  <text x="120" y="113" text-anchor="middle" font-weight="bold">User browser</text>
+  <text x="120" y="129" text-anchor="middle" font-style="italic">HTTPS</text>
+
+  <!-- External: OAuth IdP -->
+  <rect x="40" y="180" width="160" height="60" rx="4" ry="4" fill="#fff" stroke="#000" stroke-width="1"/>
+  <text x="120" y="203" text-anchor="middle" font-weight="bold">OAuth2 / OIDC IdP</text>
+  <text x="120" y="221" text-anchor="middle" font-style="italic">Keycloak or Dex</text>
+  <text x="120" y="234" text-anchor="middle" font-style="italic">(optional)</text>
+
+  <!-- External: Trino -->
+  <rect x="40" y="290" width="160" height="50" rx="4" ry="4" fill="#fff" stroke="#000" stroke-width="1"/>
+  <text x="120" y="313" text-anchor="middle" font-weight="bold">Trino</text>
+  <text x="120" y="329" text-anchor="middle" font-style="italic">datasource (optional)</text>
+
+  <!-- K8s: Ingress -->
+  <rect x="290" y="90" width="100" height="50" rx="4" ry="4" fill="#fff" stroke="#000" stroke-width="1"/>
+  <text x="340" y="113" text-anchor="middle" font-weight="bold">Ingress</text>
+  <text x="340" y="129" text-anchor="middle" font-style="italic">(optional)</text>
+
+  <!-- K8s: Superset Web -->
+  <rect x="430" y="80" width="200" height="70" rx="4" ry="4" fill="#fff" stroke="#000" stroke-width="1"/>
+  <text x="530" y="103" text-anchor="middle" font-weight="bold">Superset Web</text>
+  <text x="530" y="121" text-anchor="middle" font-style="italic">Flask + Gunicorn</text>
+  <text x="530" y="137" text-anchor="middle" font-style="italic">Service :8088</text>
+
+  <!-- K8s: PostgreSQL -->
+  <rect x="290" y="210" width="160" height="60" rx="4" ry="4" fill="#fff" stroke="#000" stroke-width="1"/>
+  <text x="370" y="233" text-anchor="middle" font-weight="bold">PostgreSQL</text>
+  <text x="370" y="251" text-anchor="middle" font-style="italic">Superset metadata DB</text>
+
+  <!-- K8s: Redis -->
+  <rect x="490" y="210" width="160" height="60" rx="4" ry="4" fill="#fff" stroke="#000" stroke-width="1"/>
+  <text x="570" y="233" text-anchor="middle" font-weight="bold">Redis</text>
+  <text x="570" y="251" text-anchor="middle" font-style="italic">cache + Celery broker</text>
+
+  <!-- K8s: Superset Worker -->
+  <rect x="680" y="210" width="160" height="60" rx="4" ry="4" fill="#fff" stroke="#000" stroke-width="1"/>
+  <text x="760" y="233" text-anchor="middle" font-weight="bold">Superset Worker</text>
+  <text x="760" y="251" text-anchor="middle" font-style="italic">Celery</text>
+
+  <!-- K8s: init-db Job -->
+  <rect x="290" y="330" width="380" height="50" rx="4" ry="4" fill="#fff" stroke="#000" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="480" y="352" text-anchor="middle" font-weight="bold">init-db Job</text>
+  <text x="480" y="369" text-anchor="middle" font-style="italic">one-shot: db upgrade · init roles · create admin · load examples</text>
+
+  <!-- ARROWS — strict orthogonal routing -->
+
+  <!-- 1) User browser → Ingress (horizontal) -->
+  <line x1="200" y1="115" x2="288" y2="115" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- 2) Ingress → Superset Web (horizontal) -->
+  <line x1="390" y1="115" x2="428" y2="115" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- 3) Superset Web → PostgreSQL (vertical) — at x=430, into PG top-right area -->
+  <line x1="430" y1="150" x2="430" y2="208" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- 4) Superset Web → Redis (vertical) — at x=560, into Redis top-center -->
+  <line x1="560" y1="150" x2="560" y2="208" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- 5) Superset Worker → Redis (horizontal, right to left, label "broker") -->
+  <line x1="680" y1="240" x2="652" y2="240" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+  <text x="666" y="232" text-anchor="middle" font-style="italic">broker</text>
+
+  <!-- 6) init-db Job → PostgreSQL (vertical up, dashed, at x=370) -->
+  <line x1="370" y1="330" x2="370" y2="272" stroke="#000" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow)"/>
+
+  <!-- 7) Superset Web → OAuth IdP (Z-shaped, dashed = OIDC, optional)
+       Web left edge (430,145) → horizontal LEFT to (250,145) → vertical DOWN to (250,210) → horizontal LEFT to OAuth right-center (200,210).
+       Final arrow points LEFT, entering OAuth IdP cleanly through its right edge. -->
+  <path d="M 430 145 H 250 V 210 H 200" fill="none" stroke="#000" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <text x="415" y="138" text-anchor="middle" font-style="italic">OIDC</text>
+
+  <!-- 8) Superset Web → Trino (L-shaped, solid = SQL queries)
+       From Web bottom (470,150) vertical DOWN through gap between PG and Redis to y=315, then horizontal LEFT to Trino right-center (200,315) -->
+  <path d="M 470 150 V 315 H 202" fill="none" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+  <text x="205" y="310" text-anchor="start" font-style="italic">SQL queries</text>
+
+  <!-- Legend -->
+  <text x="440" y="430" text-anchor="middle" font-style="italic">Solid arrows: steady-state traffic · Dashed: one-shot or optional</text>
+</svg>

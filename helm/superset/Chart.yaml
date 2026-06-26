@@ -35,5 +35,5 @@ maintainers:
 name: superset
 sources:
   - https://github.com/apache/superset
-  - https://github.com/okdp/charts/tree/main/charts/superset
+  - https://github.com/OKDP/okdp-superset/tree/main/helm/superset
 version: 0.15.2-2.0
