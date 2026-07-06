@@ -1,6 +1,7 @@
 {
   "separate-pull-requests": true,
   "include-v-in-tag": true,
+  "draft-pull-request": true,
   "packages": {
     "helm/superset": {
       "component": "helm-okdp-superset",
